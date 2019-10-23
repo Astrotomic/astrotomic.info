@@ -1,5 +1,10 @@
-/vendor
-/.idea
-Homestead.json
-Homestead.yaml
-.env
+/vendor/
+/node_modules/
+/.env
+/public/mix-manifest.json
+/public/css/
+/.npmrc
+/public/fonts/
+/dist/
+/public/images/
+/public/favicon.ico

@@ -1,0 +1,91 @@
+#body-home {
+  background: $color-1;
+  color: $color-2;
+
+  header {
+    @apply relative;
+    @apply bg-right-bottom;
+    @apply bg-cover;
+    @apply bg-no-repeat;
+    min-height: 75vh;
+    background-image: url('../../img/hero.min.jpg');
+
+    &::before {
+      content: '';
+      background: linear-gradient(0deg, $color-1 0%, rgba($color-1, 0) 100%);
+      height: 100%;
+      @apply absolute;
+      @apply bottom-0;
+      @apply inset-x-0;
+    }
+
+    > div {
+      @apply relative;
+      @apply z-10;
+      @apply inset-0;
+
+      nav {
+        > div.container {
+          @apply flex;
+          @apply items-center;
+        }
+
+        h1 {
+          @apply text-2xl;
+          @apply leading-none;
+          @apply tracking-wider;
+          @apply py-4;
+          @apply flex-grow;
+          @apply flex;
+          @apply items-center;
+          color: $white;
+          font-weight: 600;
+
+          i {
+            @apply text-4xl;
+            @apply mr-2;
+          }
+
+          span {
+            @apply py-2;
+          }
+        }
+
+        ul {
+          @apply flex;
+
+          > li {
+            + li {
+              @apply ml-4;
+            }
+          }
+        }
+      }
+
+      .lead {
+        @apply text-center;
+        @apply py-64;
+
+        > strong {
+          @apply text-4xl;
+          color: $white;
+          font-weight: 700;
+
+          span {
+            + span {
+              &::before {
+                content: ' / ';
+                color: $color-2;
+                @apply opacity-50;
+              }
+            }
+          }
+        }
+
+        > div {
+          @apply pt-32;
+        }
+      }
+    }
+  }
+}

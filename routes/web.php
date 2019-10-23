@@ -1,16 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
+use Astrotomic\Stancy\Facades\PageFactory;
+use Astrotomic\Stancy\Facades\SitemapFactory;
+use Illuminate\Support\Facades\Route;
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+Route::get('/', function () {
+    return PageFactory::makeFromSheetName('static', 'home');
+});
+
+Route::get('/sitemap.xml', function () {
+    return SitemapFactory::makeFromSheetList(['static']);
 });

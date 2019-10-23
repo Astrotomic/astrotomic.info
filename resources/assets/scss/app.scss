@@ -1,0 +1,51 @@
+@import url('https://rsms.me/inter/inter.css');
+
+@import "~@fortawesome/fontawesome-pro/scss/light";
+@import "~@fortawesome/fontawesome-pro/scss/regular";
+@import "~@fortawesome/fontawesome-pro/scss/solid";
+@import "~@fortawesome/fontawesome-pro/scss/duotone";
+@import "~@fortawesome/fontawesome-pro/scss/brands";
+@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "variables";
+
+@import "pages/home";
+
+html {
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', 'Helvetica', 'Arial', sans-serif;
+  }
+}
+
+:root {
+  --fa-primary-color: #{$white};
+  --fa-secondary-color: #{$color-2};
+}
+
+a.btn {
+  @apply relative;
+  @apply block;
+  @apply rounded;
+  @apply py-2;
+  @apply px-4;
+  color: $color-3;
+  background-color: $white;
+  transition: all ease 0.25s;
+
+
+  &:hover {
+    @apply border-0;
+    color: $color-3;
+    background-color: $white;
+    transform: translateY(2px);
+  }
+}
