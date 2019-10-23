@@ -16,6 +16,7 @@ return [
      */
     'paths' => [
         '/sitemap.xml',
+        '/robots.txt',
     ],
 
     /*
@@ -70,7 +71,6 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-        // 'deploy' => '/usr/local/bin/netlify deploy --prod',
+         'deploy' => '/usr/local/bin/netlify deploy --prod',
     ],
-
 ];

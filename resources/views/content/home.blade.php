@@ -69,7 +69,10 @@
     <section class="container mx-auto px-4">
         <div class="bg-stancy-500 rounded-lg flex flex-col lg:flex-row overflow-hidden mb-16">
             <div class="w-full lg:w-1/2 lg:ml-8 lg:mt-8 lg:self-end">
-                <img src="{{ mix('images/stancy.min.jpg') }}" class="rounded-t" />
+                <picture>
+                    <source srcset="{{ image('images/stancy.min.jpg', 'webp', 768) }}" type="image/webp">
+                    <img src="{{ image('images/stancy.min.jpg', 'jpg', 768) }}" class="rounded-t" alt="Astrotomic Stancy Logo" />
+                </picture>
             </div>
             <div class="w-full lg:w-1/2 p-8 flex flex-col">
                 <h2 class="text-white text-3xl mb-3">Stancy</h2>
@@ -83,7 +86,10 @@
 
         <div class="bg-astrotomic-400 rounded-lg flex flex-col lg:flex-row overflow-hidden mb-32">
             <div class="w-full lg:w-1/2 lg:ml-8 lg:mt-8 lg:self-end">
-                <img src="{{ mix('images/translatable.min.jpg') }}" class="rounded-t" />
+                <picture>
+                    <source srcset="{{ image('images/translatable.min.jpg', 'webp', 768) }}" type="image/webp">
+                    <img src="{{ image('images/translatable.min.jpg', 'jpg', 768) }}" class="rounded-t" alt="Astrotomic Laravel Translatable Logo" />
+                </picture>
             </div>
             <div class="w-full lg:w-1/2 p-8 flex flex-col">
                 <h2 class="text-white text-3xl mb-3">Laravel Translatable</h2>

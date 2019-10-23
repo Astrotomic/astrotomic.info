@@ -11,3 +11,11 @@ Route::get('/', function () {
 Route::get('/sitemap.xml', function () {
     return SitemapFactory::makeFromSheetList(['static']);
 });
+
+Route::get('/robots.txt', function () {
+    return implode(PHP_EOL, [
+        'user-agent: *',
+        'allow: /',
+        'sitemap: '.url('sitemap.xml'),
+    ]);
+});
