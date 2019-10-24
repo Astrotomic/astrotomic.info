@@ -10,3 +10,4 @@
 /public/favicon.ico
 /.netlify/
 /public/js/
+*.log
