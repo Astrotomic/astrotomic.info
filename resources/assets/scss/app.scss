@@ -18,6 +18,8 @@
 html {
   font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
+  background: $background;
+  color: $white;
 }
 
 @supports (font-variation-settings: normal) {
