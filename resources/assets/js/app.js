@@ -1,8 +1,8 @@
 (function () {
     document.querySelectorAll('[data-count-up]').forEach($countUp => {
         const target = $countUp.dataset.countUp;
-        const duration = 1500;
-        const timeout = 25;
+        const duration = 1000;
+        const timeout = 20;
         const runs = Math.round(duration / timeout);
 
         let cycles = 0;
