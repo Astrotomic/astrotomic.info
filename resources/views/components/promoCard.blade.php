@@ -1,8 +1,8 @@
 <div class="{{ $bgColor }} rounded-lg flex flex-col lg:flex-row overflow-hidden mb-16">
     <div class="w-full lg:w-1/2 lg:ml-8 lg:mt-8 lg:self-end">
         <picture>
-            <source srcset="{{ image($image, 'webp', 768) }}" type="image/webp">
-            <img src="{{ image($image, 'jpg', 768) }}" class="rounded-t" alt="Astrotomic {{ $label }} Logo" />
+            <source srcset="{!! image($image, 'webp', 768) !!}" type="image/webp">
+            <img src="{!! image($image, 'jpg', 768) !!}" class="rounded-t" alt="Astrotomic {{ $label }} Logo" />
         </picture>
     </div>
     <div class="w-full lg:w-1/2 p-8 flex flex-col">
