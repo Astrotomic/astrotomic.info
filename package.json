@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.11.2",
-    "tailwindcss": "^1.1.2"
+    "tailwindcss": "^1.1.2",
+    "typeface-inter": "^3.10.0"
   }
 }
