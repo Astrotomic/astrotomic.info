@@ -9,6 +9,6 @@ if( !function_exists('image')) {
             return $url;
         }
 
-        return 'https://images.weserv.nl?il&output='.$format.($width ? '&w='.$width : null).'&url='.url($url);
+        return 'https://images.weserv.nl?il&output='.$format.($width ? '&w='.$width : null).'&url='.urlencode(url($url));
     }
 }
