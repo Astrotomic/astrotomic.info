@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
 use Illuminate\Support\ServiceProvider;
+use Spatie\BladeX\Facades\BladeX;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,5 +20,7 @@ class AppServiceProvider extends ServiceProvider
                 ->addSheetCollectionName('static')
             ;
         });
+
+        BladeX::components('components.**.*');
     }
 }

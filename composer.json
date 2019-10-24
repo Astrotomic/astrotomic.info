@@ -6,9 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "astrotomic/stancy": "^0.5.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
-        "astrotomic/stancy": "^0.5.0"
+        "spatie/laravel-blade-x": "^2.4"
     },
     "config": {
         "optimize-autoloader": true,
