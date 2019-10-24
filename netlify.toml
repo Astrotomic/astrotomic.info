@@ -1,2 +1,32 @@
 [build]
   publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Feature-Policy = "accelerometer 'none';ambient-light-sensor 'none';autoplay 'none';camera 'none';encrypted-media 'none';fullscreen 'none';geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none';speaker 'none';usb 'none';vr 'none'"
+    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'self';form-action 'self';frame-src 'self';frame-ancestors 'self';child-src 'self';font-src 'self';img-src 'self';media-src 'self';object-src 'none';script-src 'self' 'strict-dynamic';style-src 'self'
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, s-max-age=31536000"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, s-max-age=31536000"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, s-max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, s-max-age=31536000"
