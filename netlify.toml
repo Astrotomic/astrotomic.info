@@ -30,3 +30,9 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, s-max-age=31536000"
+
+[[redirects]]
+  from = "https://amazing-darwin-2f1581.netlify.com/*"
+  to = "https://astrotomic.info/:splat"
+  status = 301
+  force = true
