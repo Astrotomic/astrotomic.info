@@ -14,20 +14,16 @@
       @apply bottom-0;
       @apply inset-x-0;
     }
+  }
+}
 
-    > div {
-      > div {
-        > strong {
-          span {
-            + span {
-              &::before {
-                content: ' / ';
-                color: $white;
-                @apply opacity-50;
-              }
-            }
-          }
-        }
+.divided {
+  > * {
+    + * {
+      &::before {
+        content: ' / ';
+        color: $white;
+        @apply opacity-50;
       }
     }
   }
