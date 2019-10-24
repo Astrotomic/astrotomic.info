@@ -18,5 +18,6 @@ Most of them will be for Laravel - but sometimes also plain PHP." />
 
 @yield('content')
 
+<script async defer src="{{ mix('js/app.js') }}" type="application/javascript"></script>
 </body>
 </html>

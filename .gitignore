@@ -8,6 +8,5 @@
 /dist/
 /public/images/
 /public/favicon.ico
-
-# Local Netlify folder
-.netlify
+/.netlify/
+/public/js/
