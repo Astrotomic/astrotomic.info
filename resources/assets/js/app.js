@@ -1,16 +1,15 @@
 (function () {
     document.querySelectorAll('[data-count-up]').forEach($countUp => {
         const target = $countUp.dataset.countUp;
-        const duration = 2000;
-        const timeout = 20;
+        const duration = 1500;
+        const timeout = 25;
         const runs = Math.round(duration / timeout);
-        let cycles = 0;
 
+        let cycles = 0;
         const interval = setInterval(() => {
             $countUp.innerText = Math.floor((target / runs) * cycles);
 
-            cycles++;
-            if (cycles === (runs + 1)) {
+            if (cycles++ === (runs + 1)) {
                 $countUp.innerText = target;
                 clearInterval(interval);
             }
