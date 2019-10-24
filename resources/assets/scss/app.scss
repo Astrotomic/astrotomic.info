@@ -1,4 +1,28 @@
-@import "~typeface-inter/inter";
+//@import "~typeface-inter/inter";
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("~typeface-inter/Inter (web)/Inter-Regular.woff2") format("woff2"),
+    url("~typeface-inter/Inter (web)/Inter-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("~typeface-inter/Inter (web)/Inter-SemiBold.woff2") format("woff2"),
+    url("~typeface-inter/Inter (web)/Inter-SemiBold.woff") format("woff");
+}
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("~typeface-inter/Inter (web)/Inter-Bold.woff2") format("woff2"),
+    url("~typeface-inter/Inter (web)/Inter-Bold.woff") format("woff");
+}
 
 //@import "~@fortawesome/fontawesome-pro/scss/light";
 //@import "~@fortawesome/fontawesome-pro/scss/regular";
@@ -20,12 +44,6 @@ html {
   font-weight: 400;
   background: $background;
   color: $white;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'Inter var', 'Helvetica', 'Arial', sans-serif;
-  }
 }
 
 :root {
