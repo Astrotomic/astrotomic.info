@@ -6,11 +6,29 @@
         </picture>
     </div>
     <div class="w-full lg:w-1/2 p-8 flex flex-col">
-        <h2 class="text-white text-3xl mb-3">{{ $label }}</h2>
+        <h2 class="text-white text-3xl">{{ $label }}</h2>
+        <div class="mb-2 divided">
+            <span>
+                <icon icon="fa-code" icon-style="fas opacity-50" />
+                {{ data_get($packagist, $project.'.language') }}
+            </span>
+            <span>
+                <icon icon="fa-star" icon-style="fas opacity-50" />
+                {{ data_get($packagist, $project.'.github_stars') }}
+            </span>
+            <span>
+                <icon icon="fa-download" icon-style="fas opacity-50" />
+                {{ number_format(data_get($packagist, $project.'.downloads.total'), 0, '.', ' ') }}
+            </span>
+            <span>
+                <icon icon="fa-link" icon-style="fas opacity-50" />
+                {{ data_get($packagist, $project.'.dependents') }}
+            </span>
+        </div>
         <p class="flex-grow">{!! $slot !!}</p>
-        <a href="https://github.com/{{ $project }}" class="btn mt-4 self-start">
+        <a href="{{ data_get($packagist, $project.'.repository') }}" class="btn mt-4 self-start">
             <icon icon-style="fab" icon="fa-github" />
-            {{ strtolower($project) }}
+            {{ $project }}
         </a>
     </div>
 </div>

@@ -70,6 +70,14 @@ return [
             'driver' => 'local',
             'root' => resource_path('content/static'),
         ],
+        'packagist' => [
+            'driver' => 'local',
+            'root' => resource_path('content/packagist'),
+        ],
+        'github' => [
+            'driver' => 'local',
+            'root' => resource_path('content/github'),
+        ],
     ],
 
 ];

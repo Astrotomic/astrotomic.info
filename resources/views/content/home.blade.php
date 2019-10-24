@@ -18,7 +18,7 @@
             </nav>
 
             <div class="container mx-auto px-4 py-64 text-center">
-                <strong class="text-6xl text-white font-bold">
+                <strong class="text-6xl text-white font-bold divided">
                     <span>Open Source</span>
                     <span>PHP</span>
                     <span>Laravel</span>
@@ -30,21 +30,23 @@
                 </p>
 
                 <div class="flex flex-row flex-wrap justify-center">
-                    <count-up icon="fa-box-heart" value="123456" label="packages" />
-                    <count-up icon="fa-users-cog" value="123456" label="contributors" />
-                    <count-up icon="fa-code-commit" value="123456" label="commits" />
+                    <count-up icon="fa-box-heart" :value="$packagist->count()" label="packages" />
+                    <count-up icon="fa-users-cog" :value="$github->pluck('contributors')->collapse()->pluck('author.login')->unique()->count()" label="contributors" />
+                    <count-up icon="fa-code-commit" :value="$github->pluck('contributors')->collapse()->sum('total')" label="commits" />
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="container mx-auto px-4">
-        <promo-card bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="Astrotomic/stancy">
-            This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
-        </promo-card>
+    <context :packagist="$packagist">
+        <section class="container mx-auto px-4">
+            <promo-card bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="astrotomic/stancy">
+                This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
+            </promo-card>
 
-        <promo-card bg-color="bg-astrotomic-400" image="images/translatable.min.jpg" label="Laravel Translatable" project="Astrotomic/laravel-translatable">
-            This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
-        </promo-card>
-    </section>
+            <promo-card bg-color="bg-astrotomic-400" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
+                This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
+            </promo-card>
+        </section>
+    </context>
 @endsection
