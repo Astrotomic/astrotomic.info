@@ -14,11 +14,11 @@
             </span>
             <span>
                 <icon icon="fa-star" icon-style="fas opacity-50" />
-                {{ data_get($packagist, $project.'.github_stars') }}
+                {{ number_format(data_get($packagist, $project.'.github_stars'), 0, '', ' ') }}
             </span>
             <span>
                 <icon icon="fa-download" icon-style="fas opacity-50" />
-                {{ number_format(data_get($packagist, $project.'.downloads.total'), 0, '.', ' ') }}
+                {{ number_format(data_get($packagist, $project.'.downloads.total'), 0, '', ' ') }}
             </span>
             <span>
                 <icon icon="fa-link" icon-style="fas opacity-50" />

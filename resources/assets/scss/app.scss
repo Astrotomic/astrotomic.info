@@ -81,3 +81,15 @@ a.btn {
     }
   }
 }
+
+.bg-background-lighter {
+  background: lighten($background, 7.5%);
+}
+
+.text-background {
+  color: $background;
+}
+
+.bg-background {
+  background: $background;
+}
