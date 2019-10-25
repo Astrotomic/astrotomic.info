@@ -26,9 +26,14 @@
             </span>
         </div>
         <p class="flex-grow">{!! $slot !!}</p>
-        <a href="{{ data_get($packagist, $project.'.repository') }}" class="btn mt-4 self-start">
-            <icon icon-style="fab" icon="fa-github" />
-            {{ $project }}
-        </a>
+        <div class="flex mt-4 self-start">
+            <a href="{{ data_get($packagist, $project.'.repository') }}" class="btn">
+                <icon icon-style="fab" icon="fa-github" />
+                {{ $project }}
+            </a>
+            <a href="https://docs.astrotomic.info/{{ \Illuminate\Support\Str::after($project, 'astrotomic/') }}" class="btn ml-4">
+                <icon icon-style="fas" icon="fa-book" />
+            </a>
+        </div>
     </div>
 </div>
