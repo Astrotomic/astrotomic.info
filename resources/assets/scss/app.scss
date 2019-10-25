@@ -69,3 +69,15 @@ a.btn {
     transform: translateY(2px);
   }
 }
+
+.divided {
+  > * {
+    + * {
+      &::before {
+        content: ' / ';
+        color: $white;
+        @apply opacity-50;
+      }
+    }
+  }
+}

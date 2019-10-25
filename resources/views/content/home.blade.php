@@ -4,11 +4,16 @@
     <header class="relative min-h-screen">
         <div class="relative z-10 flex flex-col justify-center items-center min-h-screen">
             <nav class="absolute top-0 inset-x-0">
-                <div class="container mx-auto px-4 flex items-center">
+                <div class="container mx-auto px-4 flex items-center flex-wrap">
                     <h1 class="font-semibold text-white text-2xl leading-none tracking-wider py-4 flex-grow flex items-center">
                         <icon icon="fa-user-astronaut" icon-size="text-4xl mr-2" />
                         <span class="py-2">Astrotomic</span>
                     </h1>
+
+                    <a href="https://join.slack.com/t/astrotomic/shared_invite/enQtNzk2MTgzNDgwODUwLWI4YTJjYTNjNTE1Y2EzNjEwYzEzNTM1MTRjZTFiZWVjM2U4YWY3MjczYzdmYjE2ZmU1ZmMzNGY1NWM1MTM1YTI" class="btn mr-4">
+                        <icon icon-style="fab" icon="fa-slack" />
+                        Slack
+                    </a>
 
                     <a href="https://github.com/Astrotomic" class="btn">
                         <icon icon-style="fab" icon="fa-github" />
@@ -49,4 +54,21 @@
             </promo-card>
         </section>
     </context>
+
+    <footer>
+        <div class="container mx-auto p-4 flex items-center flex-wrap">
+            <span class="flex-grow whitespace-no-wrap opacity-50">
+                Astrotomic &copy; 2019
+            </span>
+            <a href="https://join.slack.com/t/astrotomic/shared_invite/enQtNzk2MTgzNDgwODUwLWI4YTJjYTNjNTE1Y2EzNjEwYzEzNTM1MTRjZTFiZWVjM2U4YWY3MjczYzdmYjE2ZmU1ZmMzNGY1NWM1MTM1YTI" class="mr-4 opacity-50 hover:opacity-100 border-b border-dotted border-white">
+                <icon icon-style="fab" icon="fa-slack" />
+                Slack
+            </a>
+
+            <a href="https://github.com/Astrotomic" class="opacity-50 hover:opacity-100 border-b border-dotted border-white">
+                <icon icon-style="fab" icon="fa-github" />
+                GitHub
+            </a>
+        </div>
+    </footer>
 @endsection
