@@ -29,7 +29,7 @@
         <div class="flex mt-4 self-start">
             <a href="{{ data_get($packagist, $project.'.repository') }}" class="btn">
                 <icon icon-style="fab" icon="fa-github" />
-                {{ $project }}
+                {{ \Illuminate\Support\Str::after($project, 'astrotomic/') }}
             </a>
             <a href="https://docs.astrotomic.info/{{ \Illuminate\Support\Str::after($project, 'astrotomic/') }}" class="btn ml-4">
                 <icon icon-style="fas" icon="fa-book" />

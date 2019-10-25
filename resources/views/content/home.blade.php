@@ -97,7 +97,7 @@
                 <p>{{ $package['description'] }}</p>
                 <a href="{{ data_get($package, 'repository') }}" class="inline-block mt-4 opacity-50 hover:opacity-100 border-b border-dotted border-white">
                     <icon icon-style="fab" icon="fa-github" />
-                    {{ $package['name'] }}
+                    {{ \Illuminate\Support\Str::after($package['name'], 'astrotomic/') }}
                 </a>
             </div>
         </div>
