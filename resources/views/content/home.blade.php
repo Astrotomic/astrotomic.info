@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('content')
-    <header class="relative">
-        <div class="relative z-10">
-            <nav>
+    <header class="relative min-h-screen">
+        <div class="relative z-10 flex flex-col justify-center items-center min-h-screen">
+            <nav class="absolute top-0 inset-x-0">
                 <div class="container mx-auto px-4 flex items-center">
                     <h1 class="font-semibold text-white text-2xl leading-none tracking-wider py-4 flex-grow flex items-center">
                         <icon icon="fa-user-astronaut" icon-size="text-4xl mr-2" />
@@ -17,7 +17,7 @@
                 </div>
             </nav>
 
-            <div class="container mx-auto px-4 py-64 text-center">
+            <div class="container mx-auto px-4 py-32 text-center">
                 <strong class="text-6xl text-white font-bold divided">
                     <span>Open Source</span>
                     <span>PHP</span>
