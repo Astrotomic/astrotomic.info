@@ -8,6 +8,17 @@
     <meta name="description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
 Most of them will be for Laravel - but sometimes also plain PHP." />
 
+    <meta name="og:title" content="Astrotomic - Open Source / PHP / Laravel" />
+    <meta name="og:description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
+Most of them will be for Laravel - but sometimes also plain PHP." />
+    <meta name="og:type" content="website" />
+    <meta name="og:image" content="{{ url(mix('images/social.min.jpg')) }}" />
+    <meta name="og:url" content="{{ url()->current() }}" />
+    <meta name="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@devgummibeer" />
+
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
 
     <link rel="sitemap" type="application/xml" href="{{ url('sitemap.xml') }}" title="Sitemap" />
