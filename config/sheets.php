@@ -15,5 +15,9 @@ return [
             'content_parser' => JsonParser::class,
             'extension' => 'json',
         ],
+        'contributor' => [
+            'content_parser' => JsonParser::class,
+            'extension' => 'json',
+        ],
     ],
 ];

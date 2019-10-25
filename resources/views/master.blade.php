@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Astrotomic</title>
+    <title>@yield('title', 'Astrotomic')</title>
     <meta name="description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
 Most of them will be for Laravel - but sometimes also plain PHP." />
 

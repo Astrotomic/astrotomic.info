@@ -37,8 +37,6 @@
 
 @import "variables";
 
-@import "pages/home";
-
 html {
   font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
@@ -92,4 +90,32 @@ a.btn {
 
 .bg-background {
   background: $background;
+}
+
+header.hero {
+    @apply bg-no-repeat;
+    background-image: url('../img/hero_comets.svg');
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    background-position-x: center;
+    background-position-y: -50vh;
+
+    &::before {
+        content: '';
+        height: 100%;
+        z-index: -1;
+        background-image: url('../img/hero_background.min.jpg');
+        @apply absolute;
+        @apply inset-0;
+        @apply bg-no-repeat;
+        @apply bg-right-bottom;
+        @apply bg-cover;
+    }
+
+    &::after {
+        content: '';
+        background: linear-gradient(0deg, $background 0%, rgba($background, 0) 100%);
+        @apply absolute;
+        @apply inset-0;
+    }
 }

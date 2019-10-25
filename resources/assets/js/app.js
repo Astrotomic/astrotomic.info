@@ -18,7 +18,7 @@
 
     window.addEventListener('scroll', function() {
         Object.assign(
-            document.querySelector('body#body-home header').style,
+            document.querySelector('header.hero').style,
             {
                 backgroundPositionY: -(window.innerHeight * 0.5) + (window.pageYOffset * 0.5) + 'px',
                 backgroundPositionX: -(window.pageYOffset * 0.5) + 'px',

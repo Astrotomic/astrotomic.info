@@ -70,6 +70,10 @@ return [
             'driver' => 'local',
             'root' => resource_path('content/static'),
         ],
+        'contributor' => [
+            'driver' => 'local',
+            'root' => resource_path('content/contributor'),
+        ],
         'packagist' => [
             'driver' => 'local',
             'root' => resource_path('content/packagist'),
