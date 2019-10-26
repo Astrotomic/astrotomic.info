@@ -35,9 +35,9 @@
             </span>
         </div>
         <p>{{ $package['description'] }}</p>
-        <a href="{{ data_get($package, 'repository') }}" class="inline-block mt-4 opacity-50 hover:opacity-100 border-b border-dotted border-white">
+        <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
             <icon icon-style="fab" icon="fa-github" />
             {{ \Illuminate\Support\Str::after($package['name'], 'astrotomic/') }}
-        </a>
+        </a-styled>
     </div>
 </div>

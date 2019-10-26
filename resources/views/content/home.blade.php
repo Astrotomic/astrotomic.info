@@ -45,26 +45,16 @@
     @endforeach
     </section>
 
-    <div class="bg-astrotomic-400 relative">
+    <section class="bg-astrotomic-400 relative">
         <wave class="fill-current text-background mb-16" />
-        <section class="container mx-auto flex flex-wrap px-4">
-            <h2 class="text-white mb-8 text-4xl">Contributors</h2>
-        </section>
-        <section class="container mx-auto flex flex-wrap pr-4">
+        <h2 class="container mx-auto text-white mb-8 text-4xl px-4">Contributors</h2>
+        <div class="container mx-auto flex flex-wrap pr-4">
             @foreach($contributors->sortByDesc('commits') as $contributor)
-                <a href="{{ route('contributor', [ 'name' => strtolower($contributor['login']) ]) }}" class="bg-white text-black block flex items-center ml-4 mb-4 rounded overflow-hidden @if(in_array($contributor['id'], [6187884, 1785686])) opacity-50 @endif">
-                    <img src="https://images.weserv.nl?il&w=48&output=jpg&url={{ urlencode($contributor['avatar_url']) }}" />
-                    <span class="px-4">
-                    {{ $contributor['login'] }}
-                    <span class="opacity-50">
-                        {{ $contributor['commits'] }}
-                    </span>
-                </span>
-                </a>
+                <contributor-badge :contributor="$contributor" />
             @endforeach
-        </section>
+        </div>
         <wave class="fill-current text-astrotomic-400 bg-background mb-8" />
-    </div>
+    </section>
 
     <copyright/>
 @endsection
