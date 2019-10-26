@@ -7,14 +7,12 @@
             @endif
         </span>
 
-        <a-styled href="https://join.slack.com/t/astrotomic/shared_invite/enQtNzk2MTgzNDgwODUwLWI4YTJjYTNjNTE1Y2EzNjEwYzEzNTM1MTRjZTFiZWVjM2U4YWY3MjczYzdmYjE2ZmU1ZmMzNGY1NWM1MTM1YTI" underlined class="mr-4">
-            <icon icon-style="fab" icon="fa-slack" />
-            Slack
-        </a-styled>
-        <a-styled href="https://github.com/Astrotomic" underlined>
-            <icon icon-style="fab" icon="fa-github" />
-            GitHub
-        </a-styled>
+        @foreach($links as $link)
+            <a-styled :href="$link['href']" underlined class="ml-4">
+                <icon :icon-style="$link['style']" :icon="$link['icon']" />
+                {{ $link['label'] }}
+            </a-styled>
+        @endforeach
     </div>
     <div class="container mx-auto p-4">
         <span class="opacity-50">Powered by</span>

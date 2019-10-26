@@ -7,17 +7,11 @@
             </a>
         </h1>
 
-        <a href="https://opencollective.com/astrotomic" class="btn mr-4">
-            <icon icon-style="fas" icon="fa-donate" />
-            Open Collective
-        </a>
-        <a href="https://join.slack.com/t/astrotomic/shared_invite/enQtNzk2MTgzNDgwODUwLWI4YTJjYTNjNTE1Y2EzNjEwYzEzNTM1MTRjZTFiZWVjM2U4YWY3MjczYzdmYjE2ZmU1ZmMzNGY1NWM1MTM1YTI" class="btn mr-4">
-            <icon icon-style="fab" icon="fa-slack" />
-            Slack
-        </a>
-        <a href="https://github.com/Astrotomic" class="btn">
-            <icon icon-style="fab" icon="fa-github" />
-            GitHub
-        </a>
+        @foreach($links as $link)
+            <a href="{{ $link['href'] }}" class="btn ml-4">
+                <icon :icon-style="$link['style']" :icon="$link['icon']" />
+                {{ $link['label'] }}
+            </a>
+        @endforeach
     </div>
 </nav>
