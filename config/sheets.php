@@ -7,6 +7,7 @@ return [
 
     'collections' => [
         'static',
+        'error',
         'packagist' => [
             'content_parser' => JsonParser::class,
             'extension' => 'json',

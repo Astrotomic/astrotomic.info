@@ -16,6 +16,10 @@ Route::get('/sitemap.xml', function () {
     return SitemapFactory::makeFromSheetList(['static', 'contributor']);
 });
 
+Route::get('/404.html', function () {
+    return PageFactory::makeFromSheetName('error', '404');
+});
+
 Route::get('/robots.txt', function () {
     return implode(PHP_EOL, [
         'user-agent: *',
