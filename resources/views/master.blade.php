@@ -8,7 +8,7 @@
     <meta name="description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
 Most of them will be for Laravel - but sometimes also plain PHP." />
 
-    <meta name="og:title" content="Astrotomic - Open Source / PHP / Laravel" />
+    <meta name="og:title" content="@yield('title', 'Astrotomic')" />
     <meta name="og:description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
 Most of them will be for Laravel - but sometimes also plain PHP." />
     <meta name="og:type" content="website" />
