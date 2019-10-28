@@ -28,5 +28,8 @@ jobs:
       - name: list files
         run: ls -laF ./dist/
       - uses: netlify/actions/cli@master
-        args: deploy --dir=site --functions=functions
-        secrets: [NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID]
+        with:
+          args: deploy --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
