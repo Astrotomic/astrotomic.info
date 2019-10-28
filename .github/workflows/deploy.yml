@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
+        with:
+          ref: master
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Composer Dependencies
