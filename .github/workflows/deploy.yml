@@ -9,7 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Git checkout
+        uses: actions/checkout@v1
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Composer Dependencies
@@ -23,13 +24,16 @@ jobs:
         run: php artisan key:generate
       - name: Mix assets
         run: yarn production
+      - name: Load dynamic data
+        run: |
+          php artisan load:packagist
+          php artisan load:github
       - name: Export page
         run: php artisan export --env=prod --skip-assets --skip-deploy
-      - name: list files
-        run: ls -laF ./dist/
-      - uses: netlify/actions/cli@master
-        with:
-          args: deploy --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+#      - name: Netlify deploy
+#        uses: netlify/actions/cli@master
+#        with:
+#          args: deploy --prod
+#        env:
+#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
