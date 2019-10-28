@@ -19,8 +19,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->booted(function () use ($exportFactory): void {
             $exportFactory
                 ->addSheetCollectionName('static')
-                ->addSheetCollectionName('contributor')
-            ;
+                ->addSheetCollectionName('contributor');
         });
 
         BladeX::components('components.**.*');

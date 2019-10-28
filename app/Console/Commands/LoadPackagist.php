@@ -32,12 +32,12 @@ class LoadPackagist extends Command
                 return $package['abandoned'] ?? false;
             })
             ->each(function (array $package, string $name): void {
-                Storage::disk('packagist')->put($name . '.json', json_encode($package));
+                Storage::disk('packagist')->put($name.'.json', json_encode($package));
             });
 
         $this->info(sprintf('loaded %d packages:', $packages->count()));
         $packages->keys()->each(function (string $name): void {
-            $this->line('* ' . $name);
+            $this->line('* '.$name);
         });
     }
 }
