@@ -27,3 +27,6 @@ jobs:
         run: php artisan export --env=prod --skip-assets --skip-deploy
       - name: list files
         run: ls -laF ./dist/
+      - uses: netlify/actions/cli@master
+        args: deploy --dir=site --functions=functions
+        secrets: [NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID]
