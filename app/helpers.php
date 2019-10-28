@@ -1,11 +1,11 @@
 <?php
 
-if( !function_exists('image')) {
+if (! function_exists('image')) {
     function image(string $path, string $format = 'jpg', ?int $width = null): string
     {
         $url = mix($path);
 
-        if (!app()->environment('prod')) {
+        if (! app()->environment('prod')) {
             return $url;
         }
 

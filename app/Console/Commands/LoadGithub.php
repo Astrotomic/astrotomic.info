@@ -28,16 +28,16 @@ class LoadGithub extends Command
     {
         $packages = Sheets::collection('packagist')->all();
 
-        $packages->each(function(Sheet $package): void {
+        $packages->each(function (Sheet $package): void {
             $stats['name'] = $package['name'];
             $stats['contributors'] = $this->github->repo()->statistics(...explode('/', $package['name']));
 
-            Storage::disk('github')->put($package['name'] . '.json', json_encode($stats));
+            Storage::disk('github')->put($package['name'].'.json', json_encode($stats));
         });
 
         $this->info(sprintf('loaded github data for %d packages:', $packages->count()));
         $packages->pluck('name')->each(function (string $name): void {
-            $this->line('* ' . $name);
+            $this->line('* '.$name);
         });
 
         $repos = Sheets::collection('github')->all();
@@ -45,7 +45,7 @@ class LoadGithub extends Command
         $contributors
             ->pluck('author.login')
             ->unique()
-            ->each(function(string $name) use ($contributors, $repos): void {
+            ->each(function (string $name) use ($contributors, $repos): void {
                 $data = $contributors->where('author.login', $name)->pluck('author')->first();
                 $data['commits'] = $contributors->where('author.login', $name)->sum('total');
                 $data['packages'] = $repos->filter(function (Sheet $repo) use ($name): bool {
@@ -58,8 +58,7 @@ class LoadGithub extends Command
                     'packagist' => 'packagist:*',
                 ];
 
-                Storage::disk('contributor')->put(strtolower($name) . '.json', json_encode($data));
-            })
-        ;
+                Storage::disk('contributor')->put(strtolower($name).'.json', json_encode($data));
+            });
     }
 }

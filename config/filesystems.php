@@ -64,7 +64,6 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-
         // sheets/stancy
         'static' => [
             'driver' => 'local',
