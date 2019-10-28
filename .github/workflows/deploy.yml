@@ -14,9 +14,13 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
         run: |
-          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+          composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
           npm config set "@fortawesome:registry" https://npm.fontawesome.com/
           npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_TOKEN }}
           yarn install
       - name: Generate key
         run: php artisan key:generate
+      - name: Export page
+        run: php artisan export --env=prod --skip-deploy
+      - name: list files
+        run: ls -laF ./dist/
