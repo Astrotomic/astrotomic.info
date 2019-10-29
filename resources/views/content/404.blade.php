@@ -1,5 +1,7 @@
 @extends('master')
 
+@section('title', 'Error 404 | Astrotomic')
+
 @section('content')
     <hero>
         <div class="container mx-auto px-4 py-32 text-center">
