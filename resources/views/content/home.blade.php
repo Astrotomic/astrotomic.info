@@ -57,4 +57,6 @@
     </section>
 
     <copyright/>
+
+    {!! $schemaHome !!}
 @endsection
