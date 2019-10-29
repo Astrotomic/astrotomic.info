@@ -82,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
                     'https://opencollective.com/astrotomic',
                 ])
                 ->owns(
-                    Sheets::collection('packagist')->all()->map(function(Sheet $sheet): OwnershipInfo {
+                    Sheets::collection('packagist')->all()->map(function (Sheet $sheet): OwnershipInfo {
                         $version = array_reduce(array_keys($sheet['versions']), function ($highest, $current) {
                             if (Str::startsWith($current, 'dev-')) {
                                 return $highest;
@@ -114,13 +114,13 @@ class AppServiceProvider extends ServiceProvider
                                     ->author(
                                         collect($sheet['versions'][$version]['authors'])->map(function (array $author): Person {
                                             return Schema::person()
-                                                ->if(!empty($author['name']), function(Person $person) use ($author) {
+                                                ->if(! empty($author['name']), function (Person $person) use ($author) {
                                                     $person->name($author['name']);
                                                 })
-                                                ->if(!empty($author['email']), function(Person $person) use ($author) {
+                                                ->if(! empty($author['email']), function (Person $person) use ($author) {
                                                     $person->email($author['email']);
                                                 })
-                                                ->if(!empty($author['homepage']), function(Person $person) use ($author) {
+                                                ->if(! empty($author['homepage']), function (Person $person) use ($author) {
                                                     $person
                                                         ->identifier($author['homepage'])
                                                         ->url($author['homepage']);
@@ -130,14 +130,13 @@ class AppServiceProvider extends ServiceProvider
                                     ->copyrightHolder(Schema::organization()->identifier(url('/')))
                                     ->publisher(Schema::organization()->identifier(url('/')))
                                     ->contributor(
-                                        collect(Sheets::collection('github')->get($sheet['name'])['contributors'])->pluck('author')->map(function(array $contributor): Person {
+                                        collect(Sheets::collection('github')->get($sheet['name'])['contributors'])->pluck('author')->map(function (array $contributor): Person {
                                             return Schema::person()
                                                 ->identifier($contributor['html_url'])
                                                 ->alternateName($contributor['login'])
                                                 ->image($contributor['avatar_url'])
                                                 ->url(route('contributor', ['name' => $contributor['login']]))
-                                                ->sameAs($contributor['html_url'])
-                                            ;
+                                                ->sameAs($contributor['html_url']);
                                         })->values()->all()
                                     )
                                     ->programmingLanguage(
@@ -153,19 +152,17 @@ class AppServiceProvider extends ServiceProvider
                                         ->price(0)
                                         ->priceCurrency('USD')
                                 )
-                            )
-                        ;
+                            );
                     })->values()->all()
                 )
                 ->members(
-                    Sheets::collection('contributor')->all()->map(function(Sheet $sheet): Person {
+                    Sheets::collection('contributor')->all()->map(function (Sheet $sheet): Person {
                         return Schema::person()
                             ->identifier($sheet['html_url'])
                             ->alternateName($sheet['login'])
                             ->image($sheet['avatar_url'])
                             ->url(route('contributor', ['name' => $sheet['login']]))
-                            ->sameAs($sheet['html_url'])
-                        ;
+                            ->sameAs($sheet['html_url']);
                     })->values()->all()
                 )
         );
