@@ -24,10 +24,10 @@ jobs:
           npm config set "@fortawesome:registry" https://npm.fontawesome.com/
           npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_TOKEN }}
           yarn install
-      - name: Generate key
-        run: php artisan key:generate
       - name: Mix assets
         run: yarn production
+      - name: Generate key
+        run: php artisan key:generate
       - name: Load dynamic data
         run: |
           php artisan load:packagist
