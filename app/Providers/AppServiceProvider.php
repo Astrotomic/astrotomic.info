@@ -6,6 +6,7 @@ use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Spatie\BladeX\Facades\BladeX;
 use Spatie\SchemaOrg\GenderType;
 use Spatie\SchemaOrg\OwnershipInfo;
@@ -83,8 +84,16 @@ class AppServiceProvider extends ServiceProvider
                 ->owns(
                     Sheets::collection('packagist')->all()->map(function(Sheet $sheet): OwnershipInfo {
                         $version = array_reduce(array_keys($sheet['versions']), function ($highest, $current) {
-                            return version_compare($highest, $current, '>') ? $highest : $current;
-                        });
+                            if (Str::startsWith($current, 'dev-')) {
+                                return $highest;
+                            }
+
+                            return version_compare(
+                                Str::replaceFirst('v', '', $highest),
+                                Str::replaceFirst('v', '', $current),
+                                '>'
+                            ) ? $highest : $current;
+                        }) ?? 'dev-master';
 
                         return Schema::ownershipInfo()
                             ->identifier($sheet['repository'])
@@ -96,18 +105,12 @@ class AppServiceProvider extends ServiceProvider
                                 'https://packagist.org/packages/'.$sheet['name'],
                             ])
                             ->mainEntityOfPage(
-                                Schema::softwareApplication()
+                                Schema::softwareSourceCode()
                                     ->name($sheet['name'])
-                                    ->applicationCategory($sheet['versions'][$version]['type'])
-                                    ->softwareVersion($version)
-                                    ->softwareRequirements(
-                                        collect($sheet['versions'][$version]['require'])->map(function (string $version, string $requirement): string {
-                                            return $requirement.':'.$version;
-                                        })->values()->all()
-                                    )
+                                    ->codeRepository($sheet['repository'])
                                     ->url($sheet['repository'])
-                                    ->downloadUrl($sheet['repository'].'/archive/'.$version.'.zip')
                                     ->dateCreated(Carbon::parse($sheet['versions'][$version]['time']))
+                                    ->version($version)
                                     ->author(
                                         collect($sheet['versions'][$version]['authors'])->map(function (array $author): Person {
                                             return Schema::person()
@@ -122,9 +125,10 @@ class AppServiceProvider extends ServiceProvider
                                                         ->identifier($author['homepage'])
                                                         ->url($author['homepage']);
                                                 });
-                                        })->push(Schema::organization()->identifier(url('/'))->name('Astrotomic'))->values()->all()
+                                        })->push(Schema::organization()->identifier(url('/')))->values()->all()
                                     )
-                                    ->copyrightHolder(Schema::organization()->identifier(url('/'))->name('Astrotomic'))
+                                    ->copyrightHolder(Schema::organization()->identifier(url('/')))
+                                    ->publisher(Schema::organization()->identifier(url('/')))
                                     ->contributor(
                                         collect(Sheets::collection('github')->get($sheet['name'])['contributors'])->pluck('author')->map(function(array $contributor): Person {
                                             return Schema::person()
@@ -136,21 +140,18 @@ class AppServiceProvider extends ServiceProvider
                                             ;
                                         })->values()->all()
                                     )
-                                    ->operatingSystem('PHP '.$sheet['versions'][$version]['require']['php'])
+                                    ->programmingLanguage(
+                                        Schema::computerLanguage()
+                                            ->identifier('https://www.php.net')
+                                            ->name($sheet['language'])
+                                            ->url('https://www.php.net')
+                                    )
+                                    ->runtimePlatform($sheet['language'].' '.$sheet['versions'][$version]['require']['php'])
                                 ->offers(
                                     Schema::offer()
                                         ->description('Free')
                                         ->price(0)
                                         ->priceCurrency('USD')
-                                )
-                                ->aggregateRating(
-                                    Schema::aggregateRating()
-                                        ->identifier($sheet['repository'].'/stargazers')
-                                        ->itemReviewed($sheet['repository'])
-                                        ->ratingCount($sheet['github_stars'])
-                                        ->ratingValue(1)
-                                        ->bestRating(1)
-                                        ->worstRating(0)
                                 )
                             )
                         ;
