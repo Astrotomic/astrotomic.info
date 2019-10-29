@@ -61,6 +61,7 @@ class AppServiceProvider extends ServiceProvider
                 ->identifier(url('/'))
                 ->name('Astrotomic')
                 ->url(url('/'))
+                ->logo(url(mix('images/logo.min.jpg')))
                 ->founder(
                     Schema::person()
                         ->identifier('https://gummibeer.de')
@@ -81,6 +82,10 @@ class AppServiceProvider extends ServiceProvider
                 ])
                 ->owns(
                     Sheets::collection('packagist')->all()->map(function(Sheet $sheet): OwnershipInfo {
+                        $version = array_reduce(array_keys($sheet['versions']), function ($highest, $current) {
+                            return version_compare($highest, $current, '>') ? $highest : $current;
+                        });
+
                         return Schema::ownershipInfo()
                             ->identifier($sheet['repository'])
                             ->name($sheet['name'])
@@ -90,7 +95,65 @@ class AppServiceProvider extends ServiceProvider
                             ->sameAs([
                                 'https://packagist.org/packages/'.$sheet['name'],
                             ])
-                            ;
+                            ->mainEntityOfPage(
+                                Schema::softwareApplication()
+                                    ->name($sheet['name'])
+                                    ->applicationCategory($sheet['versions'][$version]['type'])
+                                    ->softwareVersion($version)
+                                    ->softwareRequirements(
+                                        collect($sheet['versions'][$version]['require'])->map(function (string $version, string $requirement): string {
+                                            return $requirement.':'.$version;
+                                        })->values()->all()
+                                    )
+                                    ->url($sheet['repository'])
+                                    ->downloadUrl($sheet['repository'].'/archive/'.$version.'.zip')
+                                    ->dateCreated(Carbon::parse($sheet['versions'][$version]['time']))
+                                    ->author(
+                                        collect($sheet['versions'][$version]['authors'])->map(function (array $author): Person {
+                                            return Schema::person()
+                                                ->if(!empty($author['name']), function(Person $person) use ($author) {
+                                                    $person->name($author['name']);
+                                                })
+                                                ->if(!empty($author['email']), function(Person $person) use ($author) {
+                                                    $person->email($author['email']);
+                                                })
+                                                ->if(!empty($author['homepage']), function(Person $person) use ($author) {
+                                                    $person
+                                                        ->identifier($author['homepage'])
+                                                        ->url($author['homepage']);
+                                                });
+                                        })->push(Schema::organization()->identifier(url('/'))->name('Astrotomic'))->values()->all()
+                                    )
+                                    ->copyrightHolder(Schema::organization()->identifier(url('/'))->name('Astrotomic'))
+                                    ->contributor(
+                                        collect(Sheets::collection('github')->get($sheet['name'])['contributors'])->pluck('author')->map(function(array $contributor): Person {
+                                            return Schema::person()
+                                                ->identifier($contributor['html_url'])
+                                                ->alternateName($contributor['login'])
+                                                ->image($contributor['avatar_url'])
+                                                ->url(route('contributor', ['name' => $contributor['login']]))
+                                                ->sameAs($contributor['html_url'])
+                                            ;
+                                        })->values()->all()
+                                    )
+                                    ->operatingSystem('PHP '.$sheet['versions'][$version]['require']['php'])
+                                ->offers(
+                                    Schema::offer()
+                                        ->description('Free')
+                                        ->price(0)
+                                        ->priceCurrency('USD')
+                                )
+                                ->aggregateRating(
+                                    Schema::aggregateRating()
+                                        ->identifier($sheet['repository'].'/stargazers')
+                                        ->itemReviewed($sheet['repository'])
+                                        ->ratingCount($sheet['github_stars'])
+                                        ->ratingValue(1)
+                                        ->bestRating(1)
+                                        ->worstRating(0)
+                                )
+                            )
+                        ;
                     })->values()->all()
                 )
                 ->members(
@@ -101,7 +164,7 @@ class AppServiceProvider extends ServiceProvider
                             ->image($sheet['avatar_url'])
                             ->url(route('contributor', ['name' => $sheet['login']]))
                             ->sameAs($sheet['html_url'])
-                            ;
+                        ;
                     })->values()->all()
                 )
         );

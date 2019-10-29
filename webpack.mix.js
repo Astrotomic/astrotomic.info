@@ -20,6 +20,7 @@ mix
     .copy('resources/assets/img/stancy.min.jpg', 'public/images/stancy.min.jpg')
     .copy('resources/assets/img/translatable.min.jpg', 'public/images/translatable.min.jpg')
     .copy('resources/assets/img/social.min.jpg', 'public/images/social.min.jpg')
+    .copy('resources/assets/img/logo.min.jpg', 'public/images/logo.min.jpg')
     .options({
         processCssUrls: true,
         postCss: [
