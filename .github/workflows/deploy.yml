@@ -34,11 +34,10 @@ jobs:
           php artisan load:github
       - name: Export page
         run: php artisan export --env=prod --skip-assets --skip-deploy
-# ToDo: https://github.com/spatie/laravel-export/pull/31
-#      - name: Netlify deploy
-#        uses: netlify/actions/cli@master
-#        with:
-#          args: deploy --prod
-#        env:
-#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Netlify deploy
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
