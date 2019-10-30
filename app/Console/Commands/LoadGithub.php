@@ -28,12 +28,20 @@ class LoadGithub extends Command
     {
         $packages = Sheets::collection('packagist')->all();
 
+        $this->output->progressStart($packages->count());
         $packages->each(function (Sheet $package): void {
-            $stats['name'] = $package['name'];
-            $stats['contributors'] = $this->github->repo()->statistics(...explode('/', $package['name']));
+            do {
+                $stats['name'] = $package['name'];
+                $stats['contributors'] = $this->github->repo()->statistics(...explode('/', $package['name']));
+                if (empty($stats['contributors'])) {
+                    usleep(5 * 1000);
+                }
+            } while(empty($stats['contributors']));
 
             Storage::disk('github')->put($package['name'].'.json', json_encode($stats));
+            $this->output->progressAdvance();
         });
+        $this->output->progressFinish();
 
         $this->info(sprintf('loaded github data for %d packages:', $packages->count()));
         $packages->pluck('name')->each(function (string $name): void {
