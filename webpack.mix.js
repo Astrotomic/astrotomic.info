@@ -21,6 +21,23 @@ mix
     .copy('resources/assets/img/translatable.min.jpg', 'public/images/translatable.min.jpg')
     .copy('resources/assets/img/social.min.jpg', 'public/images/social.min.jpg')
     .copy('resources/assets/img/logo.min.jpg', 'public/images/logo.min.jpg')
+    .webpackConfig({
+        module: {
+            rules: [{
+                test: /\.svg$/,
+                use: [{
+                    loader: 'svgo-loader',
+                    options: {
+                        plugins: [
+                            {removeTitle: true},
+                            {convertColors: {shorthex: false}},
+                            {convertPathData: false}
+                        ]
+                    }
+                }]
+            }]
+        }
+    })
     .options({
         processCssUrls: true,
         postCss: [
