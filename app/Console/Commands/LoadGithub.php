@@ -36,7 +36,7 @@ class LoadGithub extends Command
                 if (empty($stats['contributors'])) {
                     usleep(5 * 1000);
                 }
-            } while(empty($stats['contributors']));
+            } while (empty($stats['contributors']));
 
             Storage::disk('github')->put($package['name'].'.json', json_encode($stats));
             $this->output->progressAdvance();
