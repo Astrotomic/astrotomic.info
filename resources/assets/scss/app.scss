@@ -105,29 +105,41 @@ a.translate {
 }
 
 header.hero {
+    background-image: url('../img/hero_background.min.jpg');
     @apply bg-no-repeat;
-    background-image: url('../img/hero_comets.svg');
-    @apply bg-no-repeat;
+    @apply bg-right-bottom;
     @apply bg-cover;
-    background-position-x: center;
-    background-position-y: -50vh;
-
-    &::before {
-        content: '';
-        height: 100%;
-        z-index: -1;
-        background-image: url('../img/hero_background.min.jpg');
-        @apply absolute;
-        @apply inset-0;
-        @apply bg-no-repeat;
-        @apply bg-right-bottom;
-        @apply bg-cover;
-    }
 
     &::after {
         content: '';
         background: linear-gradient(0deg, $background 0%, rgba($background, 0) 100%);
         @apply absolute;
         @apply inset-0;
+    }
+
+    .comets {
+        @apply absolute;
+        @apply inset-0;
+        @apply bg-no-repeat;
+        @apply bg-no-repeat;
+        @apply bg-cover;
+        background-position-x: center;
+        background-position-y: -50vh;
+
+        &.comets-1 {
+            background-image: url('../img/comets_1.svg');
+        }
+
+        &.comets-2 {
+            background-image: url('../img/comets_2.svg');
+        }
+
+        &.comets-3 {
+            background-image: url('../img/comets_3.svg');
+        }
+
+        &.comets-4 {
+            background-image: url('../img/comets_4.svg');
+        }
     }
 }

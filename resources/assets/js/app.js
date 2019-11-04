@@ -17,12 +17,14 @@
     });
 
     window.addEventListener('scroll', function() {
-        Object.assign(
-            document.querySelector('header.hero').style,
-            {
-                backgroundPositionY: -(window.innerHeight * 0.5) + (window.pageYOffset * 0.5) + 'px',
-                backgroundPositionX: -(window.pageYOffset * 0.5) + 'px',
-            }
-        );
+        document.querySelectorAll('header.hero .comets[data-speed]').forEach($comet => {
+            Object.assign(
+                $comet.style,
+                {
+                    backgroundPositionY: -(window.innerHeight * 0.5) + (window.pageYOffset * $comet.dataset.speed) + 'px',
+                    backgroundPositionX: -(window.pageYOffset * $comet.dataset.speed) + 'px',
+                }
+            );
+        });
     });
 })();
