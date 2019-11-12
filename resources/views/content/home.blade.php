@@ -27,7 +27,7 @@
         </div>
     </hero>
 
-    <context :packagist="$packagist">
+    <context :packagist="$packagist" :github="$github">
         <section class="container mx-auto px-4">
             <package-promo bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="astrotomic/stancy">
                 This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
@@ -41,7 +41,7 @@
 
     <section class="container mx-auto flex flex-wrap">
     @foreach($packagist->except(['astrotomic/stancy', 'astrotomic/laravel-translatable'])->sortBy('name') as $package)
-        <package :package="$package" />
+        <package :package="$package" :github="$github" />
     @endforeach
     </section>
 

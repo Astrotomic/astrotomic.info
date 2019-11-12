@@ -2,6 +2,7 @@
 
 <?php
 /** @var \Illuminate\Support\Collection $packagist */
+/** @var \Illuminate\Support\Collection $github */
 ?>
 
 @section('title', $login.' | Astrotomic')
@@ -21,7 +22,7 @@
 
     <section class="container mx-auto flex flex-wrap">
         @foreach($packagist->only($packages)->sortBy('name') as $package)
-            <package :package="$package" />
+            <package :package="$package" :github="$github" />
         @endforeach
     </section>
 

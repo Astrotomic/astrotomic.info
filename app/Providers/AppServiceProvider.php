@@ -48,6 +48,9 @@ class AppServiceProvider extends ServiceProvider
                 'label' => 'GitHub',
             ],
         ]);
+
+        View::share('packagist', Sheets::collection('packagist')->all()->keyBy('name'));
+        View::share('github', Sheets::collection('github')->all()->keyBy('name'));
     }
 
     protected function booted(ExportFactoryContract $exportFactory)

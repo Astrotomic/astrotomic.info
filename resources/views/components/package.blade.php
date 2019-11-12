@@ -33,6 +33,10 @@
                 <icon icon="fa-link" icon-style="fas opacity-50" />
                 {{ $package['dependents'] }}
             </span>
+            <span>
+                <icon icon="fa-user" icon-style="fas opacity-50" />
+                {{ number_format(count(data_get($github, $package['name'].'.contributors', [])), 0, '', ' ') }}
+            </span>
         </div>
         <p>{{ $package['description'] }}</p>
         <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
