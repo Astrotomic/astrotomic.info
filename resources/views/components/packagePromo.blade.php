@@ -22,7 +22,11 @@
             </span>
             <span>
                 <icon icon="fa-link" icon-style="fas opacity-50" />
-                {{ data_get($packagist, $project.'.dependents') }}
+                {{ number_format(data_get($packagist, $project.'.dependents'), 0, '', ' ') }}
+            </span>
+            <span>
+                <icon icon="fa-user" icon-style="fas opacity-50" />
+                {{ number_format(count(data_get($github, $project.'.contributors', [])), 0, '', ' ') }}
             </span>
         </div>
         <p class="flex-grow">{!! $slot !!}</p>

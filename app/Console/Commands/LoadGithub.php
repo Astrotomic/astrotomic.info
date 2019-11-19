@@ -62,11 +62,8 @@ class LoadGithub extends Command
 
                 $data['_pageData'] = '\\'.Contributor::class;
                 $data['_view'] = 'content.contributor';
-                $data['_sheets'] = [
-                    'packagist' => 'packagist:*',
-                ];
 
-                Storage::disk('contributor')->put(strtolower($name).'.json', json_encode($data));
+                Storage::disk('contributor')->put(strtolower($name).'.json', collect($data)->toJson());
             });
     }
 }
