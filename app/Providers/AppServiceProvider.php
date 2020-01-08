@@ -32,6 +32,11 @@ class AppServiceProvider extends ServiceProvider
 
         View::share('links', [
             [
+                'icon' => 'fa-trees',
+                'style' => 'fas',
+                'href' => 'https://offset.earth/astrotomic',
+                'label' => 'Offset Earth',
+            ], [
                 'icon' => 'fa-donate',
                 'style' => 'fas',
                 'href' => 'https://opencollective.com/astrotomic',
