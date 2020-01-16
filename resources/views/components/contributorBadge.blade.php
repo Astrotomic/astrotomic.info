@@ -9,7 +9,7 @@
         @endif
     "
 >
-    <img src="https://images.weserv.nl?il&w=48&output=jpg&url={{ urlencode($contributor['avatar_url']) }}" alt="{{ $contributor['login'] }} Avatar" />
+    <img src="https://images.weserv.nl?il&w=96&output=jpg&url={{ urlencode($contributor['avatar_url']) }}" alt="{{ $contributor['login'] }} Avatar" class="w-12 h-12" />
     <span class="px-4">
         {{ $contributor['login'] }}
         <span class="opacity-50">{{ $contributor['commits'] }}</span>
