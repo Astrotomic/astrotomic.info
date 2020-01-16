@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -155,7 +156,7 @@ class AppServiceProvider extends ServiceProvider
                                     ->copyrightHolder(Schema::organization()->identifier(url('/')))
                                     ->publisher(Schema::organization()->identifier(url('/')))
                                     ->contributor(
-                                        collect(Sheets::collection('github')->get($sheet['name'])['contributors'])->pluck('author')->map(function (array $contributor): Person {
+                                        collect(Arr::get(Sheets::collection('github')->get($sheet['name']), 'contributors', []))->pluck('author')->map(function (array $contributor): Person {
                                             return Schema::person()
                                                 ->identifier($contributor['html_url'])
                                                 ->alternateName($contributor['login'])
