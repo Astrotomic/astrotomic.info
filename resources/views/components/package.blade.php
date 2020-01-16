@@ -11,6 +11,8 @@
                 <icon icon="fa-language" icon-style="fas" />
             @elseif($package['name'] === 'astrotomic/stancy')
                 <icon icon="fa-rocket" icon-style="fas" />
+            @elseif($package['name'] === 'astrotomic/laravel-mime')
+                <icon icon="fa-file-search" icon-style="fas" />
             @else
                 <icon icon="fa-box" icon-style="fas" />
             @endif
