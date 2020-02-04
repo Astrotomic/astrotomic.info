@@ -110,16 +110,16 @@ class AppServiceProvider extends ServiceProvider
                 ->owns(
                     Sheets::collection('packagist')->all()->map(function (Sheet $sheet): OwnershipInfo {
                         $version = array_reduce(array_keys($sheet['versions']), function ($highest, $current) {
-                                if (Str::startsWith($current, 'dev-')) {
-                                    return $highest;
-                                }
+                            if (Str::startsWith($current, 'dev-')) {
+                                return $highest;
+                            }
 
-                                return version_compare(
+                            return version_compare(
                                     Str::replaceFirst('v', '', $highest),
                                     Str::replaceFirst('v', '', $current),
                                     '>'
                                 ) ? $highest : $current;
-                            }) ?? 'dev-master';
+                        }) ?? 'dev-master';
 
                         return Schema::ownershipInfo()
                             ->identifier($sheet['repository'])
@@ -128,7 +128,7 @@ class AppServiceProvider extends ServiceProvider
                             ->ownedFrom(Carbon::parse($sheet['time']))
                             ->url($sheet['repository'])
                             ->sameAs([
-                                'https://packagist.org/packages/' . $sheet['name'],
+                                'https://packagist.org/packages/'.$sheet['name'],
                             ])
                             ->mainEntityOfPage(
                                 Schema::softwareSourceCode()
@@ -140,13 +140,13 @@ class AppServiceProvider extends ServiceProvider
                                     ->author(
                                         collect($sheet['versions'][$version]['authors'])->map(function (array $author): Person {
                                             return Schema::person()
-                                                ->if(!empty($author['name']), function (Person $person) use ($author) {
+                                                ->if(! empty($author['name']), function (Person $person) use ($author) {
                                                     $person->name($author['name']);
                                                 })
-                                                ->if(!empty($author['email']), function (Person $person) use ($author) {
+                                                ->if(! empty($author['email']), function (Person $person) use ($author) {
                                                     $person->email($author['email']);
                                                 })
-                                                ->if(!empty($author['homepage']), function (Person $person) use ($author) {
+                                                ->if(! empty($author['homepage']), function (Person $person) use ($author) {
                                                     $person
                                                         ->identifier($author['homepage'])
                                                         ->url($author['homepage']);
@@ -171,7 +171,7 @@ class AppServiceProvider extends ServiceProvider
                                             ->name($sheet['language'])
                                             ->url('https://www.php.net')
                                     )
-                                    ->runtimePlatform($sheet['language'] . ' ' . $sheet['versions'][$version]['require']['php'])
+                                    ->runtimePlatform($sheet['language'].' '.$sheet['versions'][$version]['require']['php'])
                                     ->offers(
                                         Schema::offer()
                                             ->description('Free')

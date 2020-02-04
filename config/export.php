@@ -62,7 +62,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'before' => [
-         'assets' => '/usr/local/bin/yarn production',
+        'assets' => '/usr/local/bin/yarn production',
     ],
 
     /*
@@ -72,6 +72,6 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-         'deploy' => '/usr/local/bin/netlify deploy --prod',
+        'deploy' => '/usr/local/bin/netlify deploy --prod',
     ],
 ];
