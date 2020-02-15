@@ -7,7 +7,7 @@
 
 @section('content')
     <hero>
-        <div class="container mx-auto px-4 py-32 text-center">
+        <div class="container mx-auto px-4 pt-4 pb-16 sm:py-32 text-center">
             <strong class="text-6xl text-white font-bold divided">
                 <span>Open Source</span>
                 <span>PHP</span>
@@ -23,18 +23,19 @@
                 <count-up icon="fa-box-heart" :value="$packagist->count()" label="packages" />
                 <count-up icon="fa-users-cog" :value="$contributors->count()" label="contributors" />
                 <count-up icon="fa-code-commit" :value="$contributors->sum('commits')" label="commits" />
+                <count-up icon="fa-download" :value="$packagist->sum('downloads.total')" label="downloads" />
             </div>
         </div>
     </hero>
 
     <context :packagist="$packagist" :github="$github">
         <section class="container mx-auto px-4">
-            <package-promo bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="astrotomic/stancy">
-                This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
-            </package-promo>
-
             <package-promo bg-color="bg-astrotomic-400" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
                 This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
+            </package-promo>
+
+            <package-promo bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="astrotomic/stancy">
+                This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
             </package-promo>
         </section>
     </context>
@@ -68,7 +69,7 @@
                     If not other stated all our packages are licensed under MIT License (copy of license is in each package) and also as Treeware.
                 </p>
                 <p class="mb-2">
-                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a trees (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-50 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
+                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-50 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
                 </p>
                 <p class="mb-2">
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
