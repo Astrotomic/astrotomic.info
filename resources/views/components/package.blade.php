@@ -2,43 +2,45 @@
     <div class="bg-background-lighter p-8 rounded overflow-hidden">
         <h3 class="text-xl mb-1">
             @if($package['name'] === 'astrotomic/countdown-gif')
-                <icon icon="fa-stopwatch" icon-style="fas" />
+                <icon icon="fa-stopwatch" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/ignition-stackoverflow')
-                <icon icon="fa-stack-overflow" icon-style="fab" />
+                <icon icon="fa-stack-overflow" icon-style="fab" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/laravel-cachable-attributes')
-                <icon icon="fa-cabinet-filing" icon-style="fas" />
+                <icon icon="fa-cabinet-filing" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/laravel-translatable')
-                <icon icon="fa-language" icon-style="fas" />
+                <icon icon="fa-language" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/stancy')
-                <icon icon="fa-rocket" icon-style="fas" />
+                <icon icon="fa-rocket" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/laravel-mime')
-                <icon icon="fa-file-search" icon-style="fas" />
+                <icon icon="fa-file-search" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/laravel-guzzle')
-                <icon icon="fa-wifi" icon-style="fas" />
+                <icon icon="fa-wifi" icon-style="fas" class="opacity-50" />
+            @elseif($package['name'] === 'astrotomic/laravel-eloquent-uuid')
+                <icon icon="fa-fingerprint" icon-style="fas" class="opacity-50" />
             @else
-                <icon icon="fa-box" icon-style="fas" />
+                <icon icon="fa-box" icon-style="fas" class="opacity-50" />
             @endif
             {{ \Illuminate\Support\Str::title(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')) }}
         </h3>
         <div class="mb-2 divided">
             <span>
-                <icon icon="fa-code" icon-style="fas opacity-50" />
+                <icon icon="fa-code" icon-style="fas" class="opacity-50" />
                 {{ $package['language'] }}
             </span>
             <span>
-                <icon icon="fa-star" icon-style="fas opacity-50" />
+                <icon icon="fa-star" icon-style="fas" class="opacity-50" />
                 {{ number_format($package['github_stars'], 0, '', ' ') }}
             </span>
             <span>
-                <icon icon="fa-download" icon-style="fas opacity-50" />
+                <icon icon="fa-download" icon-style="fas" class="opacity-50" />
                 {{ number_format($package['downloads']['total'], 0, '', ' ') }}
             </span>
             <span>
-                <icon icon="fa-link" icon-style="fas opacity-50" />
+                <icon icon="fa-link" icon-style="fas" class="opacity-50" />
                 {{ $package['dependents'] }}
             </span>
             <span>
-                <icon icon="fa-user" icon-style="fas opacity-50" />
+                <icon icon="fa-user" icon-style="fas" class="opacity-50" />
                 {{ number_format(count(data_get($github, $package['name'].'.contributors', [])), 0, '', ' ') }}
             </span>
         </div>
