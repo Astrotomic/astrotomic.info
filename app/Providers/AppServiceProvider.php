@@ -43,11 +43,6 @@ class AppServiceProvider extends ServiceProvider
                 'href' => 'https://opencollective.com/astrotomic',
                 'label' => 'Open Collective',
             ], [
-                'icon' => 'fa-slack',
-                'style' => 'fab',
-                'href' => 'https://join.slack.com/t/astrotomic/shared_invite/enQtNzk2MTgzNDgwODUwLWI4YTJjYTNjNTE1Y2EzNjEwYzEzNTM1MTRjZTFiZWVjM2U4YWY3MjczYzdmYjE2ZmU1ZmMzNGY1NWM1MTM1YTI',
-                'label' => 'Slack',
-            ], [
                 'icon' => 'fa-github',
                 'style' => 'fab',
                 'href' => 'https://github.com/Astrotomic',
