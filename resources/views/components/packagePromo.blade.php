@@ -7,28 +7,7 @@
     </div>
     <div class="w-full lg:w-1/2 p-8 flex flex-col">
         <h2 class="text-white text-3xl">{{ $label }}</h2>
-        <div class="mb-2 divided">
-            <span>
-                <icon icon="fa-code" icon-style="fas opacity-50" />
-                {{ data_get($packagist, $project.'.language') }}
-            </span>
-            <span>
-                <icon icon="fa-star" icon-style="fas opacity-50" />
-                {{ number_format(data_get($packagist, $project.'.github_stars'), 0, '', ' ') }}
-            </span>
-            <span>
-                <icon icon="fa-download" icon-style="fas opacity-50" />
-                {{ number_format(data_get($packagist, $project.'.downloads.total'), 0, '', ' ') }}
-            </span>
-            <span>
-                <icon icon="fa-link" icon-style="fas opacity-50" />
-                {{ number_format(data_get($packagist, $project.'.dependents'), 0, '', ' ') }}
-            </span>
-            <span>
-                <icon icon="fa-user" icon-style="fas opacity-50" />
-                {{ number_format(count(data_get($github, $project.'.contributors', [])), 0, '', ' ') }}
-            </span>
-        </div>
+        <package-stats :package="data_get($packagist, $project)" />
         <p class="flex-grow">{!! $slot !!}</p>
         <div class="flex mt-4 self-start">
             <a href="{{ data_get($packagist, $project.'.repository') }}" class="btn">
@@ -37,6 +16,7 @@
             </a>
             <a href="https://docs.astrotomic.info/{{ \Illuminate\Support\Str::after($project, 'astrotomic/') }}" class="btn ml-4">
                 <icon icon-style="fas" icon="fa-book" />
+                <span class="hidden sm:inline">documentation</span>
             </a>
         </div>
     </div>

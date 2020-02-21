@@ -41,7 +41,7 @@
     </context>
 
     <section class="container mx-auto flex flex-wrap">
-    @foreach($packagist->except(['astrotomic/stancy', 'astrotomic/laravel-translatable'])->sortBy('name') as $package)
+    @foreach($packagist->except(['astrotomic/stancy', 'astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
         <package :package="$package" :github="$github" />
     @endforeach
     </section>

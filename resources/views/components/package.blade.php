@@ -22,31 +22,14 @@
             @endif
             {{ \Illuminate\Support\Str::title(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')) }}
         </h3>
-        <div class="mb-2 divided">
-            <span>
-                <icon icon="fa-code" icon-style="fas" class="opacity-50" />
-                {{ $package['language'] }}
-            </span>
-            <span>
-                <icon icon="fa-star" icon-style="fas" class="opacity-50" />
-                {{ number_format($package['github_stars'], 0, '', ' ') }}
-            </span>
-            <span>
-                <icon icon="fa-download" icon-style="fas" class="opacity-50" />
-                {{ number_format($package['downloads']['total'], 0, '', ' ') }}
-            </span>
-            <span>
-                <icon icon="fa-link" icon-style="fas" class="opacity-50" />
-                {{ $package['dependents'] }}
-            </span>
-            <span>
-                <icon icon="fa-user" icon-style="fas" class="opacity-50" />
-                {{ number_format(count(data_get($github, $package['name'].'.contributors', [])), 0, '', ' ') }}
-            </span>
-        </div>
+        <package-stats :package="$package" />
         <p>{{ $package['description'] }}</p>
         <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
             <icon icon-style="fab" icon="fa-github" />
+            <span class="hidden sm:inline">
+                <cite>astrotomic</cite>
+                <span class="opacity-50">/</span>
+            </span>
             {{ \Illuminate\Support\Str::after($package['name'], 'astrotomic/') }}
         </a-styled>
     </div>

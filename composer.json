@@ -5,7 +5,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "ext-json": "*",
         "astrotomic/stancy": "^0.5.0",
         "fideloper/proxy": "^4.0",
