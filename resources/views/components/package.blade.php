@@ -17,6 +17,8 @@
                 <icon icon="fa-wifi" icon-style="fas" class="opacity-50" />
             @elseif($package['name'] === 'astrotomic/laravel-eloquent-uuid')
                 <icon icon="fa-fingerprint" icon-style="fas" class="opacity-50" />
+            @elseif(in_array($package['name'], ['astrotomic/laravel-unavatar', 'astrotomic/php-unavatar']))
+                <icon icon="fa-user-circle" icon-style="fas" class="opacity-50" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-50" />
             @endif
