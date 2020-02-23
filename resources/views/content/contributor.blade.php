@@ -21,7 +21,7 @@
     </hero>
 
     <section class="container mx-auto flex flex-wrap">
-        @foreach($packagist->only($packages)->sortBy('name') as $package)
+        @foreach($packagist->only($packages)->sortByDesc('downloads.total') as $package)
             <package :package="$package" :github="$github" />
         @endforeach
     </section>
