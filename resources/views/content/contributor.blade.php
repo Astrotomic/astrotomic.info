@@ -10,7 +10,7 @@
 @section('content')
     <hero>
         <div class="container mx-auto px-4 py-32 text-center">
-            <img src="https://images.weserv.nl?il&w=192&output=jpg&url={{ urlencode($avatar_url) }}" class="mx-auto rounded" />
+            <img src="https://images.weserv.nl?il&w=512&output=jpg&url={{ urlencode($avatar_url) }}" class="mx-auto rounded w-64" />
             <h2 class="text-6xl text-white font-bold">{{ $login }}</h2>
 
             <div class="flex flex-row flex-wrap justify-center">
