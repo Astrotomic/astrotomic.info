@@ -1,9 +1,20 @@
 {
     "name": "astrotomic/astrotomic.info",
-    "description": "The astrotomic website",
-    "keywords": ["astrotomic", "stancy"],
     "type": "project",
+    "description": "The astrotomic website",
+    "keywords": [
+        "astrotomic",
+        "stancy"
+    ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "gummibeer@astrotomic.info",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "ext-json": "*",
@@ -15,6 +26,9 @@
         "spatie/laravel-blade-x": "^2.4",
         "spatie/packagist-api": "^1.2",
         "spatie/schema-org": "^2.9"
+    },
+    "require-dev": {
+        "facade/ignition": "^1.11"
     },
     "config": {
         "optimize-autoloader": true,
@@ -47,24 +61,13 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "load": [
-            "php artisan load:packagist",
-            "php artisan load:github"
-        ],
         "deploy": [
             "@load",
             "php artisan export --env=prod"
+        ],
+        "load": [
+            "php artisan load:packagist",
+            "php artisan load:github"
         ]
-    },
-    "require-dev": {
-        "facade/ignition": "^1.11"
-    },
-    "authors": [
-        {
-            "name": "Tom Witkowski",
-            "email": "gummibeer@astrotomic.info",
-            "homepage": "https://gummibeer.de",
-            "role": "Developer"
-        }
-    ]
+    }
 }
