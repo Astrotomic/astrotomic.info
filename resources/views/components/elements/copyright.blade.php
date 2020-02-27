@@ -2,10 +2,7 @@
     <div class="container mx-auto p-4 flex items-center flex-wrap">
         <span class="flex-grow">
             <span class="whitespace-no-wrap opacity-50">
-            Astrotomic &copy; 2019
-            @if(date('Y') > 2019)
-                - {{ date('Y') }}
-            @endif
+                Astrotomic &copy; 2019 - {{ date('Y') }}
             </span>
             <span class="whitespace-no-wrap">
                 <span class="opacity-50">created by</span>
