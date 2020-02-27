@@ -58,5 +58,13 @@
     },
     "require-dev": {
         "facade/ignition": "^1.11"
-    }
+    },
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "gummibeer@astrotomic.info",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ]
 }
