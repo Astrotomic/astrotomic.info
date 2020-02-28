@@ -25,6 +25,7 @@
             <a-styled href="https://tailwindcss.com">tailwindcss</a-styled>
             <a-styled href="https://fontawesome.com">Font Awesome</a-styled>
             <a-styled href="https://rsms.me/inter">Inter</a-styled>
+            <a-styled href="https://pingping.io/fvpd1bEn">PingPing</a-styled>
         </span>
     </div>
 </footer>
