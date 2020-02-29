@@ -23,12 +23,12 @@ if (! function_exists('picture')) {
         string $alt = ''
     ): HtmlString {
         $imgSrcSet = implode(', ', array_map(
-            fn(int $density) => (clone $url)->dpr($density).' '.$density.'x',
+            fn (int $density) => (clone $url)->dpr($density).' '.$density.'x',
             [1, 2]
         ));
 
         $webpSrcSet = implode(', ', array_map(
-            fn(int $density) => (clone $url)->dpr($density)->output('webp').' '.$density.'x',
+            fn (int $density) => (clone $url)->dpr($density)->output('webp').' '.$density.'x',
             [1, 2]
         ));
 
