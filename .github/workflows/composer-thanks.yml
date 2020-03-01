@@ -1,0 +1,16 @@
+name: thanks dependencies
+
+on:
+  push:
+
+jobs:
+  thanks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: normalize composer.json
+        run: |
+          composer global require symfony/thanks
+          composer thanks
