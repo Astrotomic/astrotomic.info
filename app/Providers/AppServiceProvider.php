@@ -38,11 +38,6 @@ class AppServiceProvider extends ServiceProvider
                 'href' => 'https://offset.earth/treeware',
                 'label' => 'Treeware',
             ], [
-                'icon' => 'fa-donate',
-                'style' => 'fas',
-                'href' => 'https://opencollective.com/astrotomic',
-                'label' => 'Open Collective',
-            ], [
                 'icon' => 'fa-github',
                 'style' => 'fab',
                 'href' => 'https://github.com/Astrotomic',
