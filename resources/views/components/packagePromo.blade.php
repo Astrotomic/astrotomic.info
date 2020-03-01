@@ -1,6 +1,6 @@
 <div class="{{ $bgColor }} rounded-lg flex flex-col lg:flex-row overflow-hidden mb-16">
     <div class="w-full lg:w-1/2 lg:ml-8 lg:mt-8 lg:self-end">
-        {{ picture(weserv(mix($image))->w(768), 'rounded-t', "Astrotomic {$label} Logo") }}
+        {{ picture(weserv(mix($image))->w(768), "Astrotomic {$label} Logo", 'rounded-t') }}
     </div>
     <div class="w-full lg:w-1/2 p-8 flex flex-col">
         <h2 class="text-white text-3xl">{{ $label }}</h2>

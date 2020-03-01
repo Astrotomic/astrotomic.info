@@ -10,7 +10,7 @@
         @endif
     "
 >
-    <img src="https://images.weserv.nl?il&we&dpr=2&w=48&output=jpg&url={{ urlencode($contributor['avatar_url']) }}" alt="{{ $contributor['login'] }} Avatar" class="w-12 h-12" />
+    {{ picture(weserv($contributor['avatar_url'])->w(48)->h(48), "{$contributor['login']} Avatar", 'w-12 h-12') }}
     <span class="pl-4 pr-2 flex flex-grow">{{ $contributor['login'] }}</span>
     <span class="opacity-50 pr-4">{{ $contributor['commits'] }}</span>
 </a>
