@@ -1,4 +1,4 @@
-name: thanks dependencies
+name: thanks composer.json
 
 on:
   push:
@@ -10,9 +10,9 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
 
-      - name: normalize composer.json
+      - name: thanks composer.json
         run: |
           composer global require symfony/thanks
           composer thanks
         env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+          COMPOSER_AUTH: ${{ secrets.GITHUB_TOKEN }}
