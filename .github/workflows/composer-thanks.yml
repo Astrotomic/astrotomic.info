@@ -15,4 +15,4 @@ jobs:
           composer global require symfony/thanks
           composer thanks
         env:
-          COMPOSER_AUTH: ${{ secrets.GITHUB_TOKEN }}
+          COMPOSER_AUTH: {"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}
