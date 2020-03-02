@@ -19,7 +19,7 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "astrotomic/laravel-weserv-images": "^0.3.0",
+        "astrotomic/laravel-weserv-images": "^0.4.0",
         "astrotomic/stancy": "^0.5.0",
         "fideloper/proxy": "^4.0",
         "knplabs/github-api": "^2.11",

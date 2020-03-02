@@ -10,8 +10,12 @@ if (! function_exists('picture')) {
         string $class = ''
     ): HtmlString {
         return $url->toPicture([
+            'alt' => $alt,
+            'class' => $class,
+            'loading' => 'lazy',
+        ], [
             '1x' => fn (Url $url) => $url->dpr(1),
             '2x' => fn (Url $url) => $url->dpr(2),
-        ], $alt, $class);
+        ]);
     }
 }
