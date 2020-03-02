@@ -58,6 +58,8 @@ jobs:
         run: |
           php artisan load:packagist
           php artisan load:github
+        env:
+          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Export page
         run: php artisan export --env=prod --skip-assets --skip-deploy

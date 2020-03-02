@@ -21,6 +21,10 @@ class LoadGithub extends Command
     {
         parent::__construct();
 
+        if (env('GH_PAT') !== null) {
+            $github->authenticate(env('GH_PAT'), null, Github::AUTH_HTTP_TOKEN);
+        }
+
         $this->github = $github;
     }
 
