@@ -60,8 +60,8 @@
         <wave class="fill-current text-astrotomic-400 bg-treeware-500 mb-16" />
         <h2 class="container mx-auto text-white mb-4 text-4xl px-4">License: MIT & Treeware</h2>
         <div class="container mx-auto pr-4 mb-8 flex flex-wrap">
-            <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" class="ml-4" alt="MIT license" />
-            <img src="https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" />
+            <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" class="ml-4" alt="MIT license" loading="lazy" />
+            <img src="https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
         </div>
         <div class="container mx-auto px-4 flex flex-col md:flex-row">
             <div class="md:w-2/3 md:pr-4">
@@ -82,7 +82,7 @@
             </div>
             <div class="md:w-1/3 mt-4 md:mt-0">
                 <a href="https://offset.earth/treeware">
-                    <img src="https://toolkit.offset.earth/carbonpositiveworkforce/badge/5e186e68516eb60018c5172b?white=true&landscape=true" alt="image with dynamic amount of trees bought for Treeware license" />
+                    <img src="https://toolkit.offset.earth/carbonpositiveworkforce/badge/5e186e68516eb60018c5172b?white=true&landscape=true" alt="image with dynamic amount of trees bought for Treeware license" loading="lazy" />
                 </a>
             </div>
         </div>
