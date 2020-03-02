@@ -24,6 +24,7 @@ Route::get('/robots.txt', function () {
     return implode(PHP_EOL, [
         'User-Agent: *',
         'Allow: /',
+        '',
         'Sitemap: '.url('sitemap.xml'),
     ]);
 });
