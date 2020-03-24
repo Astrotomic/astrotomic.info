@@ -33,15 +33,11 @@
             <package-promo bg-color="bg-astrotomic-400" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
                 This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
             </package-promo>
-
-            <package-promo bg-color="bg-stancy-500" image="images/stancy.min.jpg" label="Stancy" project="astrotomic/stancy">
-                This Laravel package aims to provide the most common and flexible CMS features to your Laravel project. You can still use the frontend/template engine of your choice, use the scheduler/queue and receive POST requests and all the other features Laravel provides.
-            </package-promo>
         </section>
     </context>
 
     <section class="container mx-auto flex flex-wrap">
-    @foreach($packagist->except(['astrotomic/stancy', 'astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
+    @foreach($packagist->except(['astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
         <package :package="$package" :github="$github" />
     @endforeach
     </section>

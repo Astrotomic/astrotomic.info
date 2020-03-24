@@ -15,6 +15,10 @@
                 <icon icon-style="fas" icon="fa-book" />
                 <span class="hidden sm:inline">documentation</span>
             </a>
+            <a href="https://plant.treeware.earth/{{ ucfirst($project) }}" class="btn ml-4">
+                <icon icon-style="fas" icon="fa-trees" />
+                <span class="hidden sm:inline">treeware</span>
+            </a>
         </div>
     </div>
 </div>
