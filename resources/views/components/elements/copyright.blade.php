@@ -1,11 +1,11 @@
 <footer>
     <div class="container mx-auto p-4 flex items-center flex-wrap">
         <span class="flex-grow">
-            <span class="whitespace-no-wrap opacity-50">
+            <span class="whitespace-no-wrap opacity-75">
                 Astrotomic &copy; 2019 - {{ date('Y') }}
             </span>
             <span class="whitespace-no-wrap">
-                <span class="opacity-50">created by</span>
+                <span class="opacity-75">created by</span>
                 <a-styled href="https://gummibeer.de">Gummibeer</a-styled>
             </span>
         </span>
@@ -18,7 +18,7 @@
         @endforeach
     </div>
     <div class="container mx-auto p-4">
-        <span class="opacity-50">Powered by</span>
+        <span class="opacity-75">Powered by</span>
         <span class="divided">
             <a-styled href="https://github.com/Astrotomic/stancy">Stancy</a-styled>
             <a-styled href="https://netlify.com">Netlify</a-styled>

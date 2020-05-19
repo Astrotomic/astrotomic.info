@@ -30,7 +30,7 @@
 
     <context :packagist="$packagist" :github="$github">
         <section class="container mx-auto px-4">
-            <package-promo bg-color="bg-astrotomic-400" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
+            <package-promo bg-color="bg-astrotomic" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
                 This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
             </package-promo>
         </section>
@@ -42,8 +42,8 @@
     @endforeach
     </section>
 
-    <section class="bg-astrotomic-400 relative">
-        <wave class="fill-current text-background mb-16" />
+    <section class="bg-astrotomic relative">
+        <wave class="fill-current text-night mb-16" />
         <h2 class="container mx-auto text-white mb-8 text-4xl px-4">Contributors</h2>
         <div class="container mx-auto flex flex-wrap pr-4">
             @foreach($contributors->sortByDesc('commits') as $contributor)
@@ -52,8 +52,8 @@
         </div>
     </section>
 
-    <section class="bg-treeware-500 relative">
-        <wave class="fill-current text-astrotomic-400 bg-treeware-500 mb-16" />
+    <section class="bg-treeware relative">
+        <wave class="fill-current text-astrotomic bg-treeware mb-16" />
         <h2 class="container mx-auto text-white mb-4 text-4xl px-4">License: MIT & Treeware</h2>
         <div class="container mx-auto pr-4 mb-8 flex flex-wrap">
             <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" class="ml-4" alt="MIT license" loading="lazy" />
@@ -65,15 +65,15 @@
                     If not other stated all our packages are licensed under MIT License (copy of license is in each package) and also as Treeware.
                 </p>
                 <p class="mb-2">
-                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-50 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
+                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
                 </p>
                 <p class="mb-2">
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
                 </p>
                 <p class="mb-2">
-                    You can buy trees at <a href="https://offset.earth/treeware" class="inline-block opacity-50 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a>.
+                    You can buy trees at <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a>.
                     <br>
-                    Read more about Treeware at <a href="https://treeware.earth" class="inline-block opacity-50 hover:opacity-100 border-b border-dotted border-white">treeware.earth</a>.
+                    Read more about Treeware at <a href="https://treeware.earth" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">treeware.earth</a>.
                 </p>
             </div>
             <div class="md:w-1/3 mt-4 md:mt-0">
@@ -82,7 +82,7 @@
                 </a>
             </div>
         </div>
-        <wave class="fill-current text-treeware-500 bg-background mb-8" />
+        <wave class="fill-current text-treeware bg-night mb-8" />
     </section>
 
     <copyright/>

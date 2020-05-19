@@ -8,7 +8,7 @@
             <h2 class="text-6xl text-white font-bold">
                 <icon icon="fa-satellite" />
                 Error
-                <span class="opacity-50">404</span>
+                <span class="opacity-75">404</span>
             </h2>
             <h3 class="text-5xl text-white">Lost in Space</h3>
 

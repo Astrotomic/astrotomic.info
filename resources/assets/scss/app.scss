@@ -50,13 +50,12 @@
 html {
     font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
-    background: $background;
     color: $white;
 }
 
 :root {
     --fa-primary-color: #{$white};
-    --fa-secondary-color: #{$color-2};
+    --fa-secondary-color: #{rgba($white, 0.75)};
 }
 
 a.btn {
@@ -66,13 +65,13 @@ a.btn {
     @apply rounded;
     @apply py-2;
     @apply px-4;
-    color: $color-3;
-    background-color: $white;
+    @apply text-astrotomic;
+    @apply bg-white;
 
     &:hover {
         @apply border-0;
-        color: $color-3;
-        background-color: $white;
+        @apply text-astrotomic;
+        @apply bg-white;
     }
 }
 
@@ -92,18 +91,6 @@ a.translate {
     }
 }
 
-.bg-background-lighter {
-    background: lighten($background, 7.5%);
-}
-
-.text-background {
-    color: $background;
-}
-
-.bg-background {
-    background: $background;
-}
-
 header.hero {
     background-image: url('../img/hero_background.min.jpg');
     @apply bg-no-repeat;
@@ -112,7 +99,7 @@ header.hero {
 
     &::after {
         content: '';
-        background: linear-gradient(0deg, $background 0%, rgba($background, 0) 100%);
+        background: linear-gradient(0deg, $night 0%, rgba($night, 0) 100%);
         @apply absolute;
         @apply inset-0;
     }
