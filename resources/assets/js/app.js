@@ -1,16 +1,16 @@
 (function () {
     document.querySelectorAll('[data-count-up]').forEach($countUp => {
-        const target = $countUp.dataset.countUp;
+        const target = $countUp.dataset.countUp * 1;
         const duration = 1000;
         const timeout = 20;
         const runs = Math.round(duration / timeout);
 
         let cycles = 0;
         const interval = setInterval(() => {
-            $countUp.innerText = Math.floor((target / runs) * cycles);
+            $countUp.innerText = Math.floor((target / runs) * cycles).toLocaleString('en').replace(',', ' ');
 
             if (cycles++ === (runs + 1)) {
-                $countUp.innerText = target;
+                $countUp.innerText = target.toLocaleString('en').replace(',', ' ');
                 clearInterval(interval);
             }
         }, timeout);
