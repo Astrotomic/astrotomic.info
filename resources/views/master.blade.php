@@ -8,16 +8,22 @@
     <meta name="description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
 Most of them will be for Laravel - but sometimes also plain PHP." />
 
-    <meta name="og:title" content="@yield('title', 'Astrotomic')" />
-    <meta name="og:description" content="Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
-Most of them will be for Laravel - but sometimes also plain PHP." />
-    <meta name="og:type" content="website" />
-    <meta name="og:image" content="{{ url(mix('images/social.min.jpg')) }}" />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}" />
+    {!!
+        Astrotomic\OpenGraph\OpenGraph::website($__env->yieldContent('title', 'Astrotomic'))
+            ->siteName('Astrotomic')
+            ->description('Astrotomic is an open source developer collective and wants to provide helpful, solid and easy to use open source packages.
+Most of them will be for Laravel - but sometimes also plain PHP.')
+            ->url(url()->current())
+            ->image(url(mix('images/social.min.jpg')))
+            ->locale(str_replace('_', '-', app()->getLocale()))
+    !!}
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="@devgummibeer" />
+    {!!
+        Astrotomic\OpenGraph\Twitter::summaryLargeImage($__env->yieldContent('title', 'Astrotomic'))
+            ->site('@astrotomic_oss')
+            ->creator('@devgummibeer')
+            ->image(url(mix('images/social.min.jpg')))
+    !!}
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
 
