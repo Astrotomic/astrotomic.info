@@ -21,6 +21,12 @@
                 <icon icon="fa-user-circle" icon-style="fas" class="opacity-75" />
             @elseif(in_array($package['name'], ['astrotomic/laravel-weserv-images', 'astrotomic/php-weserv-images']))
                 <icon icon="fa-book-spells" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/php-open-graph')
+                <icon icon="fa-share-alt" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/php-conditional-proxy')
+                <icon icon="fa-brackets-curly" icon-style="fas" class="opacity-75" />
+            @elseif(Illuminate\Support\Str::startsWith($package['name'], 'astrotomic/laravel-dashboard-'))
+                <icon icon="fa-tachometer" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
