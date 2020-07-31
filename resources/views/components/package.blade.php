@@ -27,6 +27,10 @@
                 <icon icon="fa-brackets-curly" icon-style="fas" class="opacity-75" />
             @elseif(Illuminate\Support\Str::startsWith($package['name'], 'astrotomic/laravel-dashboard-'))
                 <icon icon="fa-tachometer" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/pest-plugin-laravel-snapshots')
+                <icon icon="fa-equals" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/laravel-auth-recovery-codes')
+                <icon icon="fa-key" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
