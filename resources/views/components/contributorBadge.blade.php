@@ -10,7 +10,7 @@
         @endif
     "
 >
-    {{ picture(weserv($contributor['avatar_url'])->w(48)->h(48), "{$contributor['login']} Avatar", 'w-12 h-12') }}
+    <imgix :src="$contributor['avatar_url']" width="48" height="48" ratio="1:1" :alt="$contributor['login'].' Avatar'" class="w-12 h-12" />
     <span class="pl-4 pr-2 flex flex-grow">{{ $contributor['login'] }}</span>
     <span class="opacity-75 pr-4">{{ $contributor['commits'] }}</span>
 </a>

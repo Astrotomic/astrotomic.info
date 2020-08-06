@@ -10,7 +10,7 @@
 @section('content')
     <hero>
         <div class="container mx-auto px-4 py-32 text-center">
-            {{ picture(weserv($avatar_url)->w(256)->h(256), "{$login} Avatar", 'mx-auto rounded w-64 h-64') }}
+            <imgix :src="$avatar_url" width="256" height="256" ratio="1:1" :alt="$login.' Avatar'" class="mx-auto rounded w-64 h-64" />
             <h2 class="text-6xl text-white font-bold">{{ $login }}</h2>
 
             <div class="flex flex-row flex-wrap justify-center">

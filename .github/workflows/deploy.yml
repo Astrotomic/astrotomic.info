@@ -63,6 +63,8 @@ jobs:
 
       - name: Export page
         run: php artisan export --env=prod --skip-assets --skip-deploy
+        env:
+          IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
 
       - name: Netlify deploy
         run: |

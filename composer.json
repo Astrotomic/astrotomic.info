@@ -19,16 +19,17 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "astrotomic/laravel-weserv-images": "^0.4.1",
-        "astrotomic/php-open-graph": "^0.2.2",
+        "astrotomic/php-open-graph": "^0.4.0",
         "astrotomic/stancy": "^0.5.0",
         "fideloper/proxy": "^4.0",
+        "imgix/imgix-php": "^3.3",
         "knplabs/github-api": "^2.11",
         "laravel/framework": "^6.0",
         "php-http/guzzle6-adapter": "^1.1",
         "spatie/laravel-blade-x": "^2.4",
         "spatie/packagist-api": "^1.2",
-        "spatie/schema-org": "^2.9"
+        "spatie/schema-org": "^2.9",
+        "spatie/laravel-export": "0.3.3 as 0.2.3"
     },
     "require-dev": {
         "facade/ignition": "^1.11"
@@ -46,10 +47,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-        },
-        "files": [
-            "app/helpers.php"
-        ]
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
