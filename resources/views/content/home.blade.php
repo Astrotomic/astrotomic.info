@@ -42,25 +42,21 @@
     @endforeach
     </section>
 
-    <section class="bg-astrotomic relative">
-        <wave class="fill-current text-night mb-16" />
-        <h2 class="container mx-auto text-white mb-8 text-4xl px-4">Contributors</h2>
-        <div class="container mx-auto flex flex-wrap pr-4">
+    <section-wave bg="astrotomic" before="night">
+        <slot name="title">Contributors</slot>
+
+        <div class="flex flex-wrap -ml-4">
             @foreach($contributors->sortByDesc('commits') as $contributor)
                 <contributor-badge :contributor="$contributor" />
             @endforeach
         </div>
-    </section>
+    </section-wave>
 
-    <section class="bg-mit relative">
-        <wave class="fill-current text-astrotomic bg-mit mb-16" />
-        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
-            <h2 class="text-white text-4xl leading-none">MIT License</h2>
-            <div>
-                <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" />
-            </div>
-        </div>
-        <div class="container mx-auto px-4 space-y-2">
+    <section-wave bg="mit" before="astrotomic">
+        <slot name="title">MIT License</slot>
+        <slot name="badge"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" /></slot>
+
+        <div class="space-y-2">
             <p>
                 If not other stated all our packages are licensed under MIT License (copy of license is in each package).
             </p>
@@ -93,16 +89,12 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="bg-treeware relative">
-        <wave class="fill-current text-mit bg-treeware mb-16" />
-        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
-            <h2 class="text-white text-4xl leading-none">Treeware</h2>
-            <div>
-                <img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
-            </div>
-        </div>
-        <div class="container mx-auto px-4 flex flex-col md:flex-row md:space-x-4">
+    </section-wave>
+    <section-wave bg="treeware" before="mit">
+        <slot name="title">Treeware</slot>
+        <slot name="badge"><img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" /></slot>
+
+        <div class="flex flex-col md:flex-row md:space-x-4">
             <div class="md:w-2/3 space-y-2">
                 <p>
                     In addition to the MIT license all packages have also the Treeware additional license.
@@ -125,16 +117,12 @@
                 </a>
             </div>
         </div>
-    </section>
-    <section class="bg-larabelles relative">
-        <wave class="fill-current text-treeware bg-larabelles mb-16" />
-        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
-            <h2 class="text-white text-4xl leading-none">Larabelles</h2>
-            <div>
-                <img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
-            </div>
-        </div>
-        <div class="container mx-auto px-4 space-y-2">
+    </section-wave>
+    <section-wave bg="larabelles" before="treeware">
+        <slot name="title">Larabelles</slot>
+        <slot name="badge"><img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Larabelles" loading="lazy" /></slot>
+
+        <div class="space-y-2">
             <p>
                 <strong>We strongly believe in a world full of diversity and equity!</strong>
             </p>
@@ -146,10 +134,9 @@
                 They aim to make the world of Laravel development more accessible to women, non-binary and trans folk by promoting them, their accomplishments and projects, by providing networking and socialising opportunities, and by sharing resources.
             </p>
         </div>
-        <wave class="fill-current text-larabelles bg-night mb-8" />
-    </section>
+    </section-wave>
 
-    <copyright/>
+    <copyright before="larabelles"/>
 
     {!! $schemaHome !!}
 @endsection

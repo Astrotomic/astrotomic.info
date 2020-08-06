@@ -1,4 +1,6 @@
 <footer>
+    <wave :class="'fill-current text-'.$before.' bg-night mb-8'" />
+
     <div class="container mx-auto p-4 flex items-center flex-wrap">
         <span class="flex-grow">
             <span class="whitespace-no-wrap opacity-75">
