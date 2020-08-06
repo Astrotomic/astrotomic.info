@@ -100,15 +100,15 @@
                     In addition to the MIT license all packages have also the Treeware additional license.
                 </p>
                 <p>
-                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
+                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a-styled href="https://offset.earth/treeware" :underlined="true">offset.earth/treeware</a-styled> offers).
                 </p>
                 <p>
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
                 </p>
                 <p>
-                    You can buy trees at <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a>.
+                    You can buy trees at <a-styled href="https://offset.earth/treeware" :underlined="true">offset.earth/treeware</a-styled>.
                     <br>
-                    Read more about Treeware at <a href="https://treeware.earth" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">treeware.earth</a>.
+                    Read more about Treeware at <a-styled href="https://treeware.earth" :underlined="true">treeware.earth</a-styled>.
                 </p>
             </div>
             <div class="md:w-1/3 mt-4 md:mt-0">
@@ -127,7 +127,7 @@
                 <strong>We strongly believe in a world full of diversity and equity!</strong>
             </p>
             <p>
-                Larabelles is a community that focuses on reducing barriers for folks under-represented due to their gender to enter the world of technology.
+                <a-styled href="https://www.larabelles.com/" :underlined="true">Larabelles</a-styled> is a community that focuses on reducing barriers for folks under-represented due to their gender to enter the world of technology.
                 They do this by encourage people to consider a career in tech and by providing a safe space to feel welcome and supported, not just at the beginning of their development career, but throughout.
             </p>
             <p>
