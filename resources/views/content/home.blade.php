@@ -52,25 +52,64 @@
         </div>
     </section>
 
-    <section class="bg-treeware relative">
-        <wave class="fill-current text-astrotomic bg-treeware mb-16" />
-        <h2 class="container mx-auto text-white mb-4 text-4xl px-4">License: MIT & Treeware</h2>
-        <div class="container mx-auto pr-4 mb-8 flex flex-wrap">
-            <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" class="ml-4" alt="MIT license" loading="lazy" />
-            <img src="https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
+    <section class="bg-mit relative">
+        <wave class="fill-current text-astrotomic bg-mit mb-16" />
+        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
+            <h2 class="text-white text-4xl leading-none">MIT License</h2>
+            <div>
+                <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" />
+            </div>
         </div>
-        <div class="container mx-auto px-4 flex flex-col md:flex-row">
-            <div class="md:w-2/3 md:pr-4">
-                <p class="mb-2">
-                    If not other stated all our packages are licensed under MIT License (copy of license is in each package) and also as Treeware.
+        <div class="container mx-auto px-4">
+            <p class="mb-3">
+                If not other stated all our packages are licensed under MIT License (copy of license is in each package).
+            </p>
+            <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                <div class="sm:w-1/3">
+                    <h3 class="text-2xl mb-1">Permissions</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Commercial use</li>
+                        <li>Distribution</li>
+                        <li>Modification</li>
+                        <li>Private use</li>
+                    </ul>
+                </div>
+                <div class="sm:w-1/3">
+                    <h3 class="text-2xl mb-1">Conditions</h3>
+                    <ul class="list-disc list-inside">
+                        <li>License and copyright notice</li>
+                    </ul>
+                </div>
+                <div class="sm:w-1/3">
+                    <h3 class="text-2xl mb-1">Limitations</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Liability</li>
+                        <li>Warranty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-treeware relative">
+        <wave class="fill-current text-mit bg-treeware mb-16" />
+        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
+            <h2 class="text-white text-4xl leading-none">Treeware</h2>
+            <div>
+                <img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
+            </div>
+        </div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row md:space-x-4">
+            <div class="md:w-2/3 space-y-2">
+                <p>
+                    In addition to the MIT license all packages have also the Treeware additional license.
                 </p>
-                <p class="mb-2">
+                <p>
                     You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a> offers).
                 </p>
-                <p class="mb-2">
+                <p>
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
                 </p>
-                <p class="mb-2">
+                <p>
                     You can buy trees at <a href="https://offset.earth/treeware" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">offset.earth/treeware</a>.
                     <br>
                     Read more about Treeware at <a href="https://treeware.earth" class="inline-block opacity-75 hover:opacity-100 border-b border-dotted border-white">treeware.earth</a>.
@@ -82,7 +121,28 @@
                 </a>
             </div>
         </div>
-        <wave class="fill-current text-treeware bg-night mb-8" />
+    </section>
+    <section class="bg-larabelles relative">
+        <wave class="fill-current text-treeware bg-larabelles mb-16" />
+        <div class="container mx-auto px-4 mb-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 items-center justify-between">
+            <h2 class="text-white text-4xl leading-none">Larabelles</h2>
+            <div>
+                <img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" />
+            </div>
+        </div>
+        <div class="container mx-auto px-4 space-y-2">
+            <p>
+                <strong>We strongly believe in a world full of diversity and equity!</strong>
+            </p>
+            <p>
+                Larabelles is a community that focuses on reducing barriers for folks under-represented due to their gender to enter the world of technology.
+                They do this by encourage people to consider a career in tech and by providing a safe space to feel welcome and supported, not just at the beginning of their development career, but throughout.
+            </p>
+            <p>
+                They aim to make the world of Laravel development more accessible to women, non-binary and trans folk by promoting them, their accomplishments and projects, by providing networking and socialising opportunities, and by sharing resources.
+            </p>
+        </div>
+        <wave class="fill-current text-larabelles bg-night mb-8" />
     </section>
 
     <copyright/>
