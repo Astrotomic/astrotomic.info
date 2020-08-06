@@ -6,6 +6,8 @@ module.exports = {
                 moonlight: 'rgb(0, 21, 67)',
                 night: 'rgb(0, 20, 37)',
                 treeware: 'rgb(49, 141, 58)',
+                mit: 'rgb(84,97,200)',
+                larabelles: 'rgb(240, 148, 145)',
                 gray: {
                     '100': '#f5f5f5',
                     '200': '#eeeeee',
