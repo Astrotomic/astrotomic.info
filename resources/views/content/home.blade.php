@@ -60,31 +60,35 @@
                 <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" />
             </div>
         </div>
-        <div class="container mx-auto px-4">
-            <p class="mb-3">
+        <div class="container mx-auto px-4 space-y-2">
+            <p>
                 If not other stated all our packages are licensed under MIT License (copy of license is in each package).
+            </p>
+            <p>
+                A short and simple permissive license with conditions only requiring preservation of copyright and license notices.
+                Licensed works, modifications, and larger works may be distributed under different terms and without source code.
             </p>
             <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <div class="sm:w-1/3">
-                    <h3 class="text-2xl mb-1">Permissions</h3>
-                    <ul class="list-disc list-inside">
-                        <li>Commercial use</li>
-                        <li>Distribution</li>
-                        <li>Modification</li>
-                        <li>Private use</li>
+                    <h3 class="text-xl mb-1">Permissions</h3>
+                    <ul class="list-inside">
+                        <li><i class="far fa-fw fa-check mr-1"></i> Commercial use</li>
+                        <li><i class="far fa-fw fa-check mr-1"></i> Distribution</li>
+                        <li><i class="far fa-fw fa-check mr-1"></i> Modification</li>
+                        <li><i class="far fa-fw fa-check mr-1"></i> Private use</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
-                    <h3 class="text-2xl mb-1">Conditions</h3>
-                    <ul class="list-disc list-inside">
-                        <li>License and copyright notice</li>
+                    <h3 class="text-xl mb-1">Limitations</h3>
+                    <ul class="list-inside">
+                        <li><i class="far fa-fw fa-times mr-1"></i> Liability</li>
+                        <li><i class="far fa-fw fa-times mr-1"></i> Warranty</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
-                    <h3 class="text-2xl mb-1">Limitations</h3>
-                    <ul class="list-disc list-inside">
-                        <li>Liability</li>
-                        <li>Warranty</li>
+                    <h3 class="text-xl mb-1">Conditions</h3>
+                    <ul class="list-inside">
+                        <li><i class="far fa-fw fa-info mr-1"></i> License and copyright notice</li>
                     </ul>
                 </div>
             </div>
