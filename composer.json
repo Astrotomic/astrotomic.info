@@ -27,9 +27,9 @@
         "laravel/framework": "^6.0",
         "php-http/guzzle6-adapter": "^1.1",
         "spatie/laravel-blade-x": "^2.4",
+        "spatie/laravel-export": "0.3.3 as 0.2.3",
         "spatie/packagist-api": "^1.2",
-        "spatie/schema-org": "^2.9",
-        "spatie/laravel-export": "0.3.3 as 0.2.3"
+        "spatie/schema-org": "^2.9"
     },
     "require-dev": {
         "facade/ignition": "^1.11"
