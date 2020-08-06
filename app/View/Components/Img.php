@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Str;
 use Imgix\UrlBuilder;
 
 class Img
@@ -27,7 +28,7 @@ class Img
         $this->setHeight($height);
 
         if(app()->environment('prod')) {
-            $this->src .= '?v='.hash('md5', file_get_contents($this->src));
+            $this->src .= (Str::contains($this->src, '?') ? '&' : '?').'md5='.hash_file('md5', $this->src);
         }
 
         $this->params['auto'] = 'compress';
