@@ -62,7 +62,7 @@ jobs:
           GH_PAT: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Export page
-        run: php artisan export --env=prod --skip-assets --skip-deploy
+        run: php artisan export --env=prod --skip-all
         env:
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
 

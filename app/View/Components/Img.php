@@ -22,7 +22,7 @@ class Img
         bool $crop = false
     ) {
         $this->builder = $builder;
-        $this->src = $src;
+        $this->src = url($src);
         $this->setWidth($width);
         $this->setHeight($height);
 
