@@ -1,5 +1,7 @@
 <footer>
-    <wave :class="'fill-current text-'.$before.' bg-night mb-8'" />
+    @isset($before)
+        <wave :class="'fill-current text-'.$before.' bg-night mb-8'" />
+    @endisset
 
     <div class="container mx-auto p-4 flex items-center flex-wrap">
         <span class="flex-grow">
