@@ -50,6 +50,11 @@ mix
     .purgeCss({
         whitelistPatterns: [
             /body-home/,
+            /-night/,
+            /-astrotomic/,
+            /-treeware/,
+            /-mit/,
+            /-larabelles/,
         ]
     })
     .version()
