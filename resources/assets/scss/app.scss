@@ -37,6 +37,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
 @import "variables";
 
 @mixin translate-y {
