@@ -31,6 +31,8 @@
                 <icon icon="fa-equals" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-auth-recovery-codes')
                 <icon icon="fa-key" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/laravel-transaction-proxy')
+                <icon icon="fa-undo" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
