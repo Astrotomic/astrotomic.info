@@ -141,7 +141,7 @@
     <section-wave bg="moonlight" before="larabelles">
         <slot name="title">Trust</slot>
 
-        <div class="space-y-2 mb-4">
+        <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">
             <p>
                 Several companies across the globe trust our work by using them in their own or customer projects.
             </p>
@@ -152,7 +152,7 @@
 
         <div class="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 lg:gap-10 xl:gap-12">
             @foreach($trusts as $trust)
-                <a href="{{ $trust['website'] }}" target="_blank" rel="noreferrer" class="block opacity-75 hover:opacity-100">
+                <a href="{{ $trust['website'] }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
                     <div class="relative pb-16/9">
                         <div class="w-full h-full absolute inset-0 p-4">
                             <imgix
