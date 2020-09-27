@@ -5,6 +5,7 @@
     'height' => $height ?? null,
     'ratio' => $ratio ?? null,
     'crop' => $crop ?? false,
+    'trim' => $trim ?? null,
 ]))
 
 <picture>

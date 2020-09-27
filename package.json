@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.0",
+    "glob": "^7.1.6",
     "laravel-mix": "^4.1.0",
     "laravel-mix-purgecss": "^4.2.0",
     "postcss-discard-comments": "^4.0.2",

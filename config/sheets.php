@@ -1,6 +1,7 @@
 <?php
 
 use Spatie\Sheets\ContentParsers\JsonParser;
+use Spatie\Sheets\ContentParsers\YamlParser;
 
 return [
     'default_collection' => null,
@@ -19,6 +20,10 @@ return [
         'contributor' => [
             'content_parser' => JsonParser::class,
             'extension' => 'json',
+        ],
+        'trust' => [
+            'content_parser' => YamlParser::class,
+            'extension' => 'yml',
         ],
     ],
 ];

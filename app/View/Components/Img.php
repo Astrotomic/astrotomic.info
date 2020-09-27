@@ -20,7 +20,8 @@ class Img
         ?int $width = null,
         ?int $height = null,
         ?string $ratio = null,
-        bool $crop = false
+        bool $crop = false,
+        ?string $trim = null
     ) {
         $this->builder = $builder;
         $this->src = url($src);
@@ -50,6 +51,14 @@ class Img
         if ($crop) {
             $this->params['fit'] = 'crop';
             $this->params['crop'] = 'edges';
+        }
+
+        if ($trim) {
+            $this->params['trim'] = 'auto';
+            if(Str::startsWith($trim, '#')) {
+                $this->params['trim'] = 'color';
+                $this->params['trim-color'] = Str::after($trim, '#');
+            }
         }
     }
 

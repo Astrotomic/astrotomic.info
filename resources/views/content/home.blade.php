@@ -90,6 +90,7 @@
             </div>
         </div>
     </section-wave>
+
     <section-wave bg="treeware" before="mit">
         <slot name="title">Treeware</slot>
         <slot name="badge"><img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" /></slot>
@@ -118,6 +119,7 @@
             </div>
         </div>
     </section-wave>
+
     <section-wave bg="larabelles" before="treeware">
         <slot name="title">Larabelles</slot>
         <slot name="badge"><img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Larabelles" loading="lazy" /></slot>
@@ -136,7 +138,32 @@
         </div>
     </section-wave>
 
-    <copyright before="larabelles"/>
+    <section-wave bg="moonlight" before="larabelles">
+        <slot name="title">Trust</slot>
+
+        <div class="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 lg:gap-10 xl:gap-12">
+            @foreach($trusts as $trust)
+                <a href="{{ $trust['website'] }}" target="_blank" rel="noreferrer" class="block opacity-75 hover:opacity-100">
+                    <div class="relative pb-16/9">
+                        <div class="w-full h-full absolute inset-0 p-4">
+                            <imgix
+                                :src="$trust['image']"
+                                :alt="$trust['name']"
+                                class="w-full h-full object-contain"
+                                trim
+                            />
+                        </div>
+                    </div>
+                    <p class="text-center">
+                        <strong class="block font-bold">{{ $trust['name'] }}</strong>
+                        <small class="block text-xs">{{ $trust['location'] }}</small>
+                    </p>
+                </a>
+            @endforeach
+        </div>
+    </section-wave>
+
+    <copyright before="moonlight"/>
 
     {!! $schemaHome !!}
 @endsection

@@ -85,6 +85,10 @@ return [
             'driver' => 'local',
             'root' => resource_path('content/github'),
         ],
+        'trust' => [
+            'driver' => 'local',
+            'root' => resource_path('content/trust'),
+        ],
     ],
 
 ];
