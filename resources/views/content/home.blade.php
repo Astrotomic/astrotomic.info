@@ -141,6 +141,15 @@
     <section-wave bg="moonlight" before="larabelles">
         <slot name="title">Trust</slot>
 
+        <div class="space-y-2 mb-4">
+            <p>
+                Several companies across the globe trust our work by using them in their own or customer projects.
+            </p>
+            <p>
+                We are proud to provide value and reusable code to developers all over the world.
+            </p>
+        </div>
+
         <div class="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 lg:gap-10 xl:gap-12">
             @foreach($trusts as $trust)
                 <a href="{{ $trust['website'] }}" target="_blank" rel="noreferrer" class="block opacity-75 hover:opacity-100">
