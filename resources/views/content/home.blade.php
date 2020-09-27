@@ -147,7 +147,7 @@
                     <div class="relative pb-16/9">
                         <div class="w-full h-full absolute inset-0 p-4">
                             <imgix
-                                :src="$trust['image']"
+                                :src="mix($trust['image'])"
                                 :alt="$trust['name']"
                                 class="w-full h-full object-contain"
                                 trim

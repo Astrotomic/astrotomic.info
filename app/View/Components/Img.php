@@ -24,13 +24,18 @@ class Img
         ?string $trim = null
     ) {
         $this->builder = $builder;
-        $this->src = url($src);
+        $this->src = $src;
         $this->setWidth($width);
         $this->setHeight($height);
 
-        if(app()->environment('prod')) {
+        if(
+            app()->environment('prod')
+            && Str::startsWith($this->src, 'http')
+            && !Str::startsWith($this->src, asset(''))
+        ) {
             $this->src .= (Str::contains($this->src, '?') ? '&' : '?').'md5='.hash_file('md5', $this->src);
         }
+        $this->src = url($this->src);
 
         $this->params['auto'] = 'compress';
         $this->params['fit'] = 'max';
