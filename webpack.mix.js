@@ -49,6 +49,7 @@ mix
         whitelistPatterns: [
             /body-home/,
             /-night/,
+            /-moonlight/,
             /-astrotomic/,
             /-treeware/,
             /-mit/,
