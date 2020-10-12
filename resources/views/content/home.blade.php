@@ -30,7 +30,7 @@
 
     <context :packagist="$packagist" :github="$github">
         <section class="container mx-auto px-4">
-            <package-promo bg-color="bg-astrotomic" image="images/translatable.min.jpg" label="Laravel Translatable" project="astrotomic/laravel-translatable">
+            <package-promo bg-color="bg-astrotomic" :image="mix('images/translatable.min.jpg')" label="Laravel Translatable" project="astrotomic/laravel-translatable">
                 This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
             </package-promo>
         </section>
