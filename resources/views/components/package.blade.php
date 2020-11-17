@@ -33,6 +33,10 @@
                 <icon icon="fa-key" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-transaction-proxy')
                 <icon icon="fa-undo" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/php-twemoji')
+                <icon icon="fa-grin-stars" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/laravel-fileable')
+                <icon icon="fa-file-plus" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
