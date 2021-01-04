@@ -28,10 +28,10 @@ class Img
         $this->setWidth($width);
         $this->setHeight($height);
 
-        if(
+        if (
             app()->environment('prod')
             && Str::startsWith($this->src, 'http')
-            && !Str::startsWith($this->src, asset(''))
+            && ! Str::startsWith($this->src, asset(''))
         ) {
             $this->src .= (Str::contains($this->src, '?') ? '&' : '?').'md5='.hash_file('md5', $this->src);
         }
@@ -60,7 +60,7 @@ class Img
 
         if ($trim) {
             $this->params['trim'] = 'auto';
-            if(Str::startsWith($trim, '#')) {
+            if (Str::startsWith($trim, '#')) {
                 $this->params['trim'] = 'color';
                 $this->params['trim-color'] = Str::after($trim, '#');
             }
