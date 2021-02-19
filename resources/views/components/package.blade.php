@@ -37,6 +37,10 @@
                 <icon icon="fa-grin-stars" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-fileable')
                 <icon icon="fa-file-plus" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/phpunit-assertions')
+                <icon icon="fa-vial" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/psr-8')
+                <icon icon="fa-heart" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
