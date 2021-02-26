@@ -41,6 +41,8 @@
                 <icon icon="fa-vial" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/psr-8')
                 <icon icon="fa-heart" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/laravel-vcard')
+                <icon icon="fa-address-card" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
