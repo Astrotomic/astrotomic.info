@@ -19,10 +19,10 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
+        "astrotomic/laravel-imgix": "^0.1.1",
         "astrotomic/php-open-graph": "^0.4.0",
         "astrotomic/stancy": "^0.5.0",
         "fideloper/proxy": "^4.0",
-        "imgix/imgix-php": "^3.3",
         "knplabs/github-api": "^2.11",
         "laravel/framework": "^6.0",
         "php-http/guzzle6-adapter": "^1.1",

@@ -2,12 +2,12 @@
 
 namespace App\View\Components;
 
+use Astrotomic\Imgix\Facades\Imgix;
 use Illuminate\Support\Str;
 use Imgix\UrlBuilder;
 
 class Img
 {
-    private UrlBuilder $builder;
     private array $params = [];
     private string $src;
 
@@ -15,7 +15,6 @@ class Img
     public ?int $height;
 
     public function __construct(
-        UrlBuilder $builder,
         string $src,
         ?int $width = null,
         ?int $height = null,
@@ -23,7 +22,6 @@ class Img
         bool $crop = false,
         ?string $trim = null
     ) {
-        $this->builder = $builder;
         $this->src = $src;
         $this->setWidth($width);
         $this->setHeight($height);
@@ -73,7 +71,7 @@ class Img
             return asset($this->src);
         }
 
-        return $this->builder->createURL(
+        return Imgix::createURL(
             $this->src,
             array_merge($this->params, array_filter(['fm' => $format]))
         );
@@ -85,7 +83,7 @@ class Img
             return asset($this->src).' 1x';
         }
 
-        return $this->builder->createSrcSet(
+        return Imgix::createSrcSet(
             $this->src,
             array_merge($this->params, array_filter(['fm' => $format])),
             $options

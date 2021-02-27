@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->registerImgix();
+        //
     }
 
     public function boot(ExportFactoryContract $exportFactory)
@@ -183,16 +183,5 @@ class AppServiceProvider extends ServiceProvider
                     })->values()->all()
                 )
         );
-    }
-
-    public function registerImgix(): void
-    {
-        $builder = new UrlBuilder(config('services.imgix.domain'));
-        $builder->setUseHttps(true);
-        if (config('services.imgix.sign_key')) {
-            $builder->setSignKey(config('services.imgix.sign_key'));
-        }
-
-        $this->app->instance(UrlBuilder::class, $builder);
     }
 }
