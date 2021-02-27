@@ -45,6 +45,8 @@
                 <icon icon="fa-address-card" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-webmentions')
                 <icon icon="fa-blog" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/laravel-imgix')
+                <icon icon="fa-image" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
