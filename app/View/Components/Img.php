@@ -4,7 +4,6 @@ namespace App\View\Components;
 
 use Astrotomic\Imgix\Facades\Imgix;
 use Illuminate\Support\Str;
-use Imgix\UrlBuilder;
 
 class Img
 {

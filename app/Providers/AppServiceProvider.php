@@ -8,7 +8,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use Imgix\UrlBuilder;
 use Spatie\BladeX\Facades\BladeX;
 use Spatie\SchemaOrg\GenderType;
 use Spatie\SchemaOrg\OwnershipInfo;
