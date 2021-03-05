@@ -1,7 +1,8 @@
 # [astrotomic.info](https://astrotomic.info)
 
-[![MIT License](https://img.shields.io/github/license/Astrotomic/astrotomic.info.svg?label=License&color=blue&style=for-the-badge&cacheSeconds=600)](https://github.com/Astrotomic/astrotomic.info/blob/master/LICENSE)
-[![Offset Earth](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-green?style=for-the-badge)](https://offset.earth/treeware)
+[![MIT License](https://img.shields.io/github/license/Astrotomic/astrotomic.info.svg?label=License&color=blue&style=for-the-badge)](https://github.com/Astrotomic/astrotomic.info/blob/master/LICENSE)
+[![Offset Earth](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-green?style=for-the-badge)](https://plant.treeware.earth/Astrotomic/astrotomic.info)
+[![Larabelles](https://img.shields.io/badge/Larabelles-%F0%9F%A6%84-lightpink?style=for-the-badge)](https://www.larabelles.com/)
 
 ## Installation
 
