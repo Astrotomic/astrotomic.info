@@ -174,5 +174,5 @@
 
     <copyright before="moonlight"/>
 
-    {!! $schemaHome !!}
+    {!! $schemaHome ?? null !!}
 @endsection
