@@ -6,7 +6,6 @@ use Astrotomic\Stancy\Contracts\Routable;
 use Astrotomic\Stancy\Models\PageData;
 use Astrotomic\Stancy\Traits\PageHasSlug;
 use Astrotomic\Stancy\Traits\PageHasUrl;
-use Illuminate\Support\Arr;
 
 class Contributor extends PageData implements Routable
 {
