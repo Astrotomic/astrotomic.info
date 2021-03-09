@@ -6,26 +6,11 @@ use Astrotomic\Stancy\Contracts\Routable;
 use Astrotomic\Stancy\Models\PageData;
 use Astrotomic\Stancy\Traits\PageHasSlug;
 use Astrotomic\Stancy\Traits\PageHasUrl;
+use Illuminate\Support\Arr;
 
 class Contributor extends PageData implements Routable
 {
     use PageHasSlug, PageHasUrl;
-
-    public $id;
-    public $node_id;
-    public $gravatar_id;
-    public $url;
-    public $followers_url;
-    public $following_url;
-    public $gists_url;
-    public $starred_url;
-    public $subscriptions_url;
-    public $organizations_url;
-    public $repos_url;
-    public $events_url;
-    public $received_events_url;
-    public $type;
-    public $site_admin;
 
     /** @var string */
     public $login;
@@ -42,11 +27,12 @@ class Contributor extends PageData implements Routable
     /** @var string[] */
     public $packages;
 
+    /** @var array */
     public $info;
 
     public function __construct(array $parameters = [])
     {
-        parent::__construct($parameters);
+        parent::__construct(Arr::only($parameters, ['packagist', 'github', 'slug', 'login', 'avatar_url', 'commits', 'packages', 'html_url', 'info']));
     }
 
     public function getUrl(): string
