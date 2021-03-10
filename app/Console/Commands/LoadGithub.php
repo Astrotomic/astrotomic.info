@@ -63,9 +63,10 @@ class LoadGithub extends Command
                 $data['packages'] = $repos->filter(function (Sheet $repo) use ($name): bool {
                     return collect($repo['contributors'])->pluck('author.login')->contains($name);
                 })->pluck('name');
-
                 $data['_pageData'] = '\\'.Contributor::class;
                 $data['_view'] = 'content.contributor';
+
+                $data['info'] = $this->github->user()->show($name);
 
                 Storage::disk('contributor')->put(strtolower($name).'.json', collect($data)->toJson());
             });

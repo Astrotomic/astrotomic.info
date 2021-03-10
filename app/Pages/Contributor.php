@@ -27,9 +27,12 @@ class Contributor extends PageData implements Routable
     /** @var string[] */
     public $packages;
 
+    /** @var array */
+    public $info;
+
     public function __construct(array $parameters = [])
     {
-        parent::__construct(Arr::only($parameters, ['packagist', 'github', 'slug', 'login', 'avatar_url', 'commits', 'packages', 'html_url']));
+        parent::__construct(Arr::only($parameters, ['packagist', 'github', 'slug', 'login', 'avatar_url', 'commits', 'packages', 'html_url', 'info']));
     }
 
     public function getUrl(): string
