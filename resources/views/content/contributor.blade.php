@@ -18,7 +18,7 @@
                 </a-styled>
             </h2>
 
-            <ul class="flex flex-col justify-between my-2 mx-auto space-y-2 space-x-0 list-inline md:max-w-2xl sm:space-x-4 sm:space-y-0 sm:flex-row">
+            <ul class="flex flex-col justify-center my-2 mx-auto space-y-2 space-x-0 list-inline md:max-w-2xl sm:space-x-4 sm:space-y-0 sm:flex-row">
                 @if(!empty($info['location']))
                     <li>
                         <icon icon="fa-map-marker-alt" icon-style="fas" class="mr-1 opacity-75" />
