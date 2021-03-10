@@ -26,10 +26,30 @@
                     </li>
                 @endif
                 @if(!$info['blog']=="")
-                    <li>
-                        <icon icon="fa-globe" icon-style="fas" class="mr-1 opacity-75" />
-                        <a-styled :href="$info['blog']" :underlined="true">{{$info['blog']}}</a-styled>
-                    </li>
+                    @php
+                        $website = $info['blog']; 
+                        $link = $info['blog'];
+                        if(substr($website, 0, 8) == "https://"){
+                            $website = substr($website, 8);    
+                        }elseif(substr($website, 0, 7) === "http://"){
+                            $website = substr($website, 7);  
+                        }elseif(substr($website, 0, 8) != "https://" || substr($website, 0, 7) != "http://" ){
+                            $link = "https://".$website;
+                        }
+
+                        if(strlen($website) > 20 && (isset($info['location']) && isset($info['twitter_username']))){
+                            $website = substr($website, 0, 20) . ' ...';
+                        }
+
+                        if(substr($website, -1) === "/"){
+                            $website = substr($website, 0, -1); 
+                        }
+                    @endphp
+
+                    <div class="flex-1">
+                        <icon icon="fa-browser" icon-style="fas" class="opacity-75 mr-1" />
+                        <a-styled :href="$link" :underlined="true">{{$website}}</a-styled>
+                    </div>
                 @endif
                 @if(isset($info['twitter_username']))
                     <li>
