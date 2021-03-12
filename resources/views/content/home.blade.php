@@ -101,15 +101,15 @@
                     In addition to the MIT license all packages have also the Treeware additional license.
                 </p>
                 <p>
-                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a-styled href="https://offset.earth/treeware" :underlined="true">offset.earth/treeware</a-styled> offers).
+                    You're free to use our packages, but if one makes it to your production environment you are required to buy the world a tree (at least the lowest package <a-styled href="https://ecologi.com/treeware" underlined>offset.earth/treeware</a-styled> offers).
                 </p>
                 <p>
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
                 </p>
                 <p>
-                    You can buy trees at <a-styled href="https://offset.earth/treeware" :underlined="true">offset.earth/treeware</a-styled>.
+                    You can buy trees at <a-styled href="https://ecologi.com/treeware" underlined>ecologi.com/treeware</a-styled>.
                     <br>
-                    Read more about Treeware at <a-styled href="https://treeware.earth" :underlined="true">treeware.earth</a-styled>.
+                    Read more about Treeware at <a-styled href="https://treeware.earth" underlined>treeware.earth</a-styled>.
                 </p>
             </div>
             <div class="md:w-1/3 mt-4 md:mt-0">
