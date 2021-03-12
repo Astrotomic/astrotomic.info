@@ -3,7 +3,7 @@
     class="
         block flex items-center ml-4 mb-4 rounded overflow-hidden translate
         w-full sm:w-auto
-        @if(in_array($contributor['id'], [6187884, 1785686]))
+        @if(in_array($contributor['id'], [6187884, 1785686, 38976391]))
             bg-moonlight text-white
         @else
             bg-white text-black
