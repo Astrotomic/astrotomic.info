@@ -6,6 +6,7 @@ use App\Pages\Contributor;
 use Github\Client as Github;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Spatie\Sheets\Facades\Sheets;
 use Spatie\Sheets\Sheet;
 
@@ -33,23 +34,30 @@ class LoadGithub extends Command
         $packages = Sheets::collection('packagist')->all();
 
         $this->output->progressStart($packages->count());
-        $packages->each(function (Sheet $package): void {
-            do {
-                $stats['name'] = $package['name'];
-                $stats['contributors'] = $this->github->repo()->statistics(...explode('/', $package['name']));
-                if (empty($stats['contributors'])) {
-                    usleep(5 * 1000);
-                }
-            } while (empty($stats['contributors']));
+        $packages
+            ->concat([
+                new Sheet(['github_name' => 'Astrotomic/astrotomic.info']),
+                new Sheet(['github_name' => 'Astrotomic/art']),
+            ])
+            ->each(function (Sheet $package): void {
+                do {
+                    $name = $package['github_name'];
+                    $stats['package'] = $package['name'];
+                    $stats['name'] = $name;
+                    $stats['contributors'] = $this->github->repo()->statistics(...explode('/', $name));
+                    if (empty($stats['contributors'])) {
+                        usleep(5 * 1000);
+                    }
+                } while (empty($stats['contributors']));
 
-            Storage::disk('github')->put($package['name'].'.json', json_encode($stats));
-            $this->output->progressAdvance();
-        });
+                Storage::disk('github')->put($name . '.json', json_encode($stats));
+                $this->output->progressAdvance();
+            });
         $this->output->progressFinish();
 
         $this->info(sprintf('loaded github data for %d packages:', $packages->count()));
         $packages->pluck('name')->each(function (string $name): void {
-            $this->line('* '.$name);
+            $this->line('* ' . $name);
         });
 
         $repos = Sheets::collection('github')->all();
@@ -58,17 +66,15 @@ class LoadGithub extends Command
             ->pluck('author.login')
             ->unique()
             ->each(function (string $name) use ($contributors, $repos): void {
-                $data = $contributors->where('author.login', $name)->pluck('author')->first();
+                $data = $this->github->user()->show($name);
                 $data['commits'] = $contributors->where('author.login', $name)->sum('total');
                 $data['packages'] = $repos->filter(function (Sheet $repo) use ($name): bool {
                     return collect($repo['contributors'])->pluck('author.login')->contains($name);
-                })->pluck('name');
+                })->pluck('package')->filter();
                 $data['_pageData'] = '\\'.Contributor::class;
                 $data['_view'] = 'content.contributor';
 
-                $data['info'] = $this->github->user()->show($name);
-
-                Storage::disk('contributor')->put(strtolower($name).'.json', collect($data)->toJson());
+                Storage::disk('contributor')->put(Str::lower($name).'.json', collect($data)->toJson());
             });
     }
 }
