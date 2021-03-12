@@ -34,7 +34,8 @@ class LoadPackagist extends Command
                 return $package['abandoned'] ?? false;
             })
             ->map(function (array $package): array {
-                $package['github_name'] =  Str::lower(Str::after($package['repository'], 'https://github.com/'));
+                $package['github_name'] = Str::lower(Str::after($package['repository'], 'https://github.com/'));
+
                 return $package;
             })
             ->each(function (array $package, string $name): void {

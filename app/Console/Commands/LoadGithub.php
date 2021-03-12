@@ -50,14 +50,14 @@ class LoadGithub extends Command
                     }
                 } while (empty($stats['contributors']));
 
-                Storage::disk('github')->put($name . '.json', json_encode($stats));
+                Storage::disk('github')->put($name.'.json', json_encode($stats));
                 $this->output->progressAdvance();
             });
         $this->output->progressFinish();
 
         $this->info(sprintf('loaded github data for %d packages:', $packages->count()));
         $packages->pluck('name')->each(function (string $name): void {
-            $this->line('* ' . $name);
+            $this->line('* '.$name);
         });
 
         $repos = Sheets::collection('github')->all();
