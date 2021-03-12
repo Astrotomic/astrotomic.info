@@ -47,20 +47,26 @@
                 <icon icon="fa-blog" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-imgix')
                 <icon icon="fa-image" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'linfo/laravel')
+                <icon icon="fa-monitor-heart-rate" icon-style="fas" class="opacity-75" />
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
-            {{ \Illuminate\Support\Str::title(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')) }}
+            {{ \Illuminate\Support\Str::title(
+                $package['name'] == 'linfo/laravel'
+                    ? 'laravel linfo'
+                    : \Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')
+            ) }}
         </h3>
         <package-stats :package="$package" />
         <p>{{ $package['description'] }}</p>
         <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
             <icon icon-style="fab" icon="fa-github" />
             <span class="hidden sm:inline">
-                <cite>astrotomic</cite>
+                <cite>{{ explode('/', $package['name'], 2)[0] }}</cite>
                 <span class="opacity-75">/</span>
             </span>
-            {{ \Illuminate\Support\Str::after($package['name'], 'astrotomic/') }}
+            {{ explode('/', $package['name'], 2)[1] }}
         </a-styled>
     </div>
 </div>
