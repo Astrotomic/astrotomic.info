@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             [
                 'icon' => 'fa-trees',
                 'style' => 'fas',
-                'href' => 'https://offset.earth/treeware',
+                'href' => 'https://forest.astrotomic.info',
                 'label' => 'Treeware',
             ], [
                 'icon' => 'fa-github',

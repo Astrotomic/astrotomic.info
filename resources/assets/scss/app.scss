@@ -43,12 +43,12 @@ a.btn {
     @apply rounded;
     @apply py-2;
     @apply px-4;
-    @apply text-astrotomic;
+    @apply text-astro-astrotomic;
     @apply bg-white;
 
     &:hover {
         @apply border-0;
-        @apply text-astrotomic;
+        @apply text-astro-astrotomic;
         @apply bg-white;
     }
 }

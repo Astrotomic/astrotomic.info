@@ -3,12 +3,6 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                astrotomic: 'rgb(126, 89, 197)',
-                moonlight: 'rgb(0, 21, 67)',
-                night: 'rgb(0, 20, 37)',
-                treeware: 'rgb(49, 141, 58)',
-                mit: 'rgb(84,97,200)',
-                larabelles: 'rgb(240, 148, 145)',
                 gray: {
                     '100': '#f5f5f5',
                     '200': '#eeeeee',
@@ -26,4 +20,7 @@ module.exports = {
             }
         }
     },
+    plugins: [
+        require('tailwind-astrotomic-colors'),
+    ],
 };

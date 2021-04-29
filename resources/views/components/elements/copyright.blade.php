@@ -1,6 +1,6 @@
 <footer>
     @isset($before)
-        <wave :before="$before" bg="night" class="mb-8" />
+        <wave :before="$before" bg="astro-night" class="mb-8" />
     @endisset
 
     <div class="container mx-auto p-4 flex items-center flex-wrap">

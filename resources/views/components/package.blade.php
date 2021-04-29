@@ -1,5 +1,5 @@
 <div class="w-full lg:w-1/2 px-4 pb-8">
-    <div class="bg-moonlight p-8 rounded overflow-hidden">
+    <div class="bg-astro-moonlight p-8 rounded overflow-hidden">
         <h3 class="text-xl mb-1">
             @if($package['name'] === 'astrotomic/countdown-gif')
                 <icon icon="fa-stopwatch" icon-style="fas" class="opacity-75" />

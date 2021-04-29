@@ -30,7 +30,7 @@
 
     <context :packagist="$packagist" :github="$github">
         <section class="container mx-auto px-4">
-            <package-promo bg-color="bg-astrotomic" :image="mix('images/translatable.min.jpg')" label="Laravel Translatable" project="astrotomic/laravel-translatable">
+            <package-promo bg-color="bg-astro-astrotomic" :image="mix('images/translatable.min.jpg')" label="Laravel Translatable" project="astrotomic/laravel-translatable">
                 This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
             </package-promo>
         </section>
@@ -42,7 +42,7 @@
     @endforeach
     </section>
 
-    <section-wave bg="astrotomic" before="night">
+    <section-wave bg="astro-astrotomic" before="astro-night">
         <slot name="title">Contributors</slot>
 
         <div class="flex flex-wrap -ml-4">
@@ -52,7 +52,7 @@
         </div>
     </section-wave>
 
-    <section-wave bg="mit" before="astrotomic">
+    <section-wave bg="astro-mit" before="astro-astrotomic">
         <slot name="title">MIT License</slot>
         <slot name="badge"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" /></slot>
 
@@ -91,7 +91,7 @@
         </div>
     </section-wave>
 
-    <section-wave bg="treeware" before="mit">
+    <section-wave bg="astro-treeware" before="astro-mit">
         <slot name="title">Treeware</slot>
         <slot name="badge"><img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" /></slot>
 
@@ -120,7 +120,7 @@
         </div>
     </section-wave>
 
-    <section-wave bg="larabelles" before="treeware">
+    <section-wave bg="astro-larabelles" before="astro-treeware">
         <slot name="title">Larabelles</slot>
         <slot name="badge"><img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Larabelles" loading="lazy" /></slot>
 
@@ -138,7 +138,7 @@
         </div>
     </section-wave>
 
-    <section-wave bg="moonlight" before="larabelles">
+    <section-wave bg="astro-moonlight" before="astro-larabelles">
         <slot name="title">Trust</slot>
 
         <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">
@@ -172,7 +172,7 @@
         </div>
     </section-wave>
 
-    <copyright before="moonlight"/>
+    <copyright before="astro-moonlight"/>
 
     {!! $schemaHome ?? null !!}
 @endsection
