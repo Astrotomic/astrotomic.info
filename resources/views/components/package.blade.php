@@ -55,9 +55,10 @@
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
             {{ \Illuminate\Support\Str::title(
-                $package['name'] == 'linfo/laravel'
-                    ? 'laravel linfo'
-                    : \Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')
+                [
+                    'linfo/laravel' => 'laravel linfo',
+                    'astrotomic/iso639' => 'ISO 639',
+                ][$package['name']] ?? \Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')
             ) }}
         </h3>
         <package-stats :package="$package" />
