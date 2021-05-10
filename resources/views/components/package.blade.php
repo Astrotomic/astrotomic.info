@@ -47,6 +47,8 @@
                 <icon icon="fa-blog" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'astrotomic/laravel-imgix')
                 <icon icon="fa-image" icon-style="fas" class="opacity-75" />
+            @elseif($package['name'] === 'astrotomic/iso639')
+                <icon icon="fa-language" icon-style="fas" class="opacity-75" />
             @elseif($package['name'] === 'linfo/laravel')
                 <icon icon="fa-monitor-heart-rate" icon-style="fas" class="opacity-75" />
             @else
