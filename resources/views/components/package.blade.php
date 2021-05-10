@@ -54,12 +54,12 @@
             @else
                 <icon icon="fa-box" icon-style="fas" class="opacity-75" />
             @endif
-            {{ \Illuminate\Support\Str::title(
+            {{
                 [
-                    'linfo/laravel' => 'laravel linfo',
+                    'linfo/laravel' => 'Laravel Linfo',
                     'astrotomic/iso639' => 'ISO 639',
-                ][$package['name']] ?? \Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' ')
-            ) }}
+                ][$package['name']] ?? \Illuminate\Support\Str::title(\Illuminate\Support\Str::slug(\Illuminate\Support\Str::after($package['name'], 'astrotomic/'), ' '))
+            }}
         </h3>
         <package-stats :package="$package" />
         <p>{{ $package['description'] }}</p>
