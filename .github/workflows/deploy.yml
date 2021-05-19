@@ -69,7 +69,7 @@ jobs:
           php artisan load:github
           php artisan load:sponsors
         env:
-          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
           GH_SPONSOR_PATS: ${{ secrets.GH_SPONSOR_PATS }}
 
       - name: Export page
