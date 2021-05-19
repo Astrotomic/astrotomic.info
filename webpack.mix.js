@@ -54,6 +54,7 @@ mix
             /-treeware/,
             /-mit/,
             /-larabelles/,
+            /-sponsors/,
         ]
     })
     .version()
