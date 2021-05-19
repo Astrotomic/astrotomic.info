@@ -4,4 +4,5 @@ _view: content.home
 _sheets:
     contributors: contributor:*
     trusts: trust:*
+    sponsors: sponsor:*
 ---

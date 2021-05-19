@@ -138,7 +138,38 @@
         </div>
     </section-wave>
 
-    <section-wave bg="astro-moonlight" before="astro-larabelles">
+    <section-wave bg="astro-sponsors" before="astro-larabelles">
+        <slot name="title">Sponsors</slot>
+
+        <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">
+            <p>
+                Maintaining all the packages, creating new one and answering issues takes a lot of time.
+                There are several ways to help us with that - one way is to sponsor us via <a-styled href="https://github.com/sponsors/Gummibeer" :underlined="true">GitHub Sponsors</a-styled> program.
+            </p>
+            <p>
+                Here you see all of our current sponsors - and we are thankful for every single one of them!
+            </p>
+        </div>
+        <div class="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 lg:gap-10 xl:gap-12">
+            @foreach($sponsors as $sponsor)
+                <a href="{{ $sponsor['github_url'] }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
+                    <div class="flex justify-center">
+                        <imgix
+                            :src="$sponsor['avatar_url']"
+                            :alt="$sponsor['slug']"
+                            class="w-20 h-20 rounded bg-white"
+                        />
+                    </div>
+                    <p class="text-center">
+                        <strong class="block font-bold">{{ $sponsor['name'] ?? $sponsor['slug'] }}</strong>
+                        <small class="block text-xs">{{ $sponsor['location'] }}</small>
+                    </p>
+                </a>
+            @endforeach
+        </div>
+    </section-wave>
+
+    <section-wave bg="astro-moonlight" before="astro-sponsors">
         <slot name="title">Trust</slot>
 
         <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">

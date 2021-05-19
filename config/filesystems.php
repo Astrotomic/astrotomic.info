@@ -89,6 +89,10 @@ return [
             'driver' => 'local',
             'root' => resource_path('content/trust'),
         ],
+        'sponsor' => [
+            'driver' => 'local',
+            'root' => resource_path('content/sponsor'),
+        ],
     ],
 
 ];

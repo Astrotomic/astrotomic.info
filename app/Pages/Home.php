@@ -18,6 +18,9 @@ class Home extends PageData implements Routable
     /** @var \Illuminate\Support\Collection */
     public $trusts;
 
+    /** @var \Illuminate\Support\Collection */
+    public $sponsors;
+
     public function __construct(array $parameters = [])
     {
         if (isset($parameters['contributors']) && is_array($parameters['contributors'])) {
@@ -26,6 +29,10 @@ class Home extends PageData implements Routable
 
         if (isset($parameters['trusts']) && is_array($parameters['trusts'])) {
             $parameters['trusts'] = collect($parameters['trusts'])->keyBy('slug');
+        }
+
+        if (isset($parameters['sponsors']) && is_array($parameters['sponsors'])) {
+            $parameters['sponsors'] = collect($parameters['sponsors'])->keyBy('slug');
         }
 
         parent::__construct($parameters);

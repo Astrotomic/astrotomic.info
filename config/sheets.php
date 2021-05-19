@@ -25,5 +25,9 @@ return [
             'content_parser' => YamlParser::class,
             'extension' => 'yml',
         ],
+        'sponsor' => [
+            'content_parser' => JsonParser::class,
+            'extension' => 'json',
+        ],
     ],
 ];
