@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
+// use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
@@ -23,13 +23,13 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    public function boot(ExportFactoryContract $exportFactory)
+    public function boot()
     {
-        $this->app->booted(function () use ($exportFactory): void {
-            $this->booted($exportFactory);
-        });
+        // $this->app->booted(function () use ($exportFactory): void {
+        //     $this->booted($exportFactory);
+        // });
 
-        BladeX::components('components.**.*');
+        // BladeX::components('components.**.*');
 
         View::share('links', [
             [
@@ -49,11 +49,11 @@ class AppServiceProvider extends ServiceProvider
         View::share('github', Sheets::collection('github')->all()->keyBy('name'));
     }
 
-    protected function booted(ExportFactoryContract $exportFactory)
+    protected function booted()
     {
-        $exportFactory
-            ->addSheetCollectionName('static')
-            ->addSheetCollectionName('contributor');
+        // $exportFactory
+        // ->addSheetCollectionName('static')
+        // ->addSheetCollectionName('contributor');
 
         $this->bootSchemaHome();
     }
