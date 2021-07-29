@@ -105,11 +105,11 @@ class AppServiceProvider extends ServiceProvider
                             }
 
                             return version_compare(
-                                    Str::replaceFirst('v', '', $highest),
-                                    Str::replaceFirst('v', '', $current),
-                                    '>'
-                                ) ? $highest : $current;
-                        }) ?? 'dev-master';
+                                Str::replaceFirst('v', '', $highest),
+                                Str::replaceFirst('v', '', $current),
+                                '>'
+                            ) ? $highest : $current;
+                        }) ?? 'dev-main';
 
                         return Schema::ownershipInfo()
                             ->identifier($sheet['repository'])
