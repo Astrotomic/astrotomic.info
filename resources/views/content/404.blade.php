@@ -6,7 +6,7 @@
     <hero>
         <div class="container mx-auto px-4 py-32 text-center">
             <h2 class="text-6xl text-white font-bold">
-                <icon icon="fa-satellite" />
+                <x-elements.icon icon="fa-satellite" />
                 Error
                 <span class="opacity-75">404</span>
             </h2>

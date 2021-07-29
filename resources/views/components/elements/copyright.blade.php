@@ -1,6 +1,6 @@
 <footer>
     @isset($before)
-        <wave :before="$before" bg="astro-night" class="mb-8" />
+        <x-elements.wave :before="$before" bg="astro-night" class="mb-8" />
     @endisset
 
     <div class="container mx-auto p-4 flex items-center flex-wrap">
@@ -10,26 +10,26 @@
             </span>
             <span class="whitespace-no-wrap">
                 <span class="opacity-75">created by</span>
-                <a-styled href="https://gummibeer.de">Gummibeer</a-styled>
+                <x-elements.aStyled href="https://gummibeer.de">Gummibeer</x-elements.aStyled>
             </span>
         </span>
 
         @foreach($links as $link)
-            <a-styled :href="$link['href']" underlined class="ml-4">
-                <icon :icon-style="$link['style']" :icon="$link['icon']" />
+            <x-elements.aStyled :href="$link['href']" underlined class="ml-4">
+                <x-elements.icon :icon-style="$link['style']" :icon="$link['icon']" />
                 {{ $link['label'] }}
-            </a-styled>
+            </x-elements.aStyled>
         @endforeach
     </div>
     <div class="container mx-auto p-4">
         <span class="opacity-75">Powered by</span>
         <span class="divided">
-            <a-styled href="https://github.com/Astrotomic/stancy">Stancy</a-styled>
-            <a-styled href="https://netlify.com">Netlify</a-styled>
-            <a-styled href="https://tailwindcss.com">tailwindcss</a-styled>
-            <a-styled href="https://fontawesome.com">Font Awesome</a-styled>
-            <a-styled href="https://rsms.me/inter">Inter</a-styled>
-            <a-styled href="https://pingping.io/fvpd1bEn">PingPing</a-styled>
+            <x-elements.aStyled href="https://github.com/Astrotomic/stancy">Stancy</x-elements.aStyled>
+            <x-elements.aStyled href="https://netlify.com">Netlify</x-elements.aStyled>
+            <x-elements.aStyled href="https://tailwindcss.com">tailwindcss</x-elements.aStyled>
+            <x-elements.aStyled href="https://fontawesome.com">Font Awesome</x-elements.aStyled>
+            <x-elements.aStyled href="https://rsms.me/inter">Inter</x-elements.aStyled>
+            <x-elements.aStyled href="https://pingping.io/fvpd1bEn">PingPing</x-elements.aStyled>
         </span>
     </div>
 </footer>

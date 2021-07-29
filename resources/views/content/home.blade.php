@@ -6,7 +6,7 @@
 ?>
 
 @section('content')
-    <hero>
+    <x-hero>
         <div class="container mx-auto px-4 pt-4 pb-16 sm:py-32 text-center">
             <strong class="text-6xl text-white font-bold divided">
                 <span>Open Source</span>
@@ -20,41 +20,39 @@
             </p>
 
             <div class="flex flex-row flex-wrap justify-center">
-                <count-up icon="fa-box-heart" :value="$packagist->count()" label="packages" />
-                <count-up icon="fa-users-cog" :value="$contributors->count()" label="contributors" />
-                <count-up icon="fa-code-commit" :value="$contributors->sum('commits')" label="commits" />
-                <count-up icon="fa-download" :value="$packagist->sum('downloads.total')" label="downloads" />
+                <x-countUp icon="fa-box-heart" :value="$packagist->count()" label="packages" />
+                <x-countUp icon="fa-users-cog" :value="$contributors->count()" label="contributors" />
+                <x-countUp icon="fa-code-commit" :value="$contributors->sum('commits')" label="commits" />
+                <x-countUp icon="fa-download" :value="$packagist->sum('downloads.total')" label="downloads" />
             </div>
         </div>
-    </hero>
+    </x-hero>
 
-    <context :packagist="$packagist" :github="$github">
-        <section class="container mx-auto px-4">
-            <package-promo bg-color="bg-astro-astrotomic" :image="mix('images/translatable.min.jpg')" label="Laravel Translatable" project="astrotomic/laravel-translatable">
-                This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
-            </package-promo>
-        </section>
-    </context>
-
-    <section class="container mx-auto flex flex-wrap">
-    @foreach($packagist->except(['astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
-        <package :package="$package" :github="$github" />
-    @endforeach
+    <section class="container mx-auto px-4">
+        <x-packagePromo bg-color="bg-astro-astrotomic" :image="mix('images/translatable.min.jpg')" label="Laravel Translatable" project="astrotomic/laravel-translatable">
+            This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.
+        </x-packagePromo>
     </section>
 
-    <section-wave bg="astro-astrotomic" before="astro-night">
-        <slot name="title">Contributors</slot>
+    <section class="container mx-auto flex flex-wrap">
+        @foreach($packagist->except(['astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
+            <x-package :package="$package" :github="$github" />
+        @endforeach
+    </section>
+
+    <x-elements.sectionWave bg="astro-astrotomic" before="astro-night">
+        <x-slot name="title">Contributors</x-slot>
 
         <div class="flex flex-wrap -ml-4">
             @foreach($contributors->sortByDesc('commits') as $contributor)
-                <contributor-badge :contributor="$contributor" />
+                <x-contributorBadge :contributor="$contributor" />
             @endforeach
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <section-wave bg="astro-mit" before="astro-astrotomic">
-        <slot name="title">MIT License</slot>
-        <slot name="badge"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" /></slot>
+    <x-elements.sectionWave bg="astro-mit" before="astro-astrotomic">
+        <x-slot name="title">MIT License</x-slot>
+        <x-slot name="badge"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT license" loading="lazy" /></x-slot>
 
         <div class="space-y-2">
             <p>
@@ -68,32 +66,32 @@
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Permissions</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-check mr-1"></i> Commercial use</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Distribution</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Modification</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Private use</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-check" class="mr-1" /> Commercial use</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-check" class="mr-1" /> Distribution</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-check" class="mr-1" /> Modification</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-check" class="mr-1" /> Private use</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Limitations</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-times mr-1"></i> Liability</li>
-                        <li><i class="far fa-fw fa-times mr-1"></i> Warranty</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-times" class="mr-1" /> Liability</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-times" class="mr-1" /> Warranty</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Conditions</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-info mr-1"></i> License and copyright notice</li>
+                        <li><x-elements.icon iconStyle="far" icon="fa-info" class="mr-1" /> License and copyright notice</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <section-wave bg="astro-treeware" before="astro-mit">
-        <slot name="title">Treeware</slot>
-        <slot name="badge"><img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" /></slot>
+    <x-elements.sectionWave bg="astro-treeware" before="astro-mit">
+        <x-slot name="title">Treeware</x-slot>
+        <x-slot name="badge"><img src="https://img.shields.io/badge/Treeware-🌳-lightgreen?style=for-the-badge" class="ml-4" alt="Treeware license" loading="lazy" /></x-slot>
 
         <div class="flex flex-col md:flex-row md:space-x-4">
             <div class="md:w-2/3 space-y-2">
@@ -118,33 +116,33 @@
                 </a>
             </div>
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <section-wave bg="astro-larabelles" before="astro-treeware">
-        <slot name="title">Larabelles</slot>
-        <slot name="badge"><img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Larabelles" loading="lazy" /></slot>
+    <x-elements.sectionWave bg="astro-larabelles" before="astro-treeware">
+        <x-slot name="title">Larabelles</x-slot>
+        <x-slot name="badge"><img src="https://img.shields.io/badge/Larabelles-🦄-lightpink?style=for-the-badge" class="ml-4" alt="Larabelles" loading="lazy" /></x-slot>
 
         <div class="space-y-2">
             <p>
                 <strong>We strongly believe in a world full of diversity and equity!</strong>
             </p>
             <p>
-                <a-styled href="https://www.larabelles.com/" :underlined="true">Larabelles</a-styled> is a community that focuses on reducing barriers for folks under-represented due to their gender to enter the world of technology.
+                <x-elements.aStyled href="https://www.larabelles.com/" :underlined="true">Larabelles</x-elements.aStyled> is a community that focuses on reducing barriers for folks under-represented due to their gender to enter the world of technology.
                 They do this by encourage people to consider a career in tech and by providing a safe space to feel welcome and supported, not just at the beginning of their development career, but throughout.
             </p>
             <p>
                 They aim to make the world of Laravel development more accessible to women, non-binary and trans folk by promoting them, their accomplishments and projects, by providing networking and socialising opportunities, and by sharing resources.
             </p>
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <section-wave bg="astro-sponsors" before="astro-larabelles">
-        <slot name="title">Sponsors</slot>
+    <x-elements.sectionWave bg="astro-sponsors" before="astro-larabelles">
+        <x-slot name="title">Sponsors</x-slot>
 
         <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">
             <p>
                 Maintaining all the packages, creating new one and answering issues takes a lot of time.
-                There are several ways to help us with that - one way is to sponsor us via <a-styled href="https://github.com/sponsors/Gummibeer" :underlined="true">GitHub Sponsors</a-styled> program.
+                There are several ways to help us with that - one way is to sponsor us via <x-elements.aStyled href="https://github.com/sponsors/Gummibeer" :underlined="true">GitHub Sponsors</x-elements.aStyled> program.
             </p>
             <p>
                 Here you see all of our current sponsors - and we are thankful for every single one of them!
@@ -154,7 +152,7 @@
             @foreach($sponsors as $sponsor)
                 <a href="{{ $sponsor['github_url'] }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
                     <div class="flex justify-center">
-                        <imgix
+                        <x-elements.imgix
                             :src="$sponsor['avatar_url']"
                             :alt="$sponsor['slug']"
                             class="w-20 h-20 rounded bg-white"
@@ -167,10 +165,10 @@
                 </a>
             @endforeach
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <section-wave bg="astro-moonlight" before="astro-sponsors">
-        <slot name="title">Trust</slot>
+    <x-elements.sectionWave bg="astro-moonlight" before="astro-sponsors">
+        <x-slot name="title">Trust</x-slot>
 
         <div class="space-y-2 mb-4 md:mb-8 lg:md-10 xl:md-12">
             <p>
@@ -186,7 +184,7 @@
                 <a href="{{ $trust['website'] }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
                     <div class="relative pb-16/9">
                         <div class="w-full h-full absolute inset-0 p-4">
-                            <imgix
+                            <x-elements.imgix
                                 :src="mix($trust['image'])"
                                 :alt="$trust['name']"
                                 class="w-full h-full object-contain"
@@ -201,9 +199,9 @@
                 </a>
             @endforeach
         </div>
-    </section-wave>
+    </x-elements.sectionWave>
 
-    <copyright before="astro-moonlight"/>
+    <x-elements.copyright before="astro-moonlight"/>
 
     {!! $schemaHome ?? null !!}
 @endsection

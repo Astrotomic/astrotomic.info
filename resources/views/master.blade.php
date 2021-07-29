@@ -31,7 +31,7 @@ Most of them will be for Laravel - but sometimes also plain PHP.')
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ mix('favicon.ico') }}" />
 </head>
-<body id="body-{{ $slug }}" class="bg-astro-night">
+<body id="body-{{ $slug ?? false}}" class="bg-astro-night">
 
 @yield('content')
 

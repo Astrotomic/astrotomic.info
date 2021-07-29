@@ -7,7 +7,7 @@
     </div>
 
     <div class="relative z-10 flex flex-col justify-center items-center min-h-screen">
-        <menu/>
+        <x-elements.menu />
 
         {!! $slot !!}
     </div>
