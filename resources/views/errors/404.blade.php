@@ -3,7 +3,7 @@
 @section('title', 'Error 404 | Astrotomic')
 
 @section('content')
-    <hero>
+    <x-hero>
         <div class="container mx-auto px-4 py-32 text-center">
             <h2 class="text-6xl text-white font-bold">
                 <x-elements.icon icon="fa-satellite" />
@@ -16,7 +16,7 @@
                 <a href="{!! url('/') !!}" class="btn">back to earth</a>
             </div>
         </div>
-    </hero>
+    </x-hero>
 
-    <copyright/>
+    <x-elements.copyright/>
 @endsection
