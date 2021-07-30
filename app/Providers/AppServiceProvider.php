@@ -8,7 +8,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use Spatie\BladeX\Facades\BladeX;
 use Spatie\SchemaOrg\GenderType;
 use Spatie\SchemaOrg\OwnershipInfo;
 use Spatie\SchemaOrg\Person;
@@ -28,8 +27,6 @@ class AppServiceProvider extends ServiceProvider
         // $this->app->booted(function () use ($exportFactory): void {
         //     $this->booted($exportFactory);
         // });
-
-        // BladeX::components('components.**.*');
 
         View::share('links', [
             [
