@@ -42,8 +42,8 @@ class AppServiceProvider extends ServiceProvider
             ],
         ]);
 
-        View::share('packagist', Sheets::collection('packagist')->all()->keyBy('name'));
-        View::share('github', Sheets::collection('github')->all()->keyBy('name'));
+        View::share('packagist', Sheets::collection('packagist')->all()->keyBy('name')->map(fn ($item) => $item->toArray()));
+        View::share('github', Sheets::collection('github')->all()->keyBy('name')->map(fn ($item) => $item->toArray()));
     }
 
     protected function booted()
