@@ -1,6 +1,5 @@
 <?php
 
-use Astrotomic\Stancy\Facades\SitemapFactory;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Facades\Sheets;
 
@@ -21,7 +20,7 @@ Route::get('/contributor/{name}', function (string $name) {
 })->name('contributor');
 
 Route::get('/sitemap.xml', function () {
-    return SitemapFactory::makeFromSheetList(['static', 'contributor']);
+    // return SitemapFactory::makeFromSheetList(['static', 'contributor']);
 });
 
 Route::get('/robots.txt', function () {

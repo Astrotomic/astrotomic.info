@@ -26,7 +26,7 @@ class LoadPackagist extends Command
     {
         $packages = collect($this->packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
             ->add('linfo/laravel')
-            ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls') // TODO: https://blog.packagist.com/deprecating-composer-1-support
+            ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls')
             ->keyBy(null)
             ->map(function (string $name): array {
                 return current($this->packagist->searchPackagesByName($name)['results']);
