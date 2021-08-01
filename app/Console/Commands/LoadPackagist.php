@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Packagist\PackagistClient;
@@ -26,14 +27,13 @@ class LoadPackagist extends Command
     {
         $packages = collect($this->packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
             ->add('linfo/laravel')
-            ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls')
-            ->reject(fn ($package) => $package == 'astrotomic/php-ufraw')
+            ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls') // https://blog.packagist.com/deprecating-composer-1-support
             ->keyBy(null)
             ->map(function (string $name): array {
                 return current($this->packagist->searchPackagesByName($name)['results']);
             })
             ->reject(function (array $package): bool {
-                return $package['abandoned'] ?? false;
+                return Arr::has($package, 'abandoned') ?? false;
             })
             ->map(function (array $package): array {
                 return array_merge($package, $this->packagist->getPackage($package['name'])['package']);
