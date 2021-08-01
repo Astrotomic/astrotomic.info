@@ -17,19 +17,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cloud Filesystem Disk
-    |--------------------------------------------------------------------------
-    |
-    | Many applications store files both locally and in the cloud. For this
-    | reason, you may specify a default "cloud" driver here. This driver
-    | will be bound as the Cloud disk implementation in the container.
-    |
-    */
-
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
-
-    /*
-    |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |
@@ -37,7 +24,7 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been setup for each driver as an example of the required options.
     |
-    | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
+    | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -62,37 +49,45 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
-        // sheets/stancy
         'static' => [
             'driver' => 'local',
             'root' => resource_path('content/static'),
         ],
+
         'error' => [
             'driver' => 'local',
             'root' => resource_path('content/error'),
         ],
+
         'contributor' => [
             'driver' => 'local',
             'root' => resource_path('content/contributor'),
         ],
+
         'packagist' => [
             'driver' => 'local',
             'root' => resource_path('content/packagist'),
         ],
+
         'github' => [
             'driver' => 'local',
             'root' => resource_path('content/github'),
         ],
+
         'trust' => [
             'driver' => 'local',
             'root' => resource_path('content/trust'),
         ],
+
         'sponsor' => [
             'driver' => 'local',
             'root' => resource_path('content/sponsor'),
         ],
+
     ],
 
     /*

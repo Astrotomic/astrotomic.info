@@ -27,6 +27,7 @@ class LoadPackagist extends Command
         $packages = collect($this->packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
             ->add('linfo/laravel')
             ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls')
+            ->reject(fn ($package) => $package == 'astrotomic/php-ufraw')
             ->keyBy(null)
             ->map(function (string $name): array {
                 return current($this->packagist->searchPackagesByName($name)['results']);

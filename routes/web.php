@@ -14,8 +14,8 @@ Route::get('/', function () {
 
 Route::get('/contributor/{name}', function (string $name) {
     return view('content.contributor', array_merge(
+        Sheets::collection('contributor')->get(strtolower($name).'.json')->toArray(),
         ['slug' => 'contributor'],
-        Sheets::collection('contributor')->get(strtolower($name).'.json')->toArray()
     ));
 })->name('contributor');
 
