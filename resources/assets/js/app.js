@@ -16,7 +16,7 @@
         }, timeout);
     });
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         document.querySelectorAll('header.hero .comets[data-speed]').forEach($comet => {
             Object.assign(
                 $comet.style,

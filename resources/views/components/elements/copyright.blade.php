@@ -24,9 +24,8 @@
     <div class="container mx-auto p-4">
         <span class="opacity-75">Powered by</span>
         <span class="divided">
-            <x-elements.aStyled href="https://github.com/Astrotomic/stancy">Stancy</x-elements.aStyled>
             <x-elements.aStyled href="https://netlify.com">Netlify</x-elements.aStyled>
-            <x-elements.aStyled href="https://tailwindcss.com">tailwindcss</x-elements.aStyled>
+            <x-elements.aStyled href="https://tailwindcss.com">Tailwind CSS</x-elements.aStyled>
             <x-elements.aStyled href="https://fontawesome.com">Font Awesome</x-elements.aStyled>
             <x-elements.aStyled href="https://rsms.me/inter">Inter</x-elements.aStyled>
             <x-elements.aStyled href="https://pingping.io/fvpd1bEn">PingPing</x-elements.aStyled>
