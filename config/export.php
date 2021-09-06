@@ -15,6 +15,8 @@ return [
      * For example: "about", "posts/featured"
      */
     'paths' => [
+        '/',
+        '/404.html',
         // '/sitemap.xml',
         '/robots.txt',
     ],

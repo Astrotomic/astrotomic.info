@@ -23,6 +23,8 @@ Route::get('/sitemap.xml', function () {
     // return SitemapFactory::makeFromSheetList(['static', 'contributor']);
 });
 
+Route::view('/404.html', 'errors.404');
+
 Route::get('/robots.txt', function () {
     return implode(PHP_EOL, [
         'User-Agent: *',
