@@ -2,13 +2,11 @@
 
 namespace App\Providers;
 
-use Astrotomic\Stancy\Contracts\ExportFactory as ExportFactoryContract;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use Spatie\BladeX\Facades\BladeX;
 use Spatie\SchemaOrg\GenderType;
 use Spatie\SchemaOrg\OwnershipInfo;
 use Spatie\SchemaOrg\Person;
@@ -23,13 +21,11 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    public function boot(ExportFactoryContract $exportFactory)
+    public function boot()
     {
-        $this->app->booted(function () use ($exportFactory): void {
-            $this->booted($exportFactory);
+        $this->app->booted(function () {
+            $this->bootSchemaHome();
         });
-
-        BladeX::components('components.**.*');
 
         View::share('links', [
             [
@@ -45,20 +41,11 @@ class AppServiceProvider extends ServiceProvider
             ],
         ]);
 
-        View::share('packagist', Sheets::collection('packagist')->all()->keyBy('name'));
-        View::share('github', Sheets::collection('github')->all()->keyBy('name'));
+        View::share('packagist', Sheets::collection('packagist')->all()->keyBy('name')->map(fn ($item) => $item->toArray()));
+        View::share('github', Sheets::collection('github')->all()->keyBy('name')->map(fn ($item) => $item->toArray()));
     }
 
-    protected function booted(ExportFactoryContract $exportFactory)
-    {
-        $exportFactory
-            ->addSheetCollectionName('static')
-            ->addSheetCollectionName('contributor');
-
-        $this->bootSchemaHome();
-    }
-
-    protected function bootSchemaHome(): void
+    private function bootSchemaHome()
     {
         if (Sheets::collection('packagist')->all()->isEmpty()) {
             return;

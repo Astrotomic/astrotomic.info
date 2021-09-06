@@ -8,20 +8,20 @@
 @section('title', $login.' | Astrotomic')
 
 @section('content')
-    <hero>
+    <x-hero>
         <div class="container px-4 pt-4 pb-16 mx-auto text-center sm:py-32">
-            <imgix :src="$avatar_url" width="256" height="256" ratio="1:1" :alt="$login.' Avatar'" class="mx-auto w-64 h-64 rounded" />
+            <x-elements.imgix :src="$avatar_url" width="256" height="256" ratio="1:1" :alt="$login.' Avatar'" class="mx-auto w-64 h-64 rounded" />
             <h2 class="mt-2 text-4xl font-bold text-white sm:text-5xl">
                 <span>{{ $name ?? $login }}</span>
-                <a-styled :href="$html_url" class="p-1 ml-1 text-3xl sm:text-4xl">
-                    <icon icon="fa-github" icon-style="fab"/>
-                </a-styled>
+                <x-elements.aStyled :href="$html_url" class="p-1 ml-1 text-3xl sm:text-4xl">
+                    <x-elements.icon icon="fa-github" icon-style="fab"/>
+                </x-elements.aStyled>
             </h2>
 
             <ul class="flex flex-col justify-center my-2 mx-auto space-y-2 space-x-0 list-inline md:max-w-2xl sm:space-x-4 sm:space-y-0 sm:flex-row">
                 @if(!empty($location))
                     <li>
-                        <icon icon="fa-map-marker-alt" icon-style="fas" class="mr-1 opacity-75" />
+                        <x-elements.icon icon="fa-map-marker-alt" icon-style="fas" class="mr-1 opacity-75" />
                         {{ $location }}
                     </li>
                 @endif
@@ -35,16 +35,16 @@
                     @endphp
 
                     <li>
-                        <icon icon="fa-globe" icon-style="fas" class="mr-1 opacity-75"/>
-                        <a-styled :href="$blog" :underlined="true">{{ $website }}</a-styled>
+                        <x-elements.icon icon="fa-globe" icon-style="fas" class="mr-1 opacity-75"/>
+                        <x-elements.aStyled :href="$blog" :underlined="true">{{ $website }}</x-elements.aStyled>
                     </li>
                 @endif
                 @if(!empty($twitter_username))
                     <li>
-                        <icon icon="fa-twitter" icon-style="fab" class="mr-1 opacity-75"/>
-                        <a-styled :href="'https://www.twitter.com/'.$twitter_username" underlined>
+                        <x-elements.icon icon="fa-twitter" icon-style="fab" class="mr-1 opacity-75"/>
+                        <x-elements.aStyled :href="'https://www.twitter.com/'.$twitter_username" underlined>
                             {{ '@'.$twitter_username }}
-                        </a-styled>
+                        </x-elements.aStyled>
                     </li>
                 @endif
             </ul>
@@ -56,19 +56,17 @@
             @endif
 
             <div class="flex flex-row flex-wrap justify-center">
-                <count-up icon="fa-box-heart" :value="count($packages)" label="packages"/>
-                <count-up icon="fa-code-commit" :value="$commits" label="commits"/>
+                <x-countUp icon="fa-box-heart" :value="count($packages)" label="packages"/>
+                <x-countUp icon="fa-code-commit" :value="$commits" label="commits"/>
             </div>
-
-
         </div>
-    </hero>
+    </x-hero>
 
     <section class="container flex flex-wrap mx-auto">
         @foreach($packagist->only($packages)->sortByDesc('downloads.total') as $package)
-            <package :package="$package" :github="$github" />
+            <x-package :package="$package" :github="$github" />
         @endforeach
     </section>
 
-    <copyright/>
+    <x-elements.copyright/>
 @endsection

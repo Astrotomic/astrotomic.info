@@ -3,19 +3,20 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Spatie\Packagist\Packagist;
+use Spatie\Packagist\PackagistClient;
 
 class LoadPackagist extends Command
 {
     protected $name = 'load:packagist';
     protected $description = 'Command description';
 
-    /** @var Packagist */
+    /** @var PackagistClient */
     protected $packagist;
 
-    public function __construct(Packagist $github)
+    public function __construct(PackagistClient $github)
     {
         parent::__construct();
 
@@ -24,14 +25,18 @@ class LoadPackagist extends Command
 
     public function handle()
     {
-        $packages = collect($this->packagist->getPackagesByVendor('astrotomic')['packageNames'])
+        $packages = collect($this->packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
             ->add('linfo/laravel')
+            ->reject(fn ($package) => $package == 'astrotomic/laravel-medialibrary-hls') // https://blog.packagist.com/deprecating-composer-1-support
             ->keyBy(null)
             ->map(function (string $name): array {
-                return $this->packagist->findPackageByName($name)['package'];
+                return current($this->packagist->searchPackagesByName($name)['results']);
             })
             ->reject(function (array $package): bool {
-                return $package['abandoned'] ?? false;
+                return Arr::has($package, 'abandoned') ?? false;
+            })
+            ->map(function (array $package): array {
+                return array_merge($package, $this->packagist->getPackage($package['name'])['package']);
             })
             ->map(function (array $package): array {
                 $package['github_name'] = Str::lower(Str::after($package['repository'], 'https://github.com/'));
