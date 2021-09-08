@@ -62,7 +62,7 @@
             }}
         </h3>
         <package-stats :package="$package" />
-        <p>{{ $package['description'] }}</p>
+        <p class="package-description">{{ $package['description'] }}</p>
         <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
             <icon icon-style="fab" icon="fa-github" />
             <span class="hidden sm:inline">
