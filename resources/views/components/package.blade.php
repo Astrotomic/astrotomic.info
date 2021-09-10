@@ -63,7 +63,7 @@
         </h3>
         <package-stats :package="$package" />
         <p class="flex-grow">{{ $package['description'] }}</p>
-        <a-styled :href="data_get($package, 'repository')" underlined class="mt-4 w-max">
+        <a-styled :href="data_get($package, 'repository')" underlined class="mt-4 max-w-max">
             <icon icon-style="fab" icon="fa-github" />
             <span class="hidden sm:inline">
                 <cite>{{ explode('/', $package['name'], 2)[0] }}</cite>
