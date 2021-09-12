@@ -21,7 +21,7 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.11.2",
+    "@fortawesome/fontawesome-pro": "^6.0.0",
     "autoprefixer": "^10.3.4",
     "postcss": "^8.3.6",
     "tailwind-astrotomic-colors": "astrotomic/tailwind-astrotomic-colors#main",
