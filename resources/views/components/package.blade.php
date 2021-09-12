@@ -1,5 +1,5 @@
-<div class="w-full lg:w-1/2 px-4 pb-8">
-    <div class="bg-astro-moonlight p-8 rounded overflow-hidden">
+<div class="px-4 pb-8">
+    <div class="flex flex-col bg-astro-moonlight p-8 rounded overflow-hidden h-full">
         <h3 class="text-xl mb-1">
             @if($package['name'] === 'astrotomic/countdown-gif')
                 <icon icon="fa-stopwatch" icon-style="fas" class="opacity-75" />
@@ -62,8 +62,8 @@
             }}
         </h3>
         <package-stats :package="$package" />
-        <p>{{ $package['description'] }}</p>
-        <a-styled :href="data_get($package, 'repository')" underlined class="mt-4">
+        <p class="flex-grow">{{ $package['description'] }}</p>
+        <a-styled :href="data_get($package, 'repository')" underlined class="mt-4 max-w-max">
             <icon icon-style="fab" icon="fa-github" />
             <span class="hidden sm:inline">
                 <cite>{{ explode('/', $package['name'], 2)[0] }}</cite>
