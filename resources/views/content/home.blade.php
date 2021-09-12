@@ -36,10 +36,10 @@
         </section>
     </context>
 
-    <section class="container mx-auto flex flex-wrap">
-    @foreach($packagist->except(['astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
-        <package :package="$package" :github="$github" />
-    @endforeach
+    <section class="container mx-auto grid grid-cols-1 lg:grid-cols-2">
+        @foreach($packagist->except(['astrotomic/laravel-translatable'])->sortByDesc('downloads.total') as $package)
+            <package :package="$package" :github="$github" />
+        @endforeach
     </section>
 
     <section-wave bg="astro-astrotomic" before="astro-night">
