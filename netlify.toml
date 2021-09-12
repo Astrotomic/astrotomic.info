@@ -20,7 +20,7 @@
         img-src 'self' https://img.astrotomic.info https://cdn.astrotomic.info https://api.ecologi.com https://img.shields.io;
         media-src 'none';
         object-src 'none';
-        script-src 'self' https://cdn.astrotomic.info
+        script-src 'self' https://cdn.astrotomic.info;
         style-src 'self' 'unsafe-inline' https://cdn.astrotomic.info
     '''
 
