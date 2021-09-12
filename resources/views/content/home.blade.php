@@ -19,11 +19,12 @@
                 Most of them will be for Laravel - but sometimes also plain PHP.
             </p>
 
-            <div class="flex flex-row flex-wrap justify-center">
+            <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center pt-16">
+                <count-up icon="fa-trees" :value="json_decode(file_get_contents('https://public.ecologi.com/users/astrotomic/trees'), true)['total']" label="trees" />
                 <count-up icon="fa-box-heart" :value="$packagist->count()" label="packages" />
+                <count-up icon="fa-download" :value="$packagist->sum('downloads.total')" label="downloads" />
                 <count-up icon="fa-users-cog" :value="$contributors->count()" label="contributors" />
                 <count-up icon="fa-code-commit" :value="$contributors->sum('commits')" label="commits" />
-                <count-up icon="fa-download" :value="$packagist->sum('downloads.total')" label="downloads" />
             </div>
         </div>
     </hero>
