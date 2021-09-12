@@ -107,14 +107,14 @@
                     It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
                 </p>
                 <p>
-                    You can buy trees at <a-styled href="https://ecologi.com/treeware" underlined>ecologi.com/treeware</a-styled>.
+                    You can buy trees at <a-styled href="https://forest.astrotomic.info" underlined>ecologi.com/astrotomic</a-styled>.
                     <br>
                     Read more about Treeware at <a-styled href="https://treeware.earth" underlined>treeware.earth</a-styled>.
                 </p>
             </div>
             <div class="md:w-1/3 mt-4 md:mt-0">
-                <a href="https://offset.earth/treeware">
-                    <img src="https://toolkit.offset.earth/carbonpositiveworkforce/badge/5e186e68516eb60018c5172b?white=true&landscape=true" alt="image with dynamic amount of trees bought for Treeware license" loading="lazy" />
+                <a href="https://forest.astrotomic.info">
+                    <img src="https://api.ecologi.com/badges/cpw/607e8b98c670f00ac1c69f90?white=true&landscape=true" alt="image with dynamic amount of trees bought for Treeware license" loading="lazy" />
                 </a>
             </div>
         </div>

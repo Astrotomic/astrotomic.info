@@ -11,16 +11,16 @@
     Content-Security-Policy = '''
         default-src 'self';
         base-uri 'self';
-        connect-src https://cloudflareinsights.com;
+        connect-src 'none';
         form-action 'none';
         frame-src 'none';
         frame-ancestors 'none';
         child-src 'none';
         font-src 'self' https://cdn.astrotomic.info;
-        img-src 'self' https://img.astrotomic.info https://cdn.astrotomic.info https://toolkit.offset.earth https://img.shields.io;
+        img-src 'self' https://img.astrotomic.info https://cdn.astrotomic.info https://api.ecologi.com https://img.shields.io;
         media-src 'none';
         object-src 'none';
-        script-src 'self' https://cdn.astrotomic.info https://static.cloudflareinsights.com;
+        script-src 'self' https://cdn.astrotomic.info
         style-src 'self' 'unsafe-inline' https://cdn.astrotomic.info
     '''
 

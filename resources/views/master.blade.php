@@ -36,6 +36,5 @@ Most of them will be for Laravel - but sometimes also plain PHP.')
 @yield('content')
 
 <script defer src="{{ mix('js/app.js') }}" type="application/javascript"></script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b85b413989d94626ac2b699c32a517af"}'></script>
 </body>
 </html>
