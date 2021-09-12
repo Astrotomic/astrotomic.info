@@ -60,6 +60,6 @@ mix
     .version()
 ;
 
-glob.sync(path.resolve(__dirname, 'resources', 'assets', 'img') + '/**/*.@(png|jpg)').forEach(img => {
+glob.sync(path.resolve(__dirname, 'resources', 'assets', 'img') + '/**/*.@(png|jpg|svg)').forEach(img => {
     mix.copy(img, img.replace(path.resolve(__dirname, 'resources', 'assets', 'img'), 'public/images'));
 });
