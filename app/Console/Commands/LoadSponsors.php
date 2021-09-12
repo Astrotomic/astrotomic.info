@@ -2,14 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Pages\Contributor;
 use App\Pages\Sponsor;
 use Github\Client as Github;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Spatie\Sheets\Facades\Sheets;
-use Spatie\Sheets\Sheet;
 
 class LoadSponsors extends Command
 {
@@ -53,19 +50,19 @@ class LoadSponsors extends Command
         }
         GRAPHQL;
 
-        if(empty(env('GH_SPONSOR_PATS'))) {
+        if (empty(env('GH_SPONSOR_PATS'))) {
             return;
         }
 
         $sponsors = collect();
-        foreach(explode(';', env('GH_SPONSOR_PATS')) as $pat) {
+        foreach (explode(';', env('GH_SPONSOR_PATS')) as $pat) {
             $this->github->authenticate($pat, null, Github::AUTH_ACCESS_TOKEN);
             $response = $this->github->graphql()->execute($query);
             $sponsors = $sponsors->merge(data_get($response, 'data.viewer.sponsorshipsAsMaintainer.nodes.*.sponsorEntity'));
         }
 
         $sponsors
-            ->map(fn(array $sponsor) => [
+            ->map(fn (array $sponsor) => [
                 'slug' => $sponsor['login'],
                 'name' => $sponsor['name'],
                 'location' => $sponsor['location'],
@@ -77,6 +74,5 @@ class LoadSponsors extends Command
                 $sponsor['_pageData'] = Sponsor::class;
                 Storage::disk('sponsor')->put(Str::lower($sponsor['slug']).'.json', collect($sponsor)->except('slug')->toJson());
             });
-
     }
 }
