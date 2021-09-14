@@ -55,7 +55,7 @@
                 </div>
             @endif
 
-            <div class="flex flex-row flex-wrap justify-center">
+            <div class="grid gap-8 grid-cols-2 pt-16 md:max-w-3xl mx-auto">
                 <count-up icon="fa-box-heart" :value="count($packages)" label="packages"/>
                 <count-up icon="fa-code-commit" :value="$commits" label="commits"/>
             </div>
