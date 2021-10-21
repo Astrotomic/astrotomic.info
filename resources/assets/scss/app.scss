@@ -7,6 +7,10 @@
 @import "~@fortawesome/fontawesome-pro/scss/brands";
 @import "~@fortawesome/fontawesome-pro/scss/fontawesome";
 
+.fa-fw {
+    height: 1em;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
