@@ -1,0 +1,82 @@
+@import "typeface-inter";
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+:root {
+    --fa-primary-color: #{$white};
+    --fa-secondary-color: #{rgba($white, 0.75)};
+}
+
+a.btn {
+    transition: all ease 0.25s;
+}
+
+a.btn:hover {
+    transform: translateY(0.25rem);
+}
+
+a.translate {
+    transition: all ease 0.25s;
+}
+
+a.translate:hover {
+    transform: translateY(0.25rem);
+}
+
+.divided > * + *::before {
+    content: '/';
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #ffffff;
+    @apply opacity-50;
+}
+
+
+header.hero {
+    background-image: url('../img/hero_background.min.jpg');
+    @apply bg-no-repeat;
+    @apply bg-right-bottom;
+    @apply bg-cover;
+}
+
+header.hero::after {
+    content: '';
+    background: linear-gradient(0deg, rgb(5, 28, 44) 0%, rgba(5, 28, 44, 0) 100%);
+    @apply absolute;
+    @apply inset-0;
+}
+
+header.hero .comets {
+    @apply absolute;
+    @apply inset-0;
+    @apply bg-no-repeat;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    background-position-x: center;
+    background-position-y: -50vh;
+}
+
+header.hero .comets.comets-1 {
+    background-image: url('../img/comets_1.svg');
+}
+
+header.hero .comets.comets-2 {
+    background-image: url('../img/comets_2.svg');
+}
+
+header.hero .comets.comets-3 {
+    background-image: url('../img/comets_3.svg');
+}
+
+header.hero .comets.comets-4 {
+    background-image: url('../img/comets_4.svg');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -8,45 +8,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Content-Security-Policy = '''
-        default-src 'self';
-        base-uri 'self';
-        connect-src 'none';
-        form-action 'none';
-        frame-src 'none';
-        frame-ancestors 'none';
-        child-src 'none';
-        font-src 'self' https://cdn.astrotomic.info;
-        img-src 'self' https://img.astrotomic.info https://cdn.astrotomic.info https://api.ecologi.com https://img.shields.io;
-        media-src 'none';
-        object-src 'none';
-        script-src 'self' https://cdn.astrotomic.info;
-        style-src 'self' 'unsafe-inline' https://cdn.astrotomic.info
-    '''
 
 [[headers]]
-  for = "/css/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
-
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
-
-[[headers]]
-  for = "/js/*"
+  for = "/build/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
