@@ -18,7 +18,7 @@ jobs:
           php-version: 8.1
           tools: composer:v2
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
 
