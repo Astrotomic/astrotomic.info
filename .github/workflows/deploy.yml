@@ -1,4 +1,4 @@
-name: deploy
+name: Deploy
 
 on:
   push:
@@ -59,8 +59,11 @@ jobs:
       - name: Mix assets
         run: yarn build
 
+      - name: Generate key
+        run: php artisan key:generate
+
       - name: Export page
-        run: php artisan export --env=prod --skip-all
+        run: php artisan export --env=prod --skip-all -vvv
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
