@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Contributor;
-use Illuminate\Contracts\Foundation\Application as ApplicationContract;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Export\Exporter;
@@ -13,10 +13,12 @@ class ContentServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->booted(function (): void {
-            $this->app->booted(function (ApplicationContract $application): void {
-                $application->make(Exporter::class)->urls(
-                    Contributor::all()->map(fn (Contributor $contributor) => route('contributor', $contributor))->all()
-                );
+            $this->app->booted(function (Application $application): void {
+                if ($application->environment('prod', 'production')) {
+                    $application->make(Exporter::class)->urls(
+                        Contributor::all()->map(fn (Contributor $contributor) => route('contributor', $contributor))->all()
+                    );
+                }
             });
         });
     }
