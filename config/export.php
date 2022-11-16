@@ -15,9 +15,8 @@ return [
      * For example: "about", "posts/featured"
      */
     'paths' => [
-        '/404.html',
-        '/sitemap.xml',
-        '/robots.txt',
+        '/',
+        //'/404.html',
     ],
 
     /*
@@ -62,7 +61,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'before' => [
-        'assets' => '/usr/local/bin/yarn production',
+        'assets' => '$(which yarn) build',
     ],
 
     /*
@@ -72,6 +71,6 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-        'deploy' => '/usr/local/bin/netlify deploy --prod',
+        'deploy' => '$(which netlify) deploy --prod',
     ],
 ];

@@ -1,4 +1,4 @@
-name: Deploy
+name: deploy
 
 on:
   push:
@@ -15,8 +15,7 @@ jobs:
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
-          extensions: dom, curl, libxml, mbstring, zip, imagick
+          php-version: 8.1
           tools: composer:v2
 
       - uses: actions/setup-node@v2
@@ -58,23 +57,12 @@ jobs:
           yarn install
 
       - name: Mix assets
-        run: yarn production
-
-      - name: Generate key
-        run: php artisan key:generate
-
-      - name: Load dynamic data
-        run: |
-          php artisan load:packagist
-          php artisan load:github
-          php artisan load:sponsors
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          GH_SPONSOR_PATS: ${{ secrets.GH_SPONSOR_PATS }}
+        run: yarn build
 
       - name: Export page
         run: php artisan export --env=prod --skip-all
         env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
 
       - name: Netlify deploy

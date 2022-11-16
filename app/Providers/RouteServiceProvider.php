@@ -7,8 +7,13 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    public function map()
+    public const HOME = '/';
+
+    public function boot(): void
     {
-        Route::group([], base_path('routes/web.php'));
+        $this->routes(function () {
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
+        });
     }
 }
