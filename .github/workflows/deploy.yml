@@ -59,11 +59,8 @@ jobs:
       - name: Mix assets
         run: yarn build
 
-      - name: Generate key
-        run: php artisan key:generate
-
       - name: Export page
-        run: php artisan export --env=prod --skip-all -vvv
+        run: php artisan export --env=prod --skip-all
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
@@ -75,3 +72,10 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Upload Log
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: laravel.log
+          path: storage/logs/laravel.log
