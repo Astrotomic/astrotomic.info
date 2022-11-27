@@ -153,6 +153,7 @@ class Package extends Model
                 ->after('/')
                 ->slug(' ')
                 ->headline()
+                ->replace('Uuid', 'UUID')
                 ->replace('Tmdb', 'TMDB')
                 ->replace('Php', 'PHP')
                 ->replace('Sdk', 'SDK'),
@@ -164,6 +165,7 @@ class Package extends Model
         return match ($this->name) {
             'astrotomic/laravel-translatable' => 'This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being fetched/saved when you fetch/save your instance.',
             'astrotomic/tmdb-sdk' => '',
+            'astrotomic/php-twemoji' => 'A PHP package to replace native unicode emojis with their Twemoji images. The goal is to have the same functionality as the twemoji.js library in PHP.',
             default => null,
         };
     }
@@ -173,6 +175,7 @@ class Package extends Model
         return match ($this->name) {
             'astrotomic/laravel-translatable' => 'resources/img/translatable.min.jpg',
             'astrotomic/tmdb-sdk' => 'resources/img/tmdb-sdk.png',
+            'astrotomic/php-twemoji' => 'resources/img/php-twemoji.png',
             default => null,
         };
     }
@@ -182,6 +185,7 @@ class Package extends Model
         return match ($this->name) {
             'astrotomic/laravel-translatable' => '#dd3224',
             'astrotomic/tmdb-sdk' => '#97cc9f',
+            'astrotomic/php-twemoji' => '#ffcc52',
             default => null,
         };
     }

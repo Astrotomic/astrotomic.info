@@ -24,11 +24,15 @@
         </div>
     </x-hero>
 
-    <section class="container mx-auto px-4">
+    <section class="container mx-auto px-4 mb-16 space-y-8">
         @foreach($promos as $promo)
             <x-package-promo
                 :package="$promo"
-                package-class="bg-[#dd3224] text-[#dd3224] bg-[#97cc9f] text-[#97cc9f] bg-[#ff7f1e] text-[#ff7f1e]"
+                package-class="
+                    bg-[#dd3224] text-[#dd3224]
+                    bg-[#97cc9f] text-[#97cc9f]
+                    bg-[#ffcc52] text-[#ffcc52]
+                "
             />
         @endforeach
     </section>
@@ -186,7 +190,7 @@
                 <a href="{{ $trustee->website }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
                     <div class="relative aspect-w-16 aspect-h-9">
                         <div class="w-full h-full absolute inset-0 p-4">
-                            <x-imgix
+                            <x-elements.imgix
                                 source="astrotomic"
                                 :path="\Illuminate\Support\Facades\Vite::asset($trustee->image)"
                                 :alt="$trustee->name"

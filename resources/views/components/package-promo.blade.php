@@ -1,9 +1,9 @@
 @props(['package'])
 <?php /** @var \App\Models\Package $package */ ?>
 
-<div class="bg-[{{ $package->color }}] rounded-lg flex flex-col lg:flex-row overflow-hidden mb-16">
-    <div class="w-full lg:w-1/2 lg:ml-8 lg:mt-8 lg:self-end">
-        <x-imgix
+<div class="bg-[{{ $package->color }}] rounded-lg flex flex-col lg:flex-row overflow-hidden">
+    <div class="w-full lg:w-1/2 2xl:w-2/5 lg:ml-8 lg:mt-8 lg:self-end">
+        <x-elements.imgix
             source="astrotomic"
             :path="\Illuminate\Support\Facades\Vite::asset($package->image)"
             width="768"
@@ -12,7 +12,7 @@
         />
     </div>
 
-    <div class="w-full lg:w-1/2 p-8 flex flex-col">
+    <div class="w-full lg:w-1/2 2xl:w-3/5 p-8 flex flex-col">
         <h2 class="text-white text-3xl">
             {{ $package->label }}
         </h2>

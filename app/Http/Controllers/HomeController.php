@@ -15,6 +15,7 @@ class HomeController
         $promos = Package::query()
             ->whereIn('name', [
                 'astrotomic/laravel-translatable',
+                'astrotomic/php-twemoji',
                 // ToDo: 'astrotomic/tmdb-sdk',
             ])
             ->orderByDesc('total_downloads')
