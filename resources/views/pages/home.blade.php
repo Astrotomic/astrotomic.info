@@ -14,29 +14,27 @@
             </p>
 
             <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 justify-center pt-16">
-                <x-count-up icon="fad-box-heart" :value="\App\Models\Package::count()" label="packages" />
-                <x-count-up icon="fad-download" :value="\App\Models\Package::sum('total_downloads')" label="downloads" />
-                <x-count-up icon="fad-users-gear" :value="\App\Models\Contributor::count()" label="contributors" />
-                <x-count-up icon="fad-code-commit" :value="\App\Models\Package::pluck('contributor_stats')->map->sum()->sum()" label="commits" />
-                <x-count-up icon="fad-stars" :value="\App\Models\Package::sum('github_stars')" label="stars" />
-                <x-count-up icon="fad-trees" :value="app(\Astrotomic\Ecologi\Ecologi::class)->reporting()->getTrees('astrotomic')" label="trees" />
+                <x-count-up icon="fad-box-heart" :value="$stats['packages']" label="packages" />
+                <x-count-up icon="fad-download" :value="$stats['downloads']" label="downloads" />
+                <x-count-up icon="fad-users-gear" :value="$stats['contributors']" label="contributors" />
+                <x-count-up icon="fad-code-commit" :value="$stats['commits']" label="commits" />
+                <x-count-up icon="fad-stars" :value="$stats['stars']" label="stars" />
+                <x-count-up icon="fad-trees" :value="$stats['trees']" label="trees" />
             </div>
         </div>
     </x-hero>
 
     <section class="container mx-auto px-4 mb-16 space-y-8">
-        @foreach($promos as $promo)
-            <x-package-promo
-                :package="$promo"
-                package-class="
-                    bg-[#dd3224] text-[#dd3224]
-                    bg-[#97cc9f] text-[#97cc9f]
-                    bg-[#ffcc52] text-[#ffcc52]
-                "
-            />
+        @foreach($apps as $app)
+            <x-app-promo :app="$app"/>
         @endforeach
     </section>
 
+    <section class="container mx-auto px-4 mb-16 space-y-8">
+        @foreach($promos as $promo)
+            <x-package-promo :package="$promo"/>
+        @endforeach
+    </section>
 
     <section class="container mx-auto grid grid-cols-1 lg:grid-cols-2">
         @foreach($packages as $package)

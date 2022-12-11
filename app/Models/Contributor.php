@@ -47,6 +47,15 @@ class Contributor extends Model
             ->filter(fn (Package $package) => $package->contributors()->contains($this));
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection<array-key, \App\Models\Application>
+     */
+    public function applications(): EloquentCollection
+    {
+        return Application::all()
+            ->filter(fn (Application $application) => $application->contributors()->contains($this));
+    }
+
     public function getSchema(): array
     {
         return [
@@ -64,8 +73,9 @@ class Contributor extends Model
     public function getRows(): array
     {
         return Cache::remember("{$this->getTable()}.rows", CarbonInterval::hour(), function (): array {
-            return Package::all()
-                ->pluck('contributor_stats')
+            return collect()
+                ->merge(Package::all()->pluck('contributor_stats'))
+                ->merge(Application::all()->pluck('contributor_stats'))
                 ->map(fn (Collection $stats) => $stats->keys())
                 ->flatten()
                 ->unique()
@@ -106,7 +116,8 @@ class Contributor extends Model
 
     public function getTotalCommitsAttribute(): int
     {
-        return $this->packages()->sum("contributor_stats.{$this->login}");
+        return $this->packages()->sum("contributor_stats.{$this->login}")
+            + $this->applications()->sum("contributor_stats.{$this->login}");
     }
 
     public function getIsMemberAttribute(): bool
