@@ -1,7 +1,14 @@
 @props(['package'])
 <?php /** @var \App\Models\Package $package */ ?>
 
-<div class="bg-[{{ $package->color }}] rounded-lg flex flex-col lg:flex-row overflow-hidden">
+<div
+    class="bg-[{{ $package->color }}] rounded-lg flex flex-col lg:flex-row overflow-hidden"
+    package-class="
+        bg-[#dd3224] text-[#dd3224]
+        bg-[#97cc9f] text-[#97cc9f]
+        bg-[#ffcc52] text-[#ffcc52]
+    "
+>
     <div class="w-full lg:w-1/2 2xl:w-2/5 lg:ml-8 lg:mt-8 lg:self-end">
         <x-elements.imgix
             source="astrotomic"

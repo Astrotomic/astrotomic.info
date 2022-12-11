@@ -48,12 +48,19 @@
                 </a>
             </div>
 
-            <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 justify-center pt-16 mx-auto">
+            <div class="grid gap-8 grid-cols-1 sm:grid-cols-3 justify-center pt-16 mx-auto">
                 <x-count-up icon="fad-box-heart" :value="$contributor->packages()->count()" label="packages"/>
+                <x-count-up icon="fad-laptop-code" :value="$contributor->applications()->count()" label="applications"/>
                 <x-count-up icon="fad-code-commit" :value="$contributor->total_commits" label="commits"/>
             </div>
         </div>
     </x-hero>
+
+    <section class="container mx-auto px-4 mb-16 space-y-8">
+        @foreach($contributor->applications() as $app)
+            <x-app-promo :app="$app"/>
+        @endforeach
+    </section>
 
     <section class="container mx-auto grid grid-cols-1 lg:grid-cols-2">
         @foreach($contributor->packages()->sortByDesc('total_downloads') as $package)
