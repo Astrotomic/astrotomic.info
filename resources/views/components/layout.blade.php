@@ -10,6 +10,14 @@ Most of them will be for Laravel - but sometimes also plain PHP." />
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/img/favicon.ico') }}" />
 
+    <script
+        async
+        defer
+        data-website-id="1ec02b85-c6bf-4918-bd08-534d78da68da"
+        data-domains="astrotomic.info"
+        src="https://u.gummibeer.dev/umami.js"
+    ></script>
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
