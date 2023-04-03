@@ -17,7 +17,7 @@
         "php": "^8.1",
         "ext-json": "*",
         "astrotomic/ecologi-sdk": "^0.1.0",
-        "astrotomic/laravel-github-sponsors": "^0.4.0",
+        "astrotomic/laravel-github-sponsors": "^1.0.0",
         "astrotomic/laravel-imgix": "^1.0",
         "calebporzio/sushi": "^2.4",
         "composer/semver": "^3.3",
