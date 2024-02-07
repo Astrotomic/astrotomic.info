@@ -30,6 +30,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application query()
+ *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Application extends Model

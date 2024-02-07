@@ -21,6 +21,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Sponsor newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sponsor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sponsor query()
+ *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Sponsor extends Model

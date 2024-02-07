@@ -42,6 +42,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Package newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Package newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Package query()
+ *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Package extends Model

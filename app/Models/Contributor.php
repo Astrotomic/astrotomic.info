@@ -32,6 +32,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Contributor newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contributor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contributor query()
+ *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Contributor extends Model

@@ -18,6 +18,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Trustee newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Trustee newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Trustee query()
+ *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Trustee extends Model
