@@ -4,10 +4,6 @@ module.exports = {
         './resources/**/*.blade.php',
         './resources/**/*.js',
     ],
-    safelist: [
-        {pattern: /^bg-astro-/},
-        {pattern: /^text-astro-/},
-    ],
     darkMode: 'class',
     theme: {
         extend: {
@@ -16,7 +12,10 @@ module.exports = {
                 sun: '#FFC311',
             },
             fontFamily: {
-                sans: "Inter, sans-serif",
+                sans: "Roboto, sans-serif",
+                mono: "'Roboto Mono', monospace",
+                flex: "'Roboto Flex', sans-serif",
+                slab: "'Roboto Slab', serif",
             },
         },
     },
