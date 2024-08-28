@@ -74,6 +74,7 @@ class LoadGithubCommand extends Command
                     'language' => $repo['language'],
                     'github_stars' => (int) $repo['stargazers_count'],
                     'contributor_stats' => LazyCollection::make(function () use ($repo): Generator {
+                        $tries = 0;
                         do {
                             $contributors = app(Github::class)->repo()->statistics(
                                 ...explode('/', $repo['full_name'], 2)
@@ -82,7 +83,9 @@ class LoadGithubCommand extends Command
                             if (empty($contributors)) {
                                 usleep(5 * 1000);
                             }
-                        } while (empty($contributors));
+
+                            $tries++;
+                        } while (empty($contributors) && $tries < 10);
 
                         yield from $contributors;
                     })->collect()->mapWithKeys(fn (array $stats) => [
@@ -131,6 +134,7 @@ class LoadGithubCommand extends Command
                         )
                     ),
                     'contributor_stats' => LazyCollection::make(function () use ($repoName): Generator {
+                        $tries = 0;
                         do {
                             $contributors = app(Github::class)->repo()->statistics(
                                 ...explode('/', $repoName, 2)
@@ -139,7 +143,9 @@ class LoadGithubCommand extends Command
                             if (empty($contributors)) {
                                 usleep(5 * 1000);
                             }
-                        } while (empty($contributors));
+
+                            $tries++;
+                        } while (empty($contributors) && $tries < 10);
 
                         yield from $contributors;
                     })->collect()->mapWithKeys(fn (array $stats) => [
