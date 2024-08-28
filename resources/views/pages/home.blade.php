@@ -189,8 +189,8 @@
                     <div class="flex justify-center">
                         <img
                             src="https://cdn.brandfetch.io/{{ parse_url($trustee->website, PHP_URL_HOST) }}/icon/theme/dark/fallback/transparent/w/512/h/512"
-                            width="400"
-                            height="400"
+                            width="512"
+                            height="512"
                             class="w-20 h-20 rounded bg-white bg-contain bg-no-repeat bg-center"
                             loading="lazy"
                             alt="{{ $trustee->name }} logo by Brandfetch"
