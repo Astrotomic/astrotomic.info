@@ -159,7 +159,7 @@
                             src="{{ $sponsor->avatar_url }}"
                             alt="{{ $sponsor->login }}"
                             loading="lazy"
-                            class="w-20 h-20 rounded bg-white"
+                            class="w-28 h-28 rounded bg-white"
                         />
                     </div>
                     <p class="text-center">
@@ -191,7 +191,7 @@
                             src="https://cdn.brandfetch.io/{{ parse_url($trustee->website, PHP_URL_HOST) }}/icon/theme/dark/fallback/transparent/w/512/h/512"
                             width="512"
                             height="512"
-                            class="w-20 h-20 rounded bg-white bg-contain bg-no-repeat bg-center"
+                            class="w-28 h-28 rounded bg-white bg-contain bg-no-repeat bg-center"
                             loading="lazy"
                             alt="{{ $trustee->name }} logo by Brandfetch"
                             style="background-image: url('https://ui-avatars.com/api/?name={{ urlencode($trustee->name) }}&size=512&background=051c2c&color=ffffff&bold=true')"
