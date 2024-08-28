@@ -181,6 +181,7 @@ class LoadGithubCommand extends Command
                 'name' => $user['name'],
                 'location' => $user['location'],
                 'avatar_url' => $user['avatarUrl'],
-            ]);
+            ])
+            ->collect();
     }
 }
