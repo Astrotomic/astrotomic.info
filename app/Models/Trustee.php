@@ -43,14 +43,29 @@ class Trustee extends Model
                 'website' => 'https://aw-studio.de',
             ],
             [
+                'name' => 'Litstack',
+                'location' => 'Kiel, Germany',
+                'website' => 'http://litstack.io',
+            ],
+            [
                 'name' => 'arbiträr',
                 'location' => 'Flensburg, Germany',
                 'website' => 'https://arbitraer.de',
             ],
             [
+                'name' => 'visuellverstehen',
+                'location' => 'Flensburg, Germany',
+                'website' => 'https://www.visuellverstehen.de',
+            ],
+            [
                 'name' => 'Area 17',
                 'location' => 'Paris, France',
                 'website' => 'https://area17.com',
+            ],
+            [
+                'name' => 'Twill',
+                'location' => 'Paris, France',
+                'website' => 'https://twillcms.com',
             ],
             [
                 'name' => 'Cell 5',
@@ -121,6 +136,51 @@ class Trustee extends Model
                 'name' => 'Webkul Software',
                 'location' => 'Noida, India',
                 'website' => 'https://webkul.com',
+            ],
+            [
+                'name' => 'UnoPim',
+                'location' => 'Noida, India',
+                'website' => 'https://unopim.com',
+            ],
+            [
+                'name' => 'Bagisto',
+                'location' => 'Noida, India',
+                'website' => 'https://bagisto.com',
+            ],
+            [
+                'name' => 'Hexide Digital',
+                'location' => 'Khmelnytskyi, Ukraine',
+                'website' => 'https://hexide-digital.com',
+            ],
+            [
+                'name' => 'INDEXIMSTUDIO',
+                'location' => 'Ukraine',
+                'website' => 'https://indeximstudio.com',
+            ],
+            [
+                'name' => 'TecnoDesign',
+                'location' => 'Ibagué, Colombia',
+                'website' => 'https://www.tecnodesign.com.co',
+            ],
+            [
+                'name' => 'Ytrade Group AB',
+                'location' => 'Stockholm, Sweden',
+                'website' => 'https://www.yaytrade.com',
+            ],
+            [
+                'name' => 'Soluzione Software srl',
+                'location' => 'Coriano, Italy',
+                'website' => 'https://www.soluzionesoftware.com',
+            ],
+            [
+                'name' => 'Sindria inc.',
+                'location' => 'Italy',
+                'website' => 'https://sindria.org',
+            ],
+            [
+                'name' => 'Ampeco',
+                'location' => 'Hamburg, Germany',
+                'website' => 'https://www.ampeco.com',
             ],
         ];
     }

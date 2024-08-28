@@ -186,19 +186,16 @@
         <div class="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 lg:gap-10 xl:gap-12">
             @foreach($trustees as $trustee)
                 <a href="{{ $trustee->website }}" target="_blank" rel="noreferrer" class="block space-y-2 opacity-75 hover:opacity-100">
-                    <div class="relative aspect-w-16 aspect-h-9">
-                        <div class="w-full h-full absolute inset-0 p-4">
-                            <x-elements.imgix
-                                source="astrotomic"
-                                :path="\Illuminate\Support\Facades\Vite::asset($trustee->image)"
-                                :alt="$trustee->name"
-                                :width="768"
-                                :height="432"
-                                :params="['trim' => 'auto']"
-                                class="w-full h-full object-contain"
-                                trim
-                            />
-                        </div>
+                    <div class="flex justify-center">
+                        <img
+                            src="https://cdn.brandfetch.io/{{ parse_url($trustee->website, PHP_URL_HOST) }}/icon/theme/dark/fallback/transparent/w/400/h/400"
+                            width="400"
+                            height="400"
+                            class="w-20 h-20 rounded bg-white bg-contain bg-no-repeat bg-center"
+                            loading="lazy"
+                            alt="{{ $trustee->name }} logo by Brandfetch"
+                            style="background-image: url('https://ui-avatars.com/api/?name={{ urlencode($trustee->name) }}&size=512&background=051c2c&color=ffffff&bold=true')"
+                        />
                     </div>
                     <p class="text-center">
                         <strong class="block font-bold">{{ $trustee->name }}</strong>
