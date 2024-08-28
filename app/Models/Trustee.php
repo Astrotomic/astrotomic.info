@@ -73,6 +73,11 @@ class Trustee extends Model
                 'website' => 'https://www.cell5.co.uk',
             ],
             [
+                'name' => 'Webdesign7',
+                'location' => 'London, England',
+                'website' => 'https://www.webdesign7.co.uk',
+            ],
+            [
                 'name' => 'Code for Romania',
                 'location' => 'Bucharest, Romania',
                 'website' => 'https://code4.ro',
@@ -81,6 +86,11 @@ class Trustee extends Model
                 'name' => 'Each + Every',
                 'location' => 'Kent, Ohio, USA',
                 'website' => 'https://eachevery.com',
+            ],
+            [
+                'name' => 'Art Institute of Chicago',
+                'location' => 'Chicago, Illinois, USA',
+                'website' => 'https://artic.edu',
             ],
             [
                 'name' => 'Elbgoods',
@@ -181,6 +191,21 @@ class Trustee extends Model
                 'name' => 'Ampeco',
                 'location' => 'Hamburg, Germany',
                 'website' => 'https://www.ampeco.com',
+            ],
+            [
+                'name' => 'IMTALabs',
+                'location' => '? ? ?',
+                'website' => 'https://imtalabs.tech',
+            ],
+            [
+                'name' => 'Marketopia',
+                'location' => 'Alexandria, Egypt',
+                'website' => 'https://marketopiateam.com',
+            ],
+            [
+                'name' => 'Daraya Software Solutions',
+                'location' => 'Bogor, Indonesia',
+                'website' => 'https://darayastr.my.id',
             ],
         ];
     }
