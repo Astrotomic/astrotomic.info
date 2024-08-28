@@ -24,11 +24,12 @@
     <div class="container mx-auto p-4">
         <span class="opacity-75">Powered by</span>
         <span class="divided">
-            <x-elements.a href="https://netlify.com">Netlify</x-elements.a>
+            <x-elements.a href="https://hetzner.cloud?ref=hWUvpaHHnyQM">Hetzner Cloud</x-elements.a>
             <x-elements.a href="https://tailwindcss.com">Tailwind CSS</x-elements.a>
             <x-elements.a href="https://fontawesome.com">Font Awesome</x-elements.a>
             <x-elements.a href="https://rsms.me/inter">Inter</x-elements.a>
             <x-elements.a href="https://pingping.io/fvpd1bEn">PingPing</x-elements.a>
+            <x-elements.a href="https://brandfetch.com/astrotomic.info">Brandfetch</x-elements.a>
         </span>
     </div>
 </footer>
