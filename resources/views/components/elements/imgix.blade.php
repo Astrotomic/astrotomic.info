@@ -6,6 +6,6 @@
 />
 @endenv
 
-@env('prod')
+@production
 <x-imgix {{ $attributes }} />
-@endenv
+@endproduction
