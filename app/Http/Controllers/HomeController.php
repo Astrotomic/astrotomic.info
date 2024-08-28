@@ -8,6 +8,8 @@ use App\Models\Package;
 use App\Models\Sponsor;
 use App\Models\Trustee;
 use Astrotomic\Ecologi\Ecologi;
+use Carbon\CarbonInterval;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class HomeController
@@ -53,7 +55,11 @@ class HomeController
                     + Application::pluck('contributor_stats')->map->sum()->sum(),
                 'stars' => Package::sum('github_stars')
                     + Application::sum('github_stars'),
-                'trees' => $ecologi->reporting()->getTrees('astrotomic'),
+                'trees' => Cache::remember(
+                    key: 'ecologi.reporting.trees',
+                    ttl: CarbonInterval::day(),
+                    callback: fn () => $ecologi->reporting()->getTrees('astrotomic')
+                ),
             ],
             'apps' => $apps,
             'promos' => $promos,
