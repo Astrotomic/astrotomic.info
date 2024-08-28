@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Astrotomic\GithubSponsors\Facades\GithubSponsors;
-use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Sushi\Sushi;
@@ -40,17 +38,7 @@ class Sponsor extends Model
 
     public function getRows(): array
     {
-        return Cache::remember("{$this->getTable()}.rows", CarbonInterval::hour(), function (): array {
-            return GithubSponsors::viewer()
-                ->sponsors(fields: ['login', 'avatarUrl', 'location', 'name'])
-                ->map(fn (array $user) => [
-                    'login' => $user['login'],
-                    'name' => $user['name'],
-                    'location' => $user['location'],
-                    'avatar_url' => $user['avatarUrl'],
-                ])
-                ->all();
-        });
+        return Cache::get("{$this->getTable()}.rows", []);
     }
 
     public function getHtmlUrlAttribute(): string

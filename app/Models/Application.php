@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-use Carbon\CarbonInterval;
-use Generator;
-use Github\Client as Github;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\LazyCollection;
 use Sushi\Sushi;
 
 /**
@@ -66,42 +62,7 @@ class Application extends Model
 
     public function getRows(): array
     {
-        return Cache::remember("{$this->getTable()}.rows", CarbonInterval::hour(), function (): array {
-            return collect([
-                'Astrotomic/git-author',
-                'Astrotomic/dnd-converter',
-            ])
-                ->map(fn (string $name): array => app(Github::class)->repo()->show(
-                    ...explode('/', $name, 2)
-                ))
-                ->values()
-                ->map(function (array $repo): array {
-                    return [
-                        'name' => $repo['full_name'],
-                        'description' => $repo['description'],
-                        'repository' => $repo['html_url'],
-                        'homepage' => $repo['homepage'],
-                        'language' => $repo['language'],
-                        'github_stars' => (int) $repo['stargazers_count'],
-                        'contributor_stats' => LazyCollection::make(function () use ($repo): Generator {
-                            do {
-                                $contributors = app(Github::class)->repo()->statistics(
-                                    ...explode('/', $repo['full_name'], 2)
-                                );
-
-                                if (empty($contributors)) {
-                                    usleep(5 * 1000);
-                                }
-                            } while (empty($contributors));
-
-                            yield from $contributors;
-                        })->collect()->mapWithKeys(fn (array $stats) => [
-                            $stats['author']['login'] => $stats['total'],
-                        ]),
-                    ];
-                })
-                ->all();
-        });
+        return Cache::get("{$this->getTable()}.rows", []);
     }
 
     public function getLabelAttribute(): string

@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-use Carbon\CarbonInterval;
-use Github\Client as Github;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Sushi\Sushi;
@@ -73,28 +69,7 @@ class Contributor extends Model
 
     public function getRows(): array
     {
-        return Cache::remember("{$this->getTable()}.rows", CarbonInterval::hour(), function (): array {
-            return collect()
-                ->merge(Package::all()->pluck('contributor_stats'))
-                ->merge(Application::all()->pluck('contributor_stats'))
-                ->map(fn (Collection $stats) => $stats->keys())
-                ->flatten()
-                ->unique()
-                ->map(fn (string $login) => app(Github::class)->user()->show($login))
-                ->reject(fn (array $user) => $user['type'] === 'Bot')
-                ->map(fn (array $user) => Arr::only($user, [
-                    'id',
-                    'name',
-                    'login',
-                    'blog',
-                    'twitter_username',
-                    'bio',
-                    'location',
-                    'html_url',
-                    'avatar_url',
-                ]))
-                ->all();
-        });
+        return Cache::get("{$this->getTable()}.rows", []);
     }
 
     public function getTwitterUrlAttribute(): ?string

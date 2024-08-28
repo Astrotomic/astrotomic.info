@@ -2,19 +2,10 @@
 
 namespace App\Models;
 
-use Carbon\CarbonInterval;
-use Composer\Semver\Semver;
-use Composer\Semver\VersionParser;
-use Generator;
-use Github\Client as Github;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
-use Illuminate\Support\Stringable;
-use Spatie\Packagist\PackagistClient;
 use Sushi\Sushi;
 
 /**
@@ -86,62 +77,7 @@ class Package extends Model
 
     public function getRows(): array
     {
-        return Cache::remember("{$this->getTable()}.rows", CarbonInterval::hour(), function (): array {
-            $packagist = app(PackagistClient::class);
-
-            return collect($packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
-                ->add('linfo/laravel')
-                ->map(fn (string $name): array => $packagist->getPackage($name)['package'])
-                //->reject(fn (array $package): bool => $package['abandoned'] ?? false)
-                ->values()
-                ->map(function (array $package): array {
-                    $repoName = trim(parse_url($package['repository'], PHP_URL_PATH), '/');
-
-                    return [
-                        'name' => $package['name'],
-                        'description' => $package['description'],
-                        'repository' => $package['repository'],
-                        'repository_name' => $repoName,
-                        'language' => $package['language'],
-                        'github_stars' => (int) $package['github_stars'],
-                        'total_downloads' => (int) $package['downloads']['total'],
-                        'dependents' => (int) $package['dependents'],
-                        'is_abandoned' => (bool) ($package['abandoned'] ?? false),
-                        'replacement' => is_string(data_get($package, 'abandoned')) ? $package['abandoned'] : null,
-                        'latest_version' => Arr::first(
-                            Semver::rsort(
-                                collect($package['versions'])
-                                    ->keys()
-                                    ->filter(fn (string $version) => VersionParser::parseStability($version) === 'stable' || in_array($version, ['dev-main', 'dev-master']))
-                                    ->map(function (string $version): string {
-                                        return (string) Str::of((new VersionParser())->normalize($version))
-                                            ->when(
-                                                fn (Stringable $version): bool => preg_match('#\d+\.\d+\.\d+\.\d+#', $version),
-                                                fn (Stringable $version): string => $version->explode('.')->take(3)->implode('.')
-                                            );
-                                    })
-                                    ->all()
-                            )
-                        ),
-                        'contributor_stats' => LazyCollection::make(function () use ($repoName): Generator {
-                            do {
-                                $contributors = app(Github::class)->repo()->statistics(
-                                    ...explode('/', $repoName, 2)
-                                );
-
-                                if (empty($contributors)) {
-                                    usleep(5 * 1000);
-                                }
-                            } while (empty($contributors));
-
-                            yield from $contributors;
-                        })->collect()->mapWithKeys(fn (array $stats) => [
-                            $stats['author']['login'] => $stats['total'],
-                        ]),
-                    ];
-                })
-                ->all();
-        });
+        return Cache::get("{$this->getTable()}.rows", []);
     }
 
     public function getLabelAttribute(): string
