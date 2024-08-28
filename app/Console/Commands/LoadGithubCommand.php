@@ -81,7 +81,7 @@ class LoadGithubCommand extends Command
                             );
 
                             if (empty($contributors)) {
-                                usleep(5 * 1000);
+                                usleep(10 * 1000);
                             }
 
                             $tries++;
@@ -141,7 +141,7 @@ class LoadGithubCommand extends Command
                             );
 
                             if (empty($contributors)) {
-                                usleep(5 * 1000);
+                                usleep(10 * 1000);
                             }
 
                             $tries++;
