@@ -49,7 +49,7 @@ class LoadGithubContributorsCommand extends Command
                 'html_url',
                 'avatar_url',
             ]), fn () => $this->output->progressAdvance());
-        })->reject();
+        })->filter();
         $this->output->progressFinish();
 
         Cache::forever(
