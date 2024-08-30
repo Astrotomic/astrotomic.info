@@ -20,6 +20,7 @@ class LoadGithubApplicationsCommand extends Command
         $this->info('Load applications ...');
 
         $repos = collect([
+            'Astrotomic/astrotomic.info',
             'Astrotomic/git-author',
             'Astrotomic/dnd-converter',
         ]);

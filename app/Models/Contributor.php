@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -43,7 +44,8 @@ class Contributor extends Model
     public function packages(): EloquentCollection
     {
         return Package::all()
-            ->filter(fn (Package $package) => $package->contributors()->contains($this));
+            ->filter(fn (Package $package) => $package->contributors()->contains($this))
+            ->values();
     }
 
     /**
@@ -52,7 +54,8 @@ class Contributor extends Model
     public function applications(): EloquentCollection
     {
         return Application::all()
-            ->filter(fn (Application $application) => $application->contributors()->contains($this));
+            ->filter(fn (Application $application) => $application->contributors()->contains($this))
+            ->values();
     }
 
     public function getSchema(): array
@@ -94,8 +97,12 @@ class Contributor extends Model
 
     public function getTotalCommitsAttribute(): int
     {
-        return $this->packages()->sum("contributor_stats.{$this->login}")
-            + $this->applications()->sum("contributor_stats.{$this->login}");
+        return Cache::remember(
+            key: "{$this->getTable()}.{$this->getKey()}.total_commits",
+            ttl: CarbonInterval::hour(),
+            callback: fn () => $this->packages()->sum("contributor_stats.{$this->login}")
+            + $this->applications()->sum("contributor_stats.{$this->login}")
+        );
     }
 
     public function getIsMemberAttribute(): bool

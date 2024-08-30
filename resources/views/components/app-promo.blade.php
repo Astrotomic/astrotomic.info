@@ -6,6 +6,7 @@
     app-class="
         bg-[#28A745] text-[#28A745]
         bg-[#FF7A81] text-[#FF7A81]
+        bg-[#825DC7] text-[#825DC7]
     "
 >
     <div class="w-full lg:w-1/2 2xl:w-2/5 lg:ml-8 lg:mt-8 lg:self-end">

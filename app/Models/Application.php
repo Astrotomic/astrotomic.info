@@ -72,6 +72,7 @@ class Application extends Model
         return match ($this->name) {
             'Astrotomic/git-author' => 'GitHub Author',
             'Astrotomic/dnd-converter' => 'D&D Unit Converter',
+            'Astrotomic/astrotomic.info' => 'Astrotomic Website',
         };
     }
 
@@ -85,6 +86,7 @@ class Application extends Model
         return match ($this->name) {
             'Astrotomic/git-author' => 'resources/img/github-author.png',
             'Astrotomic/dnd-converter' => 'resources/img/dnd-unit-converter.png',
+            'Astrotomic/astrotomic.info' => 'resources/img/astrotomic-info.png',
         };
     }
 
@@ -93,6 +95,7 @@ class Application extends Model
         return match ($this->name) {
             'Astrotomic/git-author' => '#28A745',
             'Astrotomic/dnd-converter' => '#FF7A81',
+            'Astrotomic/astrotomic.info' => '#825DC7',
         };
     }
 
