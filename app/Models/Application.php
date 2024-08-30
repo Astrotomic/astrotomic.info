@@ -33,6 +33,8 @@ class Application extends Model
 {
     use Sushi;
 
+    protected $table = 'applications';
+
     protected $casts = [
         'github_stars' => 'int',
         'contributor_stats' => 'collection',

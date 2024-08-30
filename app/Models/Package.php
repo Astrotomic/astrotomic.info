@@ -40,6 +40,8 @@ class Package extends Model
 {
     use Sushi;
 
+    protected $table = 'packages';
+
     protected $casts = [
         'github_stars' => 'int',
         'total_downloads' => 'int',

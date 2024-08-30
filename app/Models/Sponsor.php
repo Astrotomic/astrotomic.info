@@ -26,6 +26,8 @@ class Sponsor extends Model
 {
     use Sushi;
 
+    protected $table = 'sponsors';
+
     public function getSchema(): array
     {
         return [

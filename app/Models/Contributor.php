@@ -35,6 +35,8 @@ class Contributor extends Model
 {
     use Sushi;
 
+    protected $table = 'contributors';
+
     /**
      * @return \Illuminate\Database\Eloquent\Collection<array-key, \App\Models\Package>
      */
