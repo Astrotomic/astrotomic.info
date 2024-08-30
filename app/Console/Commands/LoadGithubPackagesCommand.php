@@ -59,7 +59,7 @@ class LoadGithubPackagesCommand extends Command
                         ->keys()
                         ->filter(fn (string $version) => VersionParser::parseStability($version) === 'stable' || in_array($version, ['dev-main', 'dev-master']))
                         ->map(function (string $version): string {
-                            return (string) Str::of((new VersionParser())->normalize($version))
+                            return (string) Str::of((new VersionParser)->normalize($version))
                                 ->when(
                                     fn (Stringable $version): bool => preg_match('#\d+\.\d+\.\d+\.\d+#', $version),
                                     fn (Stringable $version): string => $version->explode('.')->take(3)->implode('.')

@@ -21,13 +21,13 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(PackagistClient::class, function (): PackagistClient {
             return new PackagistClient(
-                client: new Client(),
-                url: new PackagistUrlGenerator()
+                client: new Client,
+                url: new PackagistUrlGenerator
             );
         });
 
         $this->app->singleton(Github::class, function (): Github {
-            $client = new Github();
+            $client = new Github;
 
             if (config('services.github.access_token')) {
                 $client->authenticate(config('services.github.access_token'), null, AuthMethod::ACCESS_TOKEN);

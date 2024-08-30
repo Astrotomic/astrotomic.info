@@ -25,7 +25,6 @@
         "knplabs/github-api": "^3.9",
         "laravel/framework": "^9.19",
         "owenvoke/blade-fontawesome": "^2.0",
-        "spatie/laravel-export": "^0.3.10",
         "spatie/packagist-api": "^2.1"
     },
     "require-dev": {
