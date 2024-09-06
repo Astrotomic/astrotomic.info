@@ -78,7 +78,10 @@ class Application extends Model
 
     public function getSummaryAttribute(): ?string
     {
-        return data_get(get_meta_tags($this->homepage), 'description');
+        return match ($this->name) {
+            'Astrotomic/astrotomic.info' => 'The Astrotomic website.',
+            default => data_get(get_meta_tags($this->homepage), 'description'),
+        };
     }
 
     public function getImageAttribute(): ?string
