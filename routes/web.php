@@ -4,7 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Models\Contributor;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', HomeController::class);
+Route::get('/', HomeController::class);
 
 Route::view('/new', 'new');
 
