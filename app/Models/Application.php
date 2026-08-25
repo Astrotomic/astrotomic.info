@@ -70,8 +70,8 @@ class Application extends Model
     public function getLabelAttribute(): string
     {
         return match ($this->name) {
-            'Astrotomic/git-author' => 'GitHub Author',
-            'Astrotomic/dnd-converter' => 'D&D Unit Converter',
+            'Astrotomic/github-author.astrotomic.info' => 'GitHub Author',
+            'Astrotomic/dnd-units.astrotomic.info' => 'D&D Unit Converter',
             'Astrotomic/astrotomic.info' => 'Astrotomic Website',
         };
     }
@@ -87,8 +87,8 @@ class Application extends Model
     public function getImageAttribute(): ?string
     {
         return match ($this->name) {
-            'Astrotomic/git-author' => 'resources/img/github-author.png',
-            'Astrotomic/dnd-converter' => 'resources/img/dnd-unit-converter.png',
+            'Astrotomic/github-author.astrotomic.info' => 'resources/img/github-author.png',
+            'Astrotomic/dnd-units.astrotomic.info' => 'resources/img/dnd-unit-converter.png',
             'Astrotomic/astrotomic.info' => 'resources/img/astrotomic-info.png',
         };
     }
@@ -96,8 +96,8 @@ class Application extends Model
     public function getColorAttribute(): ?string
     {
         return match ($this->name) {
-            'Astrotomic/git-author' => '#28A745',
-            'Astrotomic/dnd-converter' => '#FF7A81',
+            'Astrotomic/github-author.astrotomic.info' => '#28A745',
+            'Astrotomic/dnd-units.astrotomic.info' => '#FF7A81',
             'Astrotomic/astrotomic.info' => '#825DC7',
         };
     }
