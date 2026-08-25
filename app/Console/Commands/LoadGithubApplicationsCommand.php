@@ -21,8 +21,8 @@ class LoadGithubApplicationsCommand extends Command
 
         $repos = collect([
             'Astrotomic/astrotomic.info',
-            'Astrotomic/git-author',
-            'Astrotomic/dnd-converter',
+            'Astrotomic/github-author.astrotomic.info',
+            'Astrotomic/dnd-units.astrotomic.info',
         ]);
 
         $this->output->progressStart($repos->count());
