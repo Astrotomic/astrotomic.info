@@ -30,7 +30,7 @@ class LoadGithubPackagesCommand extends Command
         $packages = collect($packagist->getPackagesNamesByVendor('astrotomic')['packageNames'])
             ->add('linfo/laravel')
             ->map(fn (string $name): array => $packagist->getPackage($name)['package'])
-            //->reject(fn (array $package): bool => $package['abandoned'] ?? false)
+            // ->reject(fn (array $package): bool => $package['abandoned'] ?? false)
             ->values();
 
         $this->output->progressStart($packages->count());

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\CarbonInterval;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -30,7 +32,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Contributor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contributor query()
  *
- * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin Builder
  */
 class Contributor extends Model
 {
@@ -39,7 +41,7 @@ class Contributor extends Model
     protected $table = 'contributors';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection<array-key, \App\Models\Package>
+     * @return Collection<array-key, Package>
      */
     public function packages(): EloquentCollection
     {
@@ -49,7 +51,7 @@ class Contributor extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection<array-key, \App\Models\Application>
+     * @return Collection<array-key, Application>
      */
     public function applications(): EloquentCollection
     {

@@ -1,3 +1,5 @@
 <?php
 
-uses(\Tests\TestCase::class)->in('Feature');
+use Tests\TestCase;
+
+pest()->extend(TestCase::class)->in('Feature');

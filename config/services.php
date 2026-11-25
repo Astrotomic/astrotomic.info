@@ -37,5 +37,6 @@ return [
 
     'github' => [
         'access_token' => env('GITHUB_ACCESS_TOKEN'),
+        'sponsors_token' => env('GITHUB_ACCESS_TOKEN', ''),
     ],
 ];
