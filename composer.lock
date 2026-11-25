@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee63d39b003fcd202fab0a66904a5157",
+    "content-hash": "16f9bba0916e9a7af1f8af76419f53a2",
     "packages": [
         {
             "name": "astrotomic/ecologi-sdk",
@@ -147,88 +147,6 @@
             ],
             "time": "2026-11-25T21:35:24+00:00",
             "published-time": "2026-11-25T21:36:05+00:00"
-        },
-        {
-            "name": "astrotomic/laravel-imgix",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Astrotomic/laravel-imgix.git",
-                "reference": "a34fbd659205b273d5cbc60703720d468b265c7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Astrotomic/laravel-imgix/zipball/a34fbd659205b273d5cbc60703720d468b265c7e",
-                "reference": "a34fbd659205b273d5cbc60703720d468b265c7e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
-                "illuminate/support": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
-                "illuminate/view": "^7.9 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
-                "imgix/imgix-php": "^3.3.0 || ^4.1",
-                "php": "^7.4 || ^8.0 || ^8.1 || ^8.2 || ^8.3"
-            },
-            "require-dev": {
-                "gajus/dindent": "^2.0",
-                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
-                "phpunit/phpunit": "^9.3 || ^10.5 || ^11.5.3 || ^12.5.12"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Astrotomic\\Imgix\\ImgixServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Astrotomic\\Imgix\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tom Witkowski",
-                    "email": "gummibeer@astrotomic.info",
-                    "homepage": "https://gummibeer.dev",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel bindings and facade to generate imgix URLs and support for multiple sources.",
-            "homepage": "https://github.com/astrotomic/laravel-imgix",
-            "keywords": [
-                "astrotomic",
-                "cdn",
-                "image",
-                "images",
-                "imgix",
-                "laravel",
-                "laravel-imgix"
-            ],
-            "support": {
-                "issues": "https://github.com/Astrotomic/laravel-imgix/issues",
-                "source": "https://github.com/Astrotomic/laravel-imgix/tree/1.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://forest.astrotomic.info",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/Gummibeer",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-30T11:59:25+00:00",
-            "published-time": "2026-11-24T22:29:55+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
@@ -1579,48 +1497,6 @@
             ],
             "time": "2026-08-24T17:13:02+00:00",
             "published-time": "2026-08-24T17:13:22+00:00"
-        },
-        {
-            "name": "imgix/imgix-php",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/imgix/imgix-php.git",
-                "reference": "b42231e6e249e57592c474b08f79fe67d34615d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/imgix/imgix-php/zipball/b42231e6e249e57592c474b08f79fe67d34615d8",
-                "reference": "b42231e6e249e57592c474b08f79fe67d34615d8",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.4",
-                "phpunit/phpunit": "^9.5.10"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Imgix\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "A PHP client library for generating URLs with imgix.",
-            "keywords": [
-                "imgix"
-            ],
-            "support": {
-                "issues": "https://github.com/imgix/imgix-php/issues",
-                "source": "https://github.com/imgix/imgix-php/tree/4.1.0"
-            },
-            "time": "2023-01-31T05:20:28+00:00",
-            "published-time": "2023-01-31T05:22:03+00:00"
         },
         {
             "name": "knplabs/github-api",
