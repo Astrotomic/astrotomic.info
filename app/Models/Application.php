@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Sushi\Sushi;
 
@@ -17,7 +19,7 @@ use Sushi\Sushi;
  * @property string|null $homepage
  * @property string|null $language
  * @property int|null $github_stars
- * @property \Illuminate\Support\Collection|null $contributor_stats
+ * @property Collection|null $contributor_stats
  * @property-read string|null $color
  * @property-read string|null $image
  * @property-read string $label
@@ -27,7 +29,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application query()
  *
- * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin Builder
  */
 class Application extends Model
 {
@@ -41,7 +43,7 @@ class Application extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection<array-key, \App\Models\Contributor>
+     * @return EloquentCollection<array-key, Contributor>
      */
     public function contributors(): EloquentCollection
     {

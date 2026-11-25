@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Astrotomic\Ecologi\Ecologi;
-use Astrotomic\GithubSponsors\Graphql;
 use Github\AuthMethod;
 use Github\Client as Github;
 use GuzzleHttp\Client;
@@ -35,9 +34,5 @@ class AppServiceProvider extends ServiceProvider
 
             return $client;
         });
-
-        $this->app->when(Graphql::class)
-            ->needs('$token')
-            ->give(config('services.github.access_token'));
     }
 }

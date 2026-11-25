@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Sushi\Sushi;
@@ -20,7 +21,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Sponsor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sponsor query()
  *
- * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin Builder
  */
 class Sponsor extends Model
 {

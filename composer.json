@@ -3,7 +3,6 @@
     "description": "The astrotomic website",
     "license": "MIT",
     "type": "project",
-    "keywords": [],
     "authors": [
         {
             "name": "Tom Witkowski",
@@ -14,32 +13,30 @@
     ],
     "homepage": "https://astrotomic.info",
     "require": {
-        "php": "^8.1",
+        "php": "^8.5",
         "ext-json": "*",
-        "astrotomic/ecologi-sdk": "^0.1.0",
-        "astrotomic/laravel-github-sponsors": "^0.4.0",
-        "astrotomic/laravel-imgix": "^1.0",
-        "calebporzio/sushi": "^2.4",
-        "composer/semver": "^3.3",
-        "guzzlehttp/guzzle": "^7.2",
-        "knplabs/github-api": "^3.9",
-        "laravel/framework": "^9.19",
-        "owenvoke/blade-fontawesome": "^2.0",
-        "spatie/packagist-api": "^2.1"
+        "astrotomic/ecologi-sdk": "^0.3.0",
+        "astrotomic/laravel-github-sponsors": "^1.3",
+        "astrotomic/laravel-imgix": "^1.4",
+        "calebporzio/sushi": "^2.5.4",
+        "composer/semver": "^3.6",
+        "guzzlehttp/guzzle": "^7.17",
+        "knplabs/github-api": "^3.16.1",
+        "laravel/framework": "^13.44.1",
+        "owenvoke/blade-fontawesome": "^3.3.1",
+        "spatie/packagist-api": "^2.1.2"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.12",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/pint": "^1.2",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "pestphp/pest": "^1.22",
-        "pestphp/pest-plugin-laravel": "^1.3",
-        "spatie/laravel-ignition": "^1.0",
-        "spatie/laravel-ray": "^1.37"
+        "barryvdh/laravel-ide-helper": "^3.8",
+        "fakerphp/faker": "^1.24.1",
+        "laravel/pint": "^1.32.3",
+        "mockery/mockery": "^1.6.15",
+        "nunomaduro/collision": "^8.9.6",
+        "pestphp/pest": "^5.3.7",
+        "pestphp/pest-plugin-laravel": "^5.0.1",
+        "spatie/laravel-ignition": "^2.13",
+        "spatie/laravel-ray": "^1.43.9"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "App\\": "app/"
@@ -73,9 +70,6 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-autoload-dump": [
-            "@composer validate --strict --ansi --no-interaction",
-            "@composer normalize --ansi --no-interaction --quiet",
-            "@composer thanks --ansi --no-interaction --quiet",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan icons:cache --ansi"

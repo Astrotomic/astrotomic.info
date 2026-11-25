@@ -9,9 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
-      - run: composer update --prefer-dist --no-interaction --no-suggest --no-scripts
-      - run: vendor/bin/pest
+          php-version: '8.5'
+          extensions: sqlite3, pdo_sqlite
+          tools: composer:v2
+      - run: cp .env.example .env
+      - run: composer validate --strict
+      - run: composer install --prefer-dist --no-interaction
+      - run: php artisan key:generate
+      - run: vendor/bin/pest --fail-on-deprecation --fail-on-warning --display-warnings
