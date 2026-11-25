@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4391dd138af144737da39f95c203ee6b",
+    "content-hash": "ee63d39b003fcd202fab0a66904a5157",
     "packages": [
         {
             "name": "astrotomic/ecologi-sdk",
