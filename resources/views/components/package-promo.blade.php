@@ -10,12 +10,12 @@
     "
 >
     <div class="w-full lg:w-1/2 2xl:w-2/5 lg:ml-8 lg:mt-8 lg:self-end">
-        <x-elements.imgix
-            source="astrotomic"
-            :path="\Illuminate\Support\Facades\Vite::asset($package->image)"
-            width="768"
-            :alt="'Astrotomic '.$package->label.' Logo'"
-            class="rounded-t"
+        <img
+            src="{{ \Illuminate\Support\Facades\Vite::asset($package->image) }}"
+            alt="{{ 'Astrotomic '.$package->label.' Logo' }}"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto rounded-t"
         />
     </div>
 
