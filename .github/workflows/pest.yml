@@ -1,5 +1,8 @@
 name: pest
 
+permissions:
+  contents: read
+
 on:
   push:
 
