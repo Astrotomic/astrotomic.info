@@ -1,0 +1,28 @@
+name: frontend
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  frontend:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      - name: Generate npm lockfile
+        run: |
+          npm install --package-lock-only --no-audit
+          node -e 'for (const line of require("fs").readFileSync("package-lock.json", "utf8").split("\n")) console.log("NPM_LOCK_LINE:" + line)'
+      - run: npm ci
+      - run: npm run build
+      - run: npm audit

@@ -15,7 +15,7 @@
             alt="{{ 'Astrotomic '.$app->label.' Logo' }}"
             loading="lazy"
             decoding="async"
-            class="w-full h-auto rounded-t"
+            class="w-full h-auto rounded-t-sm"
         />
     </div>
 
@@ -39,22 +39,22 @@
             </li>
         </ul>
 
-        <p class="flex-grow">
+        <p class="grow">
             {{ $app->summary }}
         </p>
 
         <div class="w-full flex justify-between mt-4 self-start space-x-4">
-            <a href="{{ $app->homepage }}" class="btn relative flex items-center rounded py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
+            <a href="{{ $app->homepage }}" class="btn relative flex items-center rounded-sm py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
                 <x-fas-link class="w-4 h-4"/>
                 <span>{{ $app->domain }}</span>
             </a>
 
             <div class="flex space-x-4">
-                <a href="{{ $app->repository }}" class="btn relative flex items-center rounded py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
+                <a href="{{ $app->repository }}" class="btn relative flex items-center rounded-sm py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
                     <x-fab-github class="w-4 h-4"/>
                     <span>{{ \Illuminate\Support\Str::after($app->name, '/') }}</span>
                 </a>
-                <a href="https://plant.treeware.earth/{{ $app->name }}" class="btn relative flex items-center rounded py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
+                <a href="https://plant.treeware.earth/{{ $app->name }}" class="btn relative flex items-center rounded-sm py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $app->color }}]">
                     <x-fas-trees class="w-4 h-4"/>
                     <span class="hidden sm:inline">treeware</span>
                 </a>

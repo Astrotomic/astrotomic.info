@@ -4,11 +4,11 @@
     @endisset
 
     <div class="container mx-auto p-4 flex items-center flex-wrap">
-        <span class="flex-grow">
-            <span class="whitespace-no-wrap opacity-75">
+        <span class="grow">
+            <span class="whitespace-nowrap opacity-75">
                 Astrotomic &copy; 2019 - {{ date('Y') }}
             </span>
-            <span class="whitespace-no-wrap">
+            <span class="whitespace-nowrap">
                 <span class="opacity-75">created by</span>
                 <x-elements.a href="https://gummibeer.de">Gummibeer</x-elements.a>
             </span>

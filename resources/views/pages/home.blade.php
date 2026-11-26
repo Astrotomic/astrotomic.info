@@ -69,23 +69,23 @@
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Permissions</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-check mr-1"></i> Commercial use</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Distribution</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Modification</li>
-                        <li><i class="far fa-fw fa-check mr-1"></i> Private use</li>
+                        <li><x-far-check class="inline-block w-4 h-4 mr-1" /> Commercial use</li>
+                        <li><x-far-check class="inline-block w-4 h-4 mr-1" /> Distribution</li>
+                        <li><x-far-check class="inline-block w-4 h-4 mr-1" /> Modification</li>
+                        <li><x-far-check class="inline-block w-4 h-4 mr-1" /> Private use</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Limitations</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-times mr-1"></i> Liability</li>
-                        <li><i class="far fa-fw fa-times mr-1"></i> Warranty</li>
+                        <li><x-far-xmark class="inline-block w-4 h-4 mr-1" /> Liability</li>
+                        <li><x-far-xmark class="inline-block w-4 h-4 mr-1" /> Warranty</li>
                     </ul>
                 </div>
                 <div class="sm:w-1/3">
                     <h3 class="text-xl mb-1">Conditions</h3>
                     <ul class="list-inside">
-                        <li><i class="far fa-fw fa-info mr-1"></i> License and copyright notice</li>
+                        <li><x-far-info class="inline-block w-4 h-4 mr-1" /> License and copyright notice</li>
                     </ul>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                             src="{{ $sponsor->avatar_url }}"
                             alt="{{ $sponsor->login }}"
                             loading="lazy"
-                            class="w-28 h-28 rounded bg-white"
+                            class="w-28 h-28 rounded-sm bg-white"
                         />
                     </div>
                     <p class="text-center">
@@ -191,7 +191,7 @@
                             src="https://cdn.brandfetch.io/{{ parse_url($trustee->website, PHP_URL_HOST) }}/icon/theme/dark/fallback/transparent/w/512/h/512"
                             width="512"
                             height="512"
-                            class="w-28 h-28 rounded bg-white bg-contain bg-no-repeat bg-center"
+                            class="w-28 h-28 rounded-sm bg-white bg-contain bg-no-repeat bg-center"
                             loading="lazy"
                             alt="{{ $trustee->name }} logo by Brandfetch"
                             style="background-image: url('https://ui-avatars.com/api/?name={{ urlencode($trustee->name) }}&size=512&background=051c2c&color=ffffff&bold=true')"

@@ -1,15 +1,35 @@
-@import "typeface-inter";
+@import "tailwindcss" source(none);
+@import "@fontsource-variable/inter";
+
+@source "../views";
+@source "../js";
+@source inline("{bg,text}-astro-{astrotomic,moonlight,night,mit,treeware,larabelles,sponsors,opendor}");
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-astro-astrotomic: #825dc7;
+    --color-astro-moonlight: #071d49;
+    --color-astro-night: #051c2c;
+    --color-astro-mit: #5461c8;
+    --color-astro-treeware: #3a913f;
+    --color-astro-larabelles: #f09491;
+    --color-astro-sponsors: #ffb549;
+    --color-astro-opendor: #f04e98;
+    --color-sun: #ffc311;
+    --font-sans: 'Inter Variable', sans-serif;
+}
 
 html {
     scroll-behavior: smooth;
-    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Inter Variable', 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
     color: #ffffff;
 }
 
 :root {
-    --fa-primary-color: #{$white};
-    --fa-secondary-color: #{rgba($white, 0.75)};
+    --fa-primary-color: #ffffff;
+    --fa-secondary-color: rgb(255 255 255 / 75%);
 }
 
 a.btn {
@@ -55,7 +75,6 @@ header.hero .comets {
     @apply absolute;
     @apply inset-0;
     @apply bg-no-repeat;
-    @apply bg-no-repeat;
     @apply bg-cover;
     background-position-x: center;
     background-position-y: -50vh;
@@ -76,7 +95,3 @@ header.hero .comets.comets-3 {
 header.hero .comets.comets-4 {
     background-image: url('../img/comets_4.svg');
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

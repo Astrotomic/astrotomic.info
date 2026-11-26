@@ -7,10 +7,10 @@
             </a>
         </h1>
 
-        <div class="flex-grow"></div>
+        <div class="grow"></div>
 
         @foreach($links as $link)
-            <a href="{{ $link['href'] }}" class="btn relative flex items-center rounded py-2 px-4 text-astro-astrotomic bg-white space-x-2 cursor-pointer sm:ml-4 w-full sm:w-auto mb-2 sm:mb-0">
+            <a href="{{ $link['href'] }}" class="btn relative flex items-center rounded-sm py-2 px-4 text-astro-astrotomic bg-white space-x-2 cursor-pointer sm:ml-4 w-full sm:w-auto mb-2 sm:mb-0">
                 <x-dynamic-component :component="$link['icon']" class="w-4 h-4"/>
                 <span>{{ $link['label'] }}</span>
             </a>

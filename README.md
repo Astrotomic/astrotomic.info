@@ -15,9 +15,9 @@ composer install
 
 php artisan key:generate
 
-# create .npmrc for FontAwesome Pro
-yarn install
-yarn dev
+nvm use
+npm ci
+npm run dev
 
 php artisan load:packagist
 php artisan load:github
