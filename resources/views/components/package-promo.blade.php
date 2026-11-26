@@ -15,7 +15,7 @@
             alt="{{ 'Astrotomic '.$package->label.' Logo' }}"
             loading="lazy"
             decoding="async"
-            class="w-full h-auto rounded-t"
+            class="w-full h-auto rounded-t-sm"
         />
     </div>
 
@@ -26,16 +26,16 @@
 
         <x-elements.package-stats :package="$package" />
 
-        <p class="flex-grow">
+        <p class="grow">
             {{ $package->summary }}
         </p>
 
         <div class="w-full flex justify-between mt-4 self-start space-x-4">
-            <a href="{{ $package->repository }}" class="btn relative flex items-center rounded py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $package->color }}]">
+            <a href="{{ $package->repository }}" class="btn relative flex items-center rounded-sm py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $package->color }}]">
                 <x-fab-github class="w-4 h-4"/>
                 <span>{{ \Illuminate\Support\Str::after($package->name, '/') }}</span>
             </a>
-            <a href="https://plant.treeware.earth/{{ $package->repository_name }}" class="btn relative flex items-center rounded py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $package->color }}]">
+            <a href="https://plant.treeware.earth/{{ $package->repository_name }}" class="btn relative flex items-center rounded-sm py-2 px-4 bg-white space-x-2 cursor-pointer text-[{{ $package->color }}]">
                 <x-fas-trees class="w-4 h-4"/>
                 <span class="hidden sm:inline">treeware</span>
             </a>

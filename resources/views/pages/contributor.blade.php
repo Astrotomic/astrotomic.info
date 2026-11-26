@@ -1,7 +1,7 @@
 <x-layout>
     <x-hero>
         <div class="container mx-auto px-4 pt-4 pb-16 sm:py-32">
-            <img src="{{ $contributor->avatar_url }}" alt="{{ $contributor->login.' Avatar' }}" class="mx-auto w-64 h-64 rounded" />
+            <img src="{{ $contributor->avatar_url }}" alt="{{ $contributor->login.' Avatar' }}" class="mx-auto w-64 h-64 rounded-sm" />
 
             <h2 class="flex items-center justify-center mt-2 text-4xl font-bold text-white sm:text-5xl">
                 <span>{{ $contributor->name ?? $contributor->login }}</span>
@@ -42,7 +42,7 @@
             @endif
 
             <div class="flex items-center justify-center">
-                <a href="{{ 'https://opendor.me/@'.$contributor->login }}" class="btn relative flex items-center rounded py-2 px-4 text-astro-astrotomic bg-white space-x-2 cursor-pointer">
+                <a href="{{ 'https://opendor.me/@'.$contributor->login }}" class="btn relative flex items-center rounded-sm py-2 px-4 text-astro-astrotomic bg-white space-x-2 cursor-pointer">
                     <x-fas-door-open class="w-4 h-4" />
                     <span>opendor.me</span>
                 </a>

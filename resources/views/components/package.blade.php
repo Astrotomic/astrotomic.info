@@ -3,7 +3,7 @@
 
 <div class="px-4 pb-8">
     <div @class([
-        'flex flex-col p-8 rounded overflow-hidden h-full',
+        'flex flex-col p-8 rounded-sm overflow-hidden h-full',
         'bg-astro-astrotomic' => !$package->is_abandoned,
         'bg-astro-moonlight' => $package->is_abandoned,
     ])>
@@ -14,7 +14,7 @@
 
         <x-elements.package-stats :package="$package" />
 
-        <p class="flex-grow">
+        <p class="grow">
             {{ $package->description }}
         </p>
 

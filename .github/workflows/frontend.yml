@@ -1,0 +1,33 @@
+name: frontend
+
+permissions:
+  contents: read
+
+on:
+  push:
+
+jobs:
+  frontend:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Verify static assets in Vite manifest
+        run: |
+          node --input-type=module -e '
+            import { globSync, readFileSync, existsSync } from "node:fs";
+            const manifest = JSON.parse(readFileSync("public/build/manifest.json", "utf8"));
+            for (const path of globSync("resources/img/**/*")) {
+              if (!/\.(png|jpe?g|svg|ico)$/i.test(path)) continue;
+              if (!manifest[path] || !existsSync("public/build/" + manifest[path].file)) throw new Error("Missing Vite asset: " + path);
+            }
+          '
+      - run: npm audit
