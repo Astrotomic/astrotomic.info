@@ -1,4 +1,6 @@
 name: pint
+permissions:
+  contents: read
 
 on:
   push:
