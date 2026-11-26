@@ -1,7 +1,3 @@
-import.meta.glob([
-    '../img/**',
-]);
-
 (function () {
     document.querySelectorAll('[data-count-up]').forEach($countUp => {
         const target = $countUp.dataset.countUp * 1;
